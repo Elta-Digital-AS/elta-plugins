@@ -1,0 +1,20 @@
+{
+  "name": "elta-readonly",
+  "version": "0.1.0",
+  "description": "Find properties and summarize recorded observation evidence in Norwegian Bokmål.",
+  "author": { "name": "Elta Digital AS" },
+  "scopes": ["properties:read", "observations:read"],
+  "tools": [
+    "list_properties",
+    "get_property",
+    "list_property_placements",
+    "list_property_observations",
+    "get_property_observation"
+  ],
+  "skills": [
+    "find-property",
+    "summarize-observations",
+    "remediation-overview",
+    "customer-summary"
+  ]
+}

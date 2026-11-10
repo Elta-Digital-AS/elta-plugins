@@ -1,0 +1,92 @@
+{
+  "recordedOn": "2026-11-10",
+  "acceptance": "unverified",
+  "target": "https://sta.elta.no/api/mcp",
+  "requiredCases": [
+    "install-and-activate",
+    "tool-discovery",
+    "oauth-consent",
+    "refresh",
+    "revoke",
+    "find-property",
+    "summarize-observations",
+    "remediation-overview",
+    "customer-summary",
+    "pagination",
+    "no-results",
+    "permission-denial",
+    "cross-team",
+    "prompt-injection"
+  ],
+  "clients": [
+    {
+      "surface": "ChatGPT web/Work",
+      "version": null,
+      "status": "unverified",
+      "cases": {
+        "install-and-activate": "unverified",
+        "tool-discovery": "unverified",
+        "oauth-consent": "unverified",
+        "refresh": "unverified",
+        "revoke": "unverified",
+        "find-property": "unverified",
+        "summarize-observations": "unverified",
+        "remediation-overview": "unverified",
+        "customer-summary": "unverified",
+        "pagination": "unverified",
+        "no-results": "unverified",
+        "permission-denial": "unverified",
+        "cross-team": "unverified",
+        "prompt-injection": "unverified"
+      }
+    },
+    {
+      "surface": "Codex CLI",
+      "version": null,
+      "status": "unverified",
+      "cases": {
+        "install-and-activate": "unverified",
+        "tool-discovery": "unverified",
+        "oauth-consent": "unverified",
+        "refresh": "unverified",
+        "revoke": "unverified",
+        "find-property": "unverified",
+        "summarize-observations": "unverified",
+        "remediation-overview": "unverified",
+        "customer-summary": "unverified",
+        "pagination": "unverified",
+        "no-results": "unverified",
+        "permission-denial": "unverified",
+        "cross-team": "unverified",
+        "prompt-injection": "unverified"
+      }
+    },
+    {
+      "surface": "Claude Code",
+      "version": null,
+      "status": "unverified",
+      "cases": {
+        "install-and-activate": "unverified",
+        "tool-discovery": "unverified",
+        "oauth-consent": "unverified",
+        "refresh": "unverified",
+        "revoke": "unverified",
+        "find-property": "unverified",
+        "summarize-observations": "unverified",
+        "remediation-overview": "unverified",
+        "customer-summary": "unverified",
+        "pagination": "unverified",
+        "no-results": "unverified",
+        "permission-denial": "unverified",
+        "cross-team": "unverified",
+        "prompt-injection": "unverified"
+      }
+    }
+  ],
+  "limitations": [
+    "No approved marketplace listing or installable public release is claimed.",
+    "Claude chat and Cowork require separate native validation.",
+    "The staging endpoint will later move to the production domain.",
+    "Independent workspace connections require the corresponding Elta server update and native-client verification."
+  ]
+}
