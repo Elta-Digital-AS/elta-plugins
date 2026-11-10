@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "elta": {
+      "type": "http",
+      "url": "https://sta.elta.no/api/mcp",
+      "oauth": {
+        "scopes": "certificates:read contacts:read documents:read inspection-tools:read inspections:read observation-photos:read observations:read observations:write properties:read properties:write remediation-costs:read remediation:write reports:read"
+      }
+    }
+  }
+}

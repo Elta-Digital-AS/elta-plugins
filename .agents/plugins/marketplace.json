@@ -1,0 +1,20 @@
+{
+  "name": "elta",
+  "interface": {
+    "displayName": "Elta"
+  },
+  "plugins": [
+    {
+      "name": "elta",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

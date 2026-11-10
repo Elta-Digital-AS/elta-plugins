@@ -1,5 +1,22 @@
 # Elta plugins
 
+## Install from the Elta marketplace
+
+The native **0.3.0 full-catalog release** is packaged under `plugins/claude`
+and `plugins/codex`, with marketplace catalogs for both clients. See
+[installation, OAuth and update commands](MARKETPLACE-INSTALL.md).
+
+This release uses native OAuth discovery and the scopes in `marketplace-release.json`. It needs no private OpenAI app mapping or publisher secret. File
+delivery and writes require explicit consent and open gates; native workflow
+verification remains separate from package installation. The full
+catalog source and its unfulfilled native acceptance record below are retained.
+
+Maintainers reproduce the native release with
+`python3 build_marketplaces.py --output /absolute/unused/directory` and verify
+checked-in packages with `python3 build_marketplaces.py --check`.
+
+## Full-catalog package source
+
 Elta workflows for Claude, ChatGPT and Codex. The packages support the released customer MCP catalog: authorized metadata reads, image/file tools and the existing property/placement/observation write tools. The public [MIT license](LICENSE) covers these plugin materials, not the separate Elta application or server implementation.
 
 ## Status and access
