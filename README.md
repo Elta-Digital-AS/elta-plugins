@@ -1,42 +1,64 @@
 # Elta plugins
 
-Read-only Elta workflows for ChatGPT, Codex and Claude, maintained by Elta Digital AS.
+Elta workflows for Claude, ChatGPT and Codex. The packages support the released customer MCP catalog: authorized metadata reads, image/file tools and the existing property/placement/observation write tools. The public [MIT license](LICENSE) covers these plugin materials, not the separate Elta application or server implementation.
 
-This public repository contains four shared skills and a dependency-free Python builder that emits each platform's manifests and connection configuration. The Elta application and server implementation remain in their separate private repository. Only the plugin materials here are licensed under [MIT](LICENSE).
+## Status and access
 
-## Status
+Version 0.2.0 is pre-release source. Native acceptance remains **blocked by deployment prerequisites** in [client-matrix.json](client-matrix.json); no marketplace approval or hosted deployment is claimed. The current test endpoint is `https://sta.elta.no/api/mcp`; a later production-domain move is planned.
 
-This is pre-release source for private testing, not an approved marketplace listing. Native installation and end-to-end workflow acceptance remain unverified in [client-matrix.json](client-matrix.json). The current connection endpoint is `https://sta.elta.no/api/mcp`; a later move to the production domain is planned.
+[mcp-catalog.json](mcp-catalog.json) is an exported snapshot of Elta's released tool names, scopes and read/file/write flags. The policy pins its canonical SHA-256 digest. A snapshot documents support; it grants no authority. Live tool discovery, the user's selected workspace, role, consent and backend gates determine what can run. New backend tools need a reviewed catalog update and the same acceptance checks, not an unrestricted wildcard.
 
-The workflows find a property, summarize observations, review outstanding remediation and draft a customer-friendly summary. Replies default to Norwegian Bokmål and preserve recorded facts and source IDs. They request only `properties:read observations:read` and use five read tools. No writes, file downloads, report generation or message sending are included.
+Customers choose Connect, sign in personally, choose their workspace and review Elta consent. They never supply the publisher's client secret. Writes are off by default and need explicit consent, owner approval and environment gates. Files have independent consent. Existing narrow grants remain narrow after an update or refresh; a broader task may require an explicit reconnect. No shared workspace credential is bundled.
 
-## Customer connection
+Do not distribute or reconnect this full-scope Claude package until the target protected-resource metadata advertises every scope in `mcp-catalog.json`. Elta rejects unsupported requested scopes with `invalid_scope`; it does not silently downgrade the request. On a lagging deployment, even a read-only reconnect can fail. Existing narrow tokens can continue their permitted summary workflows until revoked or expired; keep the previous compatible package until deployment and native acceptance are complete.
 
-Customers choose Connect in the supported host, sign in to Elta, select an eligible workspace and approve the read scopes. Each connection is bound to one workspace and the user's current permissions. Marketplace customers do not supply the publisher's OAuth client ID or secret. Registration identifiers below are build inputs for maintainers, not a customer setup step. See [INSTALL.md](INSTALL.md) for private installation and disconnection guidance.
+## Build
 
-## Build for private testing
-
-Use Python 3.11 or later. A maintainer must first verify the host registration, exact callback, endpoint and read scopes. No credentials are bundled.
+Python 3.11+ is sufficient. Publisher-managed public client IDs are maintainer inputs, not customer credentials. Register each platform's exact callback and verify the public-client flow before using real identifiers.
 
 ```sh
 python3 build.py \
   --output /absolute/unused/output-directory \
   --mcp-url https://sta.elta.no/api/mcp \
   --openai-app-id YOUR_REGISTERED_OPENAI_MCP_APP_ID \
-  --claude-client-id YOUR_REGISTERED_ELTA_PUBLIC_OAUTH_CLIENT_ID
+  --claude-client-id YOUR_REGISTERED_CLAUDE_PUBLIC_OAUTH_CLIENT_ID
 ```
 
-The OpenAI input is an existing `asdk_app_…` registration or its `plugin_asdk_app_…` URL identifier, not an Elta OAuth client ID. The Claude input is a public `elta_app_…` OAuth client registered for the tested host callback. A hosted Claude confidential registration cannot be substituted for a Claude Code public loopback registration.
+The OpenAI input is an existing `asdk_app_…` registration or its `plugin_asdk_app_…` URL identifier. The package emits `plugin.json` and `.app.json`. The publisher must configure that registered app's host-side OAuth request to match every scope in `connection.json`, then verify native discovery. An app ID does not upgrade an existing two-scope connection. App-reference ZIPs are for private testing and cannot be uploaded directly to the public submission portal.
 
-The builder emits `openai/`, `claude/`, two versioned ZIPs and `artifacts.json` with SHA-256 hashes. The OpenAI manifest uses a registered app mapping; that format is for private testing and is not eligible for direct public ZIP submission. Claude receives its own manifest and remote MCP configuration. Both packages contain identical skill bytes, the read contract, compatibility record and MIT license. Outputs are deterministic and existing output directories are refused.
+OpenAI documents a direct-MCP OAuth extension, but the current generic MCP 1.0.0 schema rejects that server extension. This builder retains the validated registered-app format. Direct packaging is not claimed compatible until native evidence resolves that mismatch; marketplace submission remains separate.
 
-## Validate
+The Claude package emits `.claude-plugin/plugin.json` and `.mcp.json`, pinning the catalog scope request. Its client ID must be a public OAuth registration appropriate to the tested host callback; a hosted Claude confidential registration cannot be substituted for a Claude Code public loopback client. Secrets belong only in the host's secure connection setup when that host requires them.
+
+Both folders/ZIPs include the same five skills, shared contracts, catalog, connection record, compatibility matrix and MIT license. Builds have sorted entries, fixed ZIP timestamps/modes and SHA-256 receipts, and refuse existing output paths. The four property/observation summary skills stay read-only; `use-elta-tools` handles other domains, files and requested mutations within granted authority. See [INSTALL.md](INSTALL.md).
+
+## Validation
 
 ```sh
 python3 -m unittest discover -s . -p 'test_*.py'
 claude plugin validate /absolute/output/claude
 ```
 
-Offline tests deliberately use synthetic, non-working registration IDs. They check deterministic builds, manifest separation, identical skills, bounded read policy, license inclusion, malformed targets, accidental secrets, source escape and overwrite refusal. A parser or schema check does not prove native OAuth or workflow behavior. Run the synthetic scenarios in [native-cases.json](native-cases.json) on each target client before accepting a release.
+The tests use deliberately non-working identifiers and exercise manifest/connection separation, full catalog scope coverage, deterministic ZIPs, source/path/secret guards, license inclusion and truthful native-evidence metadata. They do not log in, run customer tools or prove native host behavior. A parser or schema result is structural evidence only.
 
-Directory submission, customer-wide distribution and hosted deployment remain separate actions. Do not commit passwords, tokens, client secrets, local environment files or customer data.
+Before distribution, run [native-cases.json](native-cases.json) using approved synthetic fixtures in each named surface. Record the version/date and evidence plus the full authorized tool matrix. Missing hosted tools, closed write gates and unsupported previews are explicit blockers. Never describe a mocked SDK test as native ChatGPT/Claude acceptance.
+
+The application-side MCP tests compare the application mirror of this snapshot with the real released registry. Application CI separately checks out a pinned public source commit and compares all distributable files with that mirror. Publish the matching public commit before running application CI; a coordinated source change cannot pass against an older pin. The public repository needs no access to private application files.
+
+Application maintainers export the registry with `pnpm --filter @elta/customer-mcp --silent catalog:export`, copy the resulting JSON to this repository's `mcp-catalog.json`, and update the matrix alongside it. Recompute the policy's `catalogSha256` with the command below. Pin the reviewed public source commit in application CI after publishing it.
+
+```sh
+python3 -c 'import json; from build import catalog_digest; print(catalog_digest(json.load(open("mcp-catalog.json"))))'
+```
+
+Directory submission, live registration changes, customer rollout and backend deployment remain separate actions. Do not commit credentials, tokens, private registration records, environment files or customer evidence.
+
+## Platform references
+
+- [OpenAI packaging and provided OAuth clients](https://developers.openai.com/plugins/build/plugins)
+- [OpenAI authentication](https://developers.openai.com/plugins/build/auth)
+- [OpenAI public submission](https://developers.openai.com/plugins/deploy/submission)
+- [Claude MCP OAuth and scope pinning](https://code.claude.com/docs/en/mcp)
+- [Claude plugin structure](https://code.claude.com/docs/en/plugins-reference)
+
+[Privacy policy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact)

@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 1,
+  "scopes": [
+    "certificates:read",
+    "contacts:read",
+    "documents:read",
+    "inspection-tools:read",
+    "inspections:read",
+    "observation-photos:read",
+    "observations:read",
+    "observations:write",
+    "properties:read",
+    "properties:write",
+    "remediation-costs:read",
+    "remediation:write",
+    "reports:read"
+  ],
+  "scopeClasses": {
+    "certificates:read": "read",
+    "contacts:read": "read",
+    "documents:read": "read",
+    "inspection-tools:read": "read",
+    "inspections:read": "read",
+    "observation-photos:read": "read",
+    "observations:read": "read",
+    "observations:write": "write",
+    "properties:read": "read",
+    "properties:write": "write",
+    "remediation-costs:read": "read",
+    "remediation:write": "write",
+    "reports:read": "read"
+  },
+  "tools": [
+    {
+      "name": "create_property",
+      "operationId": "createProperty",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "create_property_observation",
+      "operationId": "createPropertyObservation",
+      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "create_property_placement",
+      "operationId": "createPropertyPlacement",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_assigned_property",
+      "operationId": "getAssignedProperty",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_certificate",
+      "operationId": "getCertificate",
+      "scopes": ["certificates:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_certificate_cover_link",
+      "operationId": "getCertificateCoverContent",
+      "scopes": ["certificates:read"],
+      "write": false,
+      "file": true,
+      "destructive": false
+    },
+    {
+      "name": "get_company",
+      "operationId": "getCompany",
+      "scopes": ["contacts:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_inspection_create_options",
+      "operationId": "getInspectionCreateOptions",
+      "scopes": ["inspections:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_observation_photo",
+      "operationId": "getObservationPhotoContent",
+      "scopes": ["observation-photos:read", "observations:read"],
+      "write": false,
+      "file": true,
+      "destructive": false
+    },
+    {
+      "name": "get_observation_remediation_cost",
+      "operationId": "getObservationRemediationCost",
+      "scopes": [
+        "observations:read",
+        "properties:read",
+        "remediation-costs:read"
+      ],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_person",
+      "operationId": "getPerson",
+      "scopes": ["contacts:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_placement_template",
+      "operationId": "getPlacementTemplate",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_property",
+      "operationId": "getProperty",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_property_cover",
+      "operationId": "getPropertyCover",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": true,
+      "destructive": false
+    },
+    {
+      "name": "get_property_cover_image",
+      "operationId": "getPropertyCoverContent",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": true,
+      "destructive": false
+    },
+    {
+      "name": "get_property_document_link",
+      "operationId": "getPropertyDocumentContent",
+      "scopes": ["documents:read"],
+      "write": false,
+      "file": true,
+      "destructive": false
+    },
+    {
+      "name": "get_property_inspection",
+      "operationId": "getPropertyInspection",
+      "scopes": ["inspections:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_property_observation",
+      "operationId": "getPropertyObservation",
+      "scopes": ["observations:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_property_roles",
+      "operationId": "getPropertyRoles",
+      "scopes": ["contacts:read", "properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "get_report_pdf_link",
+      "operationId": "getReportPdfContent",
+      "scopes": ["reports:read"],
+      "write": false,
+      "file": true,
+      "destructive": false
+    },
+    {
+      "name": "list_account_inspections",
+      "operationId": "listAccountInspections",
+      "scopes": ["inspections:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_account_observations",
+      "operationId": "listAccountObservations",
+      "scopes": ["observations:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_account_reports",
+      "operationId": "listAccountReports",
+      "scopes": ["reports:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_assigned_properties",
+      "operationId": "listAssignedProperties",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_certificates",
+      "operationId": "listCertificates",
+      "scopes": ["certificates:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_companies",
+      "operationId": "listCompanies",
+      "scopes": ["contacts:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_inspection_checklist",
+      "operationId": "listInspectionChecklist",
+      "scopes": ["inspections:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_inspection_tools",
+      "operationId": "listInspectionTools",
+      "scopes": ["inspection-tools:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_observation_completions",
+      "operationId": "listObservationCompletions",
+      "scopes": ["observations:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_observation_photos",
+      "operationId": "listObservationPhotos",
+      "scopes": ["observation-photos:read", "observations:read"],
+      "write": false,
+      "file": true,
+      "destructive": false
+    },
+    {
+      "name": "list_observation_status_history",
+      "operationId": "listObservationStatusHistory",
+      "scopes": ["observations:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_persons",
+      "operationId": "listPersons",
+      "scopes": ["contacts:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_placement_templates",
+      "operationId": "listPlacementTemplates",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_properties",
+      "operationId": "listProperties",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_property_documents",
+      "operationId": "listPropertyDocuments",
+      "scopes": ["documents:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_property_inspections",
+      "operationId": "listPropertyInspections",
+      "scopes": ["inspections:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_property_observations",
+      "operationId": "listPropertyObservations",
+      "scopes": ["observations:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_property_placements",
+      "operationId": "listPropertyPlacements",
+      "scopes": ["properties:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_property_remediation_costs",
+      "operationId": "listPropertyRemediationCosts",
+      "scopes": [
+        "observations:read",
+        "properties:read",
+        "remediation-costs:read"
+      ],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_property_reports",
+      "operationId": "listPropertyReports",
+      "scopes": ["reports:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "list_report_pdf_generations",
+      "operationId": "listReportPdfGenerations",
+      "scopes": ["reports:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "move_property_placement",
+      "operationId": "movePropertyPlacement",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "remove_property_observation",
+      "operationId": "removePropertyObservation",
+      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "remove_property_placement",
+      "operationId": "removePropertyPlacement",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "reorder_property_placements",
+      "operationId": "reorderPropertyPlacements",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "search_observation_suggestions",
+      "operationId": "searchObservationSuggestions",
+      "scopes": ["observations:read"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "update_observation_completion_evidence",
+      "operationId": "updateObservationCompletionEvidence",
+      "scopes": ["observations:read", "properties:read", "remediation:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_observation_evidence_requirement",
+      "operationId": "updateObservationEvidenceRequirement",
+      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_observation_legacy_evidence",
+      "operationId": "updateObservationLegacyEvidence",
+      "scopes": ["observations:read", "properties:read", "remediation:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_property",
+      "operationId": "updateProperty",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_property_observation",
+      "operationId": "updatePropertyObservation",
+      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_property_observation_status",
+      "operationId": "updatePropertyObservationStatus",
+      "scopes": ["observations:read", "properties:read", "remediation:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_property_placement",
+      "operationId": "updatePropertyPlacement",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_property_status",
+      "operationId": "updatePropertyStatus",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    }
+  ]
+}

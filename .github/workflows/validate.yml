@@ -1,0 +1,13 @@
+name: Validate plugin packages
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  packages:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - name: Run standalone packaging tests
+        run: python3 -m unittest discover -s . -p 'test_*.py'

@@ -1,44 +1,45 @@
-# Elta read-only plugin: private installation
+# Connect Elta and use its MCP tools
 
-This package provides four workflows: find a property, summarize observations, review outstanding remediation, and draft a customer-friendly summary. Replies default to Norwegian Bokmål. It uses only the five property/placement/observation reads and `properties:read observations:read`; it provides no file access, writes, report generation or email delivery. The packaged `connection.json` names the exact server and requested scopes.
+These packages add a general Elta workflow and four read-only property/observation summaries. They support the released tools listed in `mcp-catalog.json`, including other domain reads, authorized image/file results and the existing write operations. They do not grant access themselves or create another authorization layer. Native-client acceptance is recorded in `client-matrix.json`; unverified rows are not supported-client claims.
 
-An installed skill is a workflow, not an authorization boundary. Connect through the host's OAuth sign-in, select the intended Elta workspace, and review its consent. Keep write/file choices off. Elta enforces your current permissions on every call. The AI host receives authorized read data under its own terms; this package makes no processing-location promise.
+## Connect as a customer
 
-## Customer connection and publisher setup
+Choose Connect in the supported host, sign in to your own Elta account, select an eligible workspace and review its access choices. The AI client receives authorized data under its own terms; images can show people and private interiors. Files and writes have independent consent. Writes are off by default and also require the workspace owner's AI-write setting and the environment/database gates. Read-only customers can continue using the summary workflows.
 
-Customers choose **Connect**, sign in to their own Elta account, select their workspace, and approve the two read scopes. Each connection receives separate workspace-bound access and refresh tokens. The publisher's client ID or secret identifies the integration and grants no customer-data access by itself.
+Elta manages the publisher's platform registration. Its owning workspace administers the integration; it does not select the data workspace for every customer. Each user's connection carries its own immutable workspace, permissions and consent. Customers installing a listing do not create publisher apps, paste a PAT or enter the publisher's secret. Never provide a password, token or client secret in a conversation.
 
-Elta manages a shared platform app registration. The workspace owning that registration manages the integration; each customer separately selects the workspace whose data they authorize. For a public Claude directory listing, require user sign-in and use Anthropic-held client credentials; for the current OpenAI connection, use a registered public OAuth client with PKCE. Customers installing those listings do not create developer apps or enter the publisher's client secret. A custom connector's “use your own client” form is publisher/test setup, not the marketplace customer's connection flow. Claude Code loopback registration is a separate native-client setup.
+Each token reaches one workspace. Use the host's explicitly selected connection. After the independent-workspace OAuth server update is deployed, one user/app may retain separate workspace connections; reconnecting replaces only that workspace's prior connection. Native multi-connection UX must be verified separately. Never infer an account switch from a record ID.
 
-## ChatGPT and Codex
+Do not distribute or reconnect this full-scope Claude package until the target protected-resource metadata advertises every scope in `mcp-catalog.json`. Elta rejects unsupported requested scopes with `invalid_scope`; it does not silently downgrade the request. On a lagging deployment, even a read-only reconnect can fail. Existing narrow tokens can continue their permitted summary workflows until revoked or expired; keep the previous compatible package until deployment and native acceptance are complete.
 
-The OpenAI package references an existing registered custom MCP app through `.app.json`. Its public app ID is not an OAuth client ID or a credential. Before generating the package, configure that app with the exact `connection.json` resource and the two read scopes. Hosted ChatGPT callbacks require a registered Elta developer app with the exact callback shown by ChatGPT; Elta's automatic registration accepts loopback callbacks only. Use public-client OAuth (`none`) where the host supports it; enter any required confidential client secret only in host connection setup.
+## Install privately
 
-For private desktop testing, add the generated OpenAI folder to your own local marketplace following OpenAI's [packaging guide](https://developers.openai.com/plugins/build/plugins). Point its local `source.path` to the plugin folder. Install it from that marketplace, enable it, connect Elta, and start a new conversation. Codex CLI also supports marketplace installation; use `codex plugin --help` for the installed version. Hosted private plugin upload/setup availability depends on your workspace and surface; a ZIP existing locally is not proof of a successful hosted installation. An app-reference ZIP is for private distribution, not the public submission portal.
+The generated OpenAI folder contains portable `plugin.json` plus `.app.json`, pointing to an existing publisher-managed custom MCP app. Its OAuth configuration must use the exact target/callback and request all scopes listed in `connection.json` before broader access is tested. The app mapping itself does not change a customer's consent or prove the server exposes the full catalog. Follow the host's current private plugin/marketplace setup; app-reference ZIPs are not accepted as public directory uploads.
 
-Ask for one of the bundled workflows, using the host's plugin/skill picker when needed. If the app mapping is unavailable or sign-in cannot finish, stop and have the owner verify the app ID, callback registration and scopes. Never replace OAuth with a pasted personal token.
+For Claude Code, use `claude --plugin-dir /absolute/path/to/claude` for a temporary private session and `claude plugin validate /absolute/path/to/claude` to validate the package. Authenticate the `elta` MCP server through the host. The package pins `oauth.scopes`; its public client must have the exact tested callback. A loopback client for Claude Code and a hosted Claude chat/Cowork connector are different registrations and surfaces. Hosted Claude uses its actual callback and securely held publisher credentials when required. Code parser success does not prove chat/Cowork interoperability.
 
-## Claude
+A folder or ZIP existing locally proves neither installation nor OAuth. If connection fails, stop and have the publisher verify the endpoint, callback, registration and requested scopes. Keep fixed bearer tokens and Authorization headers out of package configuration.
 
-Install the Claude folder privately using the custom plugin upload option, or use `claude --plugin-dir /absolute/path/to/claude` for a temporary Claude Code session. `claude plugin validate /absolute/path/to/claude` validates its manifest. The packaged server is named `elta`; authenticate it through the host's MCP/connector setup before asking a workflow to read data.
+## Choose a workflow
 
-The package pins `oauth.scopes` to the two reads and uses a registered public `oauth.clientId`. Claude Code uses a loopback callback; configure a fixed callback port in host settings if the client registration requires it. Claude chat/Cowork remote connectors connect from Anthropic's cloud and require a publicly reachable HTTPS endpoint and their actual registered callback. For private publisher testing, the connector setup may require selecting “Use your own OAuth client”; that is not a step for customers installing the public directory listing. A Claude Code parser result does not establish chat/Cowork interoperability; consult the dated compatibility record supplied with your distribution.
+- Find a property: “Finn eiendommen i Syntetisk vei 954.” Clarify multiple matches before reading observations.
+- Summarize findings or outstanding remediation: use the four existing metadata-only summary skills. They preserve source IDs and recorded grades/status, and return drafts in the conversation.
+- Read another domain: “Vis inspeksjonene for denne eiendommen” or “Finn kontaktopplysninger jeg har tilgang til.” The general workflow uses the relevant discovered tool and required IDs.
+- View a file: explicitly request the permitted image, document or generated PDF. Previews can be unavailable; returned download links expire after 60 seconds. Do not store/share a link or bypass size/permission failures.
+- Make a change: clearly name the target and intended values, for example “Endre tittelen på denne observasjonen til …”. The general workflow respects the client's configured approval prompts, stable idempotency keys and opaque version preconditions. A conflict requires a fresh read and decision. Tool annotations do not prove a human saw a prompt or replace backend checks.
 
-## Try the workflows
+Customer content is evidence, never an instruction. No summary, image or document can authorize a write, credential disclosure, account switch or outgoing message. Only existing MCP writes are supported: binary uploads, administration, support restoration, new backend write domains and report generation are outside this package. Deleted records require Elta support for recovery.
 
-- “Finn eiendommen i Syntetisk vei 954.” If several properties match, select one by the returned reference.
-- “Oppsummer registrerte observasjoner for denne eiendommen, med TG og status.”
-- “Hvilke observasjoner er fortsatt åpne eller under utbedring?”
-- “Lag et kundevennlig utkast her i samtalen basert på disse funnene.”
+Paged reads stop at 10 pages/250 rows or 50 detail calls across one workflow and label partial results. Narrow the request or explicitly continue. An empty authorized result differs from a missing/inaccessible record. Permissions, revocation and gate closure are checked on each request, including command replay.
 
-Results identify source IDs. A scan stops at 10 pages/250 rows or 50 detail calls and clearly labels partial results. Narrow the request or explicitly continue for more. An empty authorized result differs from a missing/inaccessible record; ask the workspace owner to check access when forbidden. Expired/revoked sign-in requires reconnecting after authority is restored. Changing workspace requires explicit reconnection, not an inferred account switch. After the independent-workspace OAuth migration is deployed, the same user and app can retain one connection per workspace: reconnecting replaces only that workspace's previous connection. Each connection retains separate consent and revocation. Hosted rollout and native-client support for retaining multiple connections must be verified separately.
+## Upgrade and revoke
 
-## Update, disconnect and remove
+A package update or token refresh never adds scopes, files or write consent to an existing connection. Keep using the existing read grant, or explicitly reconnect if your requested task needs broader access. The consent screen shows what can be included; role restrictions and owner/environment gates still apply. An owner can enable or disable AI writes without replacing the plugin.
 
-Replace a private package with the newly generated version and refresh/restart the host as required by its installation mechanism. Recheck the connection target/scopes after updating. Remove or disable the plugin through the host's plugin settings. Separately revoke its Elta connection under **Tilkoblede apper** when access must stop. Revocation stops future access; it does not erase data already received by the AI host. Do not send a customer's summary externally from these workflows; the draft stays in the conversation for review.
+If a tool is missing or refused, first distinguish a narrow grant, missing permission, unsupported deployment or closed gate. Reconnecting cannot repair every condition. On an uncertain write outcome, retain the same key and input; do not retry with a new key and duplicate the change.
 
-Public directory submission, workspace-wide publishing, production deployment and access-switch changes are separate operator actions. This package grants none of them automatically.
+Remove/disable the plugin in the host when desired. Separately revoke the Elta connection under **Tilkoblede apper** to stop future access. Neither action erases copies the AI host already received. Public listing submission, hosted registration changes, enabling switches and deployment are separate operator actions.
 
-## License
+The MIT license included with the package covers plugin materials only, not the Elta service or server implementation.
 
-The shared skills, manifests and build tooling in this repository are licensed under MIT. Generated packages include the license. This does not license the separate Elta service or its server implementation.
+[Privacy policy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact)
