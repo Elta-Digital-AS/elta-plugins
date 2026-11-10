@@ -37,15 +37,15 @@ class BuildTest(unittest.TestCase):
             archive = Path(artifact['path'])
             self.assertEqual(artifact['sha256'], hashlib.sha256(archive.read_bytes()).hexdigest())
             with zipfile.ZipFile(archive) as z:
-                self.assertEqual(len(z.namelist()), 11)
-                self.assertEqual(len([p for p in z.namelist() if p.endswith('/SKILL.md')]), 4)
+                self.assertEqual(len(z.namelist()), 14)
+                self.assertEqual(len([p for p in z.namelist() if p.endswith('/SKILL.md')]), 5)
                 self.assertFalse(any(p.startswith('/') or '..' in Path(p).parts for p in z.namelist()))
                 self.assertIn('skills/_shared/read-contract.md', z.namelist())
                 self.assertIn('client-matrix.json', z.namelist())
                 self.assertEqual(z.read('LICENSE'), (ROOT / 'LICENSE').read_bytes())
                 connection = json.loads(z.read('connection.json'))
                 self.assertEqual(connection['resource'], URL)
-                self.assertEqual(connection['scopes'], ['properties:read', 'observations:read'])
+                self.assertEqual(connection['scopes'], json.loads((ROOT / 'mcp-catalog.json').read_text())['scopes'])
                 matrix = json.loads(z.read('client-matrix.json'))
                 self.assertEqual(matrix, json.loads((ROOT / 'client-matrix.json').read_text()))
                 native_pass = all(c['status'] == 'passed' and all(c['cases'].get(case) == 'passed' for case in matrix['requiredCases']) for c in matrix['clients'])
@@ -60,12 +60,12 @@ class BuildTest(unittest.TestCase):
         manifest = json.loads((output / 'openai/plugin.json').read_text())
         self.assertEqual(manifest['version'], json.loads((ROOT / 'package.json').read_text())['version'])
         self.assertEqual(manifest['extensions']['com.openai']['apps'], './.app.json')
-        self.assertEqual(manifest['extensions']['com.openai']['interface']['capabilities'], ['Read'])
+        self.assertEqual(manifest['extensions']['com.openai']['interface']['capabilities'], ['Read', 'Write'])
         app = json.loads((output / 'openai/.app.json').read_text())
         self.assertEqual(app['apps']['elta'], {'id': APP, 'required': True})
         claude = json.loads((output / 'claude/.mcp.json').read_text())
         self.assertEqual(claude, {'mcpServers': {'elta': {'type': 'http', 'url': URL,
-                         'oauth': {'clientId': CLIENT, 'scopes': 'properties:read observations:read'}}}})
+                         'oauth': {'clientId': CLIENT, 'scopes': ' '.join(json.loads((ROOT / 'mcp-catalog.json').read_text())['scopes'])}}}})
         self.assertFalse((output / 'openai/.mcp.json').exists())
         self.assertFalse((output / 'claude/plugin.json').exists())
 
@@ -88,7 +88,7 @@ class BuildTest(unittest.TestCase):
 
     def test_rejects_credential_shaped_or_malformed_public_identifiers(self):
         for value in ['', 'elta_prod_' + 'a' * 64, 'sk-' + 'a' * 64, APP + '/secret']:
-            with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'OPENAI_APP_ID_INVALID'):
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'OPENAI_APP_ID_INVALID|OPENAI_CONNECTION_REQUIRED'):
                 self.run_build(openai_app_id=value)
         for value in ['', 'Bearer ' + 'a' * 64, 'elta_cs_' + 'a' * 64, CLIENT + '/secret']:
             with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'CLAUDE_CLIENT_ID_INVALID'):
@@ -122,12 +122,11 @@ class BuildTest(unittest.TestCase):
             self.run_build(source=source)
         self.assertFalse((self.root / 'output').exists())
 
-    def test_rejects_write_scopes_or_additional_tools_in_policy(self):
+    def test_rejects_overrides_or_unsafe_identity_in_policy(self):
         source = self.source()
         file = source / 'policy.json'
         original = json.loads(file.read_text())
-        for field, value in [('scopes', original['scopes'] + ['observations:write']),
-                             ('tools', original['tools'] + ['remove_property_observation']),
+        for field, value in [('scopes', ['accounts:write']), ('tools', ['admin_override']),
                              ('name', '../escape'), ('version', '../../escape')]:
             policy = copy.deepcopy(original)
             policy[field] = value
@@ -135,6 +134,142 @@ class BuildTest(unittest.TestCase):
             with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'PLUGIN_POLICY_INVALID'):
                 self.run_build(source=source)
 
+    def test_full_catalog_is_packaged_for_both_platforms(self):
+        self.run_build()
+        catalog = json.loads((ROOT / 'mcp-catalog.json').read_text())
+        expected = {row['name'] for row in catalog['tools']}
+        for platform in ['openai', 'claude']:
+            folder = self.root / 'output' / platform
+            self.assertEqual(json.loads((folder / 'mcp-catalog.json').read_text()), catalog)
+            connection = json.loads((folder / 'connection.json').read_text())
+            self.assertEqual(set(connection['tools']), expected)
+            self.assertEqual(set(connection['scopes']), set(catalog['scopes']))
+
+    def test_full_scope_request_and_write_capability_are_honest(self):
+        self.run_build()
+        output = self.root / 'output'
+        manifest = json.loads((output / 'openai/plugin.json').read_text())
+        self.assertEqual(manifest['extensions']['com.openai']['interface']['capabilities'], ['Read', 'Write'])
+        claude = json.loads((output / 'claude/.mcp.json').read_text())
+        scopes = claude['mcpServers']['elta']['oauth']['scopes'].split()
+        self.assertEqual(set(scopes), set(json.loads((ROOT / 'mcp-catalog.json').read_text())['scopes']))
+
+    def test_general_workflow_is_included_without_removing_read_summaries(self):
+        self.run_build()
+        for platform in ['openai', 'claude']:
+            folder = self.root / 'output' / platform
+            self.assertTrue((folder / 'skills/use-elta-tools/SKILL.md').is_file())
+            self.assertTrue((folder / 'skills/_shared/mcp-contract.md').is_file())
+            for skill in ['find-property', 'summarize-observations', 'remediation-overview', 'customer-summary']:
+                self.assertTrue((folder / f'skills/{skill}/SKILL.md').is_file())
+
+
+    def test_catalog_digest_detects_an_unreviewed_tool_removal(self):
+        source = self.source()
+        file = source / 'mcp-catalog.json'
+        catalog = json.loads(file.read_text())
+        catalog['tools'].pop()
+        file.write_text(json.dumps(catalog))
+        with self.assertRaisesRegex(ValueError, 'PLUGIN_CATALOG_DIGEST_MISMATCH'):
+            self.run_build(source=source)
+        self.assertFalse((self.root / 'output').exists())
+
+    def test_rejects_catalog_duplicates_and_inconsistent_authority_flags(self):
+        from build import catalog_digest
+        source = self.source()
+        file = source / 'mcp-catalog.json'
+        original = json.loads(file.read_text())
+        policy_file = source / 'policy.json'
+        original_policy = json.loads(policy_file.read_text())
+        mutations = [
+            lambda c: c['tools'].append(copy.deepcopy(c['tools'][0])),
+            lambda c: c['tools'][0].update(write=not c['tools'][0]['write']),
+            lambda c: c['tools'][0].update(file='yes'),
+            lambda c: c['tools'][0].update(scopes=['accounts:write']),
+            lambda c: c['tools'][0].update(name='../escape'),
+            lambda c: c['tools'][0].update(extra='unexpected'),
+            lambda c: c['scopes'].append(c['scopes'][0]),
+            lambda c: c['scopeClasses'].update({c['scopes'][0]: 'admin'}),
+            lambda c: c.update(schemaVersion=True),
+        ]
+        for change in mutations:
+            catalog = copy.deepcopy(original)
+            change(catalog)
+            file.write_text(json.dumps(catalog))
+            policy = copy.deepcopy(original_policy)
+            policy['catalogSha256'] = catalog_digest(catalog)
+            policy_file.write_text(json.dumps(policy))
+            with self.subTest(change=change), self.assertRaisesRegex(ValueError, 'PLUGIN_CATALOG_INVALID'):
+                self.run_build(source=source)
+            self.assertFalse((self.root / 'output').exists())
+
+    def test_native_matrix_cannot_claim_pass_with_missing_tools_or_clients(self):
+        source = self.source()
+        file = source / 'client-matrix.json'
+        original = json.loads(file.read_text())
+        for mode in ['missing-tool', 'missing-client', 'false-pass', 'unversioned-pass']:
+            matrix = copy.deepcopy(original)
+            if mode == 'missing-tool':
+                matrix['clients'][0]['tools'].pop(next(iter(matrix['clients'][0]['tools'])))
+            elif mode == 'missing-client':
+                matrix['clients'].pop()
+            elif mode == 'false-pass':
+                matrix['acceptance'] = 'passed'
+            else:
+                for client in matrix['clients']:
+                    client['status'] = 'passed'
+                    client['tools'] = dict.fromkeys(client['tools'], 'passed')
+                    client['cases'] = dict.fromkeys(client['cases'], 'passed')
+                matrix['acceptance'] = 'passed'
+            file.write_text(json.dumps(matrix))
+            with self.subTest(mode=mode), self.assertRaisesRegex(ValueError, 'PLUGIN_NATIVE_MATRIX_INVALID'):
+                self.run_build(source=source)
+            self.assertFalse((self.root / 'output').exists())
+
+    def test_malformed_matrix_objects_fail_with_a_clean_refusal(self):
+        import subprocess
+        import sys
+        source = self.source()
+        file = source / 'client-matrix.json'
+        original = json.loads(file.read_text())
+        for value in [[], {**original, 'clients': [None, {}, {}]}]:
+            file.write_text(json.dumps(value))
+            result = subprocess.run([sys.executable, str(source / 'build.py'),
+                '--output', str(self.root / 'output'), '--mcp-url', URL,
+                '--openai-app-id', APP, '--claude-client-id', CLIENT],
+                capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('PLUGIN_BUILD_REFUSED', result.stderr)
+            self.assertNotIn('Traceback', result.stderr)
+            self.assertFalse((self.root / 'output').exists())
+
+    def test_detects_oauth_access_and_refresh_tokens_in_source(self):
+        source = self.source()
+        for prefix in ['elta_oat_local_', 'elta_ort_prod_', 'elta_cs_']:
+            (source / 'skills/_shared/read-contract.md').write_text(prefix + 'x' * 48)
+            with self.subTest(prefix=prefix), self.assertRaisesRegex(ValueError, 'PLUGIN_SOURCE_SECRET'):
+                self.run_build(source=source)
+            self.assertFalse((self.root / 'output').exists())
+
+
+    def test_native_receipt_metadata_is_bound_to_endpoint_and_registration(self):
+        source = self.source()
+        file = source / 'client-matrix.json'
+        matrix = json.loads(file.read_text())
+        for client in matrix['clients']:
+            client.pop('blocker', None)
+            client.update(status='passed', version='synthetic-validator-test', recordedOn='2026-11-10',
+                          evidence=['https://example.invalid/synthetic-not-a-native-proof'])
+            client['cases'] = dict.fromkeys(client['cases'], 'passed')
+            client['tools'] = dict.fromkeys(client['tools'], 'passed')
+            client['testedConnection'] = {'resource': URL, **({'clientId': CLIENT} if client['surface'] == 'Claude Code' else {'appId': APP})}
+        matrix['acceptance'] = 'passed'
+        file.write_text(json.dumps(matrix))
+        self.run_build('bound', source=source)
+        with self.assertRaisesRegex(ValueError, 'PLUGIN_NATIVE_MATRIX_INVALID'):
+            self.run_build(source=source, claude_client_id='elta_app_ZbCdEfGhIjKlMnOpQ')
+        with self.assertRaisesRegex(ValueError, 'PLUGIN_NATIVE_MATRIX_INVALID'):
+            self.run_build(source=source, mcp_url='https://other.example/api/mcp')
 
 
 if __name__ == '__main__':

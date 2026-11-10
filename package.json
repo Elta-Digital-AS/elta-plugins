@@ -1,6 +1,6 @@
 {
   "name": "@elta/customer-plugins",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "test": "python3 -m unittest discover -s . -p 'test_*.py'",
