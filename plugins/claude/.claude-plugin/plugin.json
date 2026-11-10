@@ -1,0 +1,9 @@
+{
+  "name": "elta",
+  "version": "0.3.0",
+  "description": "Use Elta tools within your personal workspace permissions and consent.",
+  "author": {
+    "name": "Elta Digital AS"
+  },
+  "mcpServers": "./.mcp.json"
+}

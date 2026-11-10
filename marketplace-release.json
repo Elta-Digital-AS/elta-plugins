@@ -1,0 +1,22 @@
+{
+  "version": "0.3.0",
+  "profile": "full-catalog",
+  "resource": "https://sta.elta.no/api/mcp",
+  "scopes": [
+    "certificates:read",
+    "contacts:read",
+    "documents:read",
+    "inspection-tools:read",
+    "inspections:read",
+    "observation-photos:read",
+    "observations:read",
+    "observations:write",
+    "properties:read",
+    "properties:write",
+    "remediation-costs:read",
+    "remediation:write",
+    "reports:read"
+  ],
+  "oauthRegistration": "dynamic",
+  "fullCatalogAcceptance": "blocked; see client-matrix.json"
+}
