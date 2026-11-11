@@ -1,6 +1,6 @@
 # Elta for Claude Code and Codex
 
-Version 0.3.1 packages the full reviewed customer MCP catalog for `https://sta.elta.no/api/mcp`.
+Version 0.3.2 is a draft candidate for the the full reviewed customer MCP catalog at `https://sta.elta.no/api/mcp`.
 Its requested scopes are listed in `connection.json`. The full catalog snapshot
 also describes tools from later deployments; discovery and your consent decide
 which tools are available. File delivery and write workflows require their independent consent and open gates.
@@ -25,7 +25,7 @@ Both packages request the reviewed scope set during OAuth sign-in. Codex declare
 Existing read-only connections need a new consent flow to gain write scopes. For a one-time explicit reconnect in Codex:
 
 ```sh
-codex mcp login elta --scopes certificates:read,contacts:read,documents:read,inspection-tools:read,inspections:read,observation-photos:read,observations:read,observations:write,properties:read,properties:write,remediation-costs:read,remediation:write,reports:read
+codex mcp login elta --scopes certificates:read,contacts:read,documents:read,inspection-tools:read,inspections:read,observation-photos:read,observation-photos:write,observations:read,observations:write,properties:read,properties:write,remediation-costs:read,remediation:write,reports:read
 ```
 
 Restart the client or start a new session after installation. Connect the Elta
@@ -55,3 +55,7 @@ This Git marketplace is separate from approval in the OpenAI or Anthropic public
 directories. Installation validation does not prove a signed-in tool workflow.
 
 [Privacy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact)
+
+## Observation-photo candidate
+
+Do not distribute this fourteen-scope candidate until the backend advertises all requested scopes and the three upload tools. The currently released 0.3.1 package remains the compatible choice until rollout. Updating or refreshing a connection adds no scope: finding uploads need explicit re-consent for `observation-photos:write` and its reads. Remediation uses existing remediation authority. A native attachment workflow remains unverified until actual user-supplied synthetic bytes are attached and read back through that client. Follow the shared MCP contract for scoped PUT, completion, expiry replay and ready/resourceId confirmation.

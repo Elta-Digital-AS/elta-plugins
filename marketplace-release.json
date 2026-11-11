@@ -1,5 +1,5 @@
 {
-  "version": "0.3.1",
+  "version": "0.3.2",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
@@ -9,6 +9,7 @@
     "inspection-tools:read",
     "inspections:read",
     "observation-photos:read",
+    "observation-photos:write",
     "observations:read",
     "observations:write",
     "properties:read",
@@ -18,5 +19,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; see client-matrix.json"
+  "fullCatalogAcceptance": "blocked; Story 9.58 backend rollout, approved attachment origins and native acceptance required"
 }

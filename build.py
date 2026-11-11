@@ -58,7 +58,7 @@ def load_catalog(source, policy):
     if policy.get('catalogSha256') != catalog_digest(catalog):
         raise ValueError('PLUGIN_CATALOG_DIGEST_MISMATCH')
     if (set(catalog) != {'schemaVersion', 'scopes', 'scopeClasses', 'tools'}
-            or type(catalog['schemaVersion']) is not int or catalog['schemaVersion'] != 1):
+            or type(catalog['schemaVersion']) is not int or catalog['schemaVersion'] != 2):
         raise ValueError('PLUGIN_CATALOG_INVALID')
     scopes, classes, tools = catalog['scopes'], catalog['scopeClasses'], catalog['tools']
     if (not isinstance(scopes, list) or not scopes or any(not isinstance(s, str) or not re.fullmatch(r'[a-z]+(?:-[a-z]+)*:(read|write)', s) for s in scopes)
@@ -67,17 +67,23 @@ def load_catalog(source, policy):
         raise ValueError('PLUGIN_CATALOG_INVALID')
     names, used_scopes = set(), set()
     for tool in tools:
-        if (not isinstance(tool, dict) or set(tool) != {'name', 'operationId', 'scopes', 'write', 'file', 'destructive'}
+        if (not isinstance(tool, dict) or set(tool) - {'scopeAlternatives'} != {'name', 'operationId', 'method', 'scopes', 'write', 'file', 'destructive'}
                 or not isinstance(tool['name'], str) or not re.fullmatch(r'[a-z][a-z0-9_]+', tool['name']) or tool['name'] in names
                 or not isinstance(tool['operationId'], str) or not re.fullmatch(r'[a-z][A-Za-z0-9]+', tool['operationId'])
                 or any(type(tool[key]) is not bool for key in ['write', 'file', 'destructive'])
                 or not isinstance(tool['scopes'], list) or not tool['scopes'] or any(not isinstance(s, str) for s in tool['scopes'])
                 or len(tool['scopes']) != len(set(tool['scopes'])) or not set(tool['scopes']) <= set(scopes)
-                or tool['write'] != any(classes[s] == 'write' for s in tool['scopes'])
+                or tool.get('method') not in {'GET', 'POST', 'PATCH', 'DELETE', 'PUT'}
+                or tool['write'] != (tool['method'] != 'GET')
                 or tool['destructive'] and not tool['write']):
             raise ValueError('PLUGIN_CATALOG_INVALID')
+        alternatives = tool.get('scopeAlternatives', [])
+        if (not isinstance(alternatives, list) or any(not isinstance(scope, str) for scope in alternatives)
+                or len(alternatives) != len(set(alternatives)) or not set(alternatives) <= set(scopes)
+                or tool['write'] and not any(classes[scope] == 'write' for scope in [*tool['scopes'], *alternatives])):
+            raise ValueError('PLUGIN_CATALOG_INVALID')
         names.add(tool['name'])
-        used_scopes.update(tool['scopes'])
+        used_scopes.update([*tool['scopes'], *alternatives])
     if used_scopes != set(scopes):
         raise ValueError('PLUGIN_CATALOG_INVALID')
     return catalog

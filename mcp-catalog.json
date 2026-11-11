@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "scopes": [
     "certificates:read",
     "contacts:read",
@@ -7,6 +7,7 @@
     "inspection-tools:read",
     "inspections:read",
     "observation-photos:read",
+    "observation-photos:write",
     "observations:read",
     "observations:write",
     "properties:read",
@@ -22,6 +23,7 @@
     "inspection-tools:read": "read",
     "inspections:read": "read",
     "observation-photos:read": "read",
+    "observation-photos:write": "write",
     "observations:read": "read",
     "observations:write": "write",
     "properties:read": "read",
@@ -32,8 +34,19 @@
   },
   "tools": [
     {
+      "name": "complete_observation_photo_upload",
+      "operationId": "completePhotoUploadBatch",
+      "method": "POST",
+      "scopes": ["observations:read"],
+      "scopeAlternatives": ["observation-photos:write", "remediation:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
       "name": "create_property",
       "operationId": "createProperty",
+      "method": "POST",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
@@ -42,6 +55,7 @@
     {
       "name": "create_property_observation",
       "operationId": "createPropertyObservation",
+      "method": "POST",
       "scopes": ["observations:read", "observations:write", "properties:read"],
       "write": true,
       "file": false,
@@ -50,6 +64,7 @@
     {
       "name": "create_property_placement",
       "operationId": "createPropertyPlacement",
+      "method": "POST",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
@@ -58,6 +73,7 @@
     {
       "name": "get_assigned_property",
       "operationId": "getAssignedProperty",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": false,
@@ -66,6 +82,7 @@
     {
       "name": "get_certificate",
       "operationId": "getCertificate",
+      "method": "GET",
       "scopes": ["certificates:read"],
       "write": false,
       "file": false,
@@ -74,6 +91,7 @@
     {
       "name": "get_certificate_cover_link",
       "operationId": "getCertificateCoverContent",
+      "method": "GET",
       "scopes": ["certificates:read"],
       "write": false,
       "file": true,
@@ -82,6 +100,7 @@
     {
       "name": "get_company",
       "operationId": "getCompany",
+      "method": "GET",
       "scopes": ["contacts:read"],
       "write": false,
       "file": false,
@@ -90,6 +109,7 @@
     {
       "name": "get_inspection_create_options",
       "operationId": "getInspectionCreateOptions",
+      "method": "GET",
       "scopes": ["inspections:read"],
       "write": false,
       "file": false,
@@ -98,14 +118,26 @@
     {
       "name": "get_observation_photo",
       "operationId": "getObservationPhotoContent",
+      "method": "GET",
       "scopes": ["observation-photos:read", "observations:read"],
       "write": false,
       "file": true,
       "destructive": false
     },
     {
+      "name": "get_observation_photo_upload",
+      "operationId": "getPhotoUploadBatch",
+      "method": "GET",
+      "scopes": ["observations:read"],
+      "scopeAlternatives": ["observation-photos:write", "remediation:write"],
+      "write": false,
+      "file": false,
+      "destructive": false
+    },
+    {
       "name": "get_observation_remediation_cost",
       "operationId": "getObservationRemediationCost",
+      "method": "GET",
       "scopes": [
         "observations:read",
         "properties:read",
@@ -118,6 +150,7 @@
     {
       "name": "get_person",
       "operationId": "getPerson",
+      "method": "GET",
       "scopes": ["contacts:read"],
       "write": false,
       "file": false,
@@ -126,6 +159,7 @@
     {
       "name": "get_placement_template",
       "operationId": "getPlacementTemplate",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": false,
@@ -134,6 +168,7 @@
     {
       "name": "get_property",
       "operationId": "getProperty",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": false,
@@ -142,6 +177,7 @@
     {
       "name": "get_property_cover",
       "operationId": "getPropertyCover",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": true,
@@ -150,6 +186,7 @@
     {
       "name": "get_property_cover_image",
       "operationId": "getPropertyCoverContent",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": true,
@@ -158,6 +195,7 @@
     {
       "name": "get_property_document_link",
       "operationId": "getPropertyDocumentContent",
+      "method": "GET",
       "scopes": ["documents:read"],
       "write": false,
       "file": true,
@@ -166,6 +204,7 @@
     {
       "name": "get_property_inspection",
       "operationId": "getPropertyInspection",
+      "method": "GET",
       "scopes": ["inspections:read"],
       "write": false,
       "file": false,
@@ -174,6 +213,7 @@
     {
       "name": "get_property_observation",
       "operationId": "getPropertyObservation",
+      "method": "GET",
       "scopes": ["observations:read"],
       "write": false,
       "file": false,
@@ -182,6 +222,7 @@
     {
       "name": "get_property_roles",
       "operationId": "getPropertyRoles",
+      "method": "GET",
       "scopes": ["contacts:read", "properties:read"],
       "write": false,
       "file": false,
@@ -190,6 +231,7 @@
     {
       "name": "get_report_pdf_link",
       "operationId": "getReportPdfContent",
+      "method": "GET",
       "scopes": ["reports:read"],
       "write": false,
       "file": true,
@@ -198,6 +240,7 @@
     {
       "name": "list_account_inspections",
       "operationId": "listAccountInspections",
+      "method": "GET",
       "scopes": ["inspections:read"],
       "write": false,
       "file": false,
@@ -206,6 +249,7 @@
     {
       "name": "list_account_observations",
       "operationId": "listAccountObservations",
+      "method": "GET",
       "scopes": ["observations:read"],
       "write": false,
       "file": false,
@@ -214,6 +258,7 @@
     {
       "name": "list_account_reports",
       "operationId": "listAccountReports",
+      "method": "GET",
       "scopes": ["reports:read"],
       "write": false,
       "file": false,
@@ -222,6 +267,7 @@
     {
       "name": "list_assigned_properties",
       "operationId": "listAssignedProperties",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": false,
@@ -230,6 +276,7 @@
     {
       "name": "list_certificates",
       "operationId": "listCertificates",
+      "method": "GET",
       "scopes": ["certificates:read"],
       "write": false,
       "file": false,
@@ -238,6 +285,7 @@
     {
       "name": "list_companies",
       "operationId": "listCompanies",
+      "method": "GET",
       "scopes": ["contacts:read"],
       "write": false,
       "file": false,
@@ -246,6 +294,7 @@
     {
       "name": "list_inspection_checklist",
       "operationId": "listInspectionChecklist",
+      "method": "GET",
       "scopes": ["inspections:read"],
       "write": false,
       "file": false,
@@ -254,6 +303,7 @@
     {
       "name": "list_inspection_tools",
       "operationId": "listInspectionTools",
+      "method": "GET",
       "scopes": ["inspection-tools:read"],
       "write": false,
       "file": false,
@@ -262,6 +312,7 @@
     {
       "name": "list_observation_completions",
       "operationId": "listObservationCompletions",
+      "method": "GET",
       "scopes": ["observations:read"],
       "write": false,
       "file": false,
@@ -270,6 +321,7 @@
     {
       "name": "list_observation_photos",
       "operationId": "listObservationPhotos",
+      "method": "GET",
       "scopes": ["observation-photos:read", "observations:read"],
       "write": false,
       "file": true,
@@ -278,6 +330,7 @@
     {
       "name": "list_observation_status_history",
       "operationId": "listObservationStatusHistory",
+      "method": "GET",
       "scopes": ["observations:read"],
       "write": false,
       "file": false,
@@ -286,6 +339,7 @@
     {
       "name": "list_persons",
       "operationId": "listPersons",
+      "method": "GET",
       "scopes": ["contacts:read"],
       "write": false,
       "file": false,
@@ -294,6 +348,7 @@
     {
       "name": "list_placement_templates",
       "operationId": "listPlacementTemplates",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": false,
@@ -302,6 +357,7 @@
     {
       "name": "list_properties",
       "operationId": "listProperties",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": false,
@@ -310,6 +366,7 @@
     {
       "name": "list_property_documents",
       "operationId": "listPropertyDocuments",
+      "method": "GET",
       "scopes": ["documents:read"],
       "write": false,
       "file": false,
@@ -318,6 +375,7 @@
     {
       "name": "list_property_inspections",
       "operationId": "listPropertyInspections",
+      "method": "GET",
       "scopes": ["inspections:read"],
       "write": false,
       "file": false,
@@ -326,6 +384,7 @@
     {
       "name": "list_property_observations",
       "operationId": "listPropertyObservations",
+      "method": "GET",
       "scopes": ["observations:read"],
       "write": false,
       "file": false,
@@ -334,6 +393,7 @@
     {
       "name": "list_property_placements",
       "operationId": "listPropertyPlacements",
+      "method": "GET",
       "scopes": ["properties:read"],
       "write": false,
       "file": false,
@@ -342,6 +402,7 @@
     {
       "name": "list_property_remediation_costs",
       "operationId": "listPropertyRemediationCosts",
+      "method": "GET",
       "scopes": [
         "observations:read",
         "properties:read",
@@ -354,6 +415,7 @@
     {
       "name": "list_property_reports",
       "operationId": "listPropertyReports",
+      "method": "GET",
       "scopes": ["reports:read"],
       "write": false,
       "file": false,
@@ -362,6 +424,7 @@
     {
       "name": "list_report_pdf_generations",
       "operationId": "listReportPdfGenerations",
+      "method": "GET",
       "scopes": ["reports:read"],
       "write": false,
       "file": false,
@@ -370,6 +433,7 @@
     {
       "name": "move_property_placement",
       "operationId": "movePropertyPlacement",
+      "method": "PATCH",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
@@ -378,6 +442,7 @@
     {
       "name": "remove_property_observation",
       "operationId": "removePropertyObservation",
+      "method": "DELETE",
       "scopes": ["observations:read", "observations:write", "properties:read"],
       "write": true,
       "file": false,
@@ -386,6 +451,7 @@
     {
       "name": "remove_property_placement",
       "operationId": "removePropertyPlacement",
+      "method": "DELETE",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
@@ -394,6 +460,7 @@
     {
       "name": "reorder_property_placements",
       "operationId": "reorderPropertyPlacements",
+      "method": "PUT",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
@@ -402,14 +469,26 @@
     {
       "name": "search_observation_suggestions",
       "operationId": "searchObservationSuggestions",
+      "method": "GET",
       "scopes": ["observations:read"],
       "write": false,
       "file": false,
       "destructive": false
     },
     {
+      "name": "start_observation_photo_upload",
+      "operationId": "startPhotoUploadBatch",
+      "method": "POST",
+      "scopes": ["observations:read"],
+      "scopeAlternatives": ["observation-photos:write", "remediation:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
       "name": "update_observation_completion_evidence",
       "operationId": "updateObservationCompletionEvidence",
+      "method": "PATCH",
       "scopes": ["observations:read", "properties:read", "remediation:write"],
       "write": true,
       "file": false,
@@ -418,6 +497,7 @@
     {
       "name": "update_observation_evidence_requirement",
       "operationId": "updateObservationEvidenceRequirement",
+      "method": "PATCH",
       "scopes": ["observations:read", "observations:write", "properties:read"],
       "write": true,
       "file": false,
@@ -426,6 +506,7 @@
     {
       "name": "update_observation_legacy_evidence",
       "operationId": "updateObservationLegacyEvidence",
+      "method": "PATCH",
       "scopes": ["observations:read", "properties:read", "remediation:write"],
       "write": true,
       "file": false,
@@ -434,6 +515,7 @@
     {
       "name": "update_property",
       "operationId": "updateProperty",
+      "method": "PATCH",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
@@ -442,6 +524,7 @@
     {
       "name": "update_property_observation",
       "operationId": "updatePropertyObservation",
+      "method": "PATCH",
       "scopes": ["observations:read", "observations:write", "properties:read"],
       "write": true,
       "file": false,
@@ -450,6 +533,7 @@
     {
       "name": "update_property_observation_status",
       "operationId": "updatePropertyObservationStatus",
+      "method": "PATCH",
       "scopes": ["observations:read", "properties:read", "remediation:write"],
       "write": true,
       "file": false,
@@ -458,6 +542,7 @@
     {
       "name": "update_property_placement",
       "operationId": "updatePropertyPlacement",
+      "method": "PATCH",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
@@ -466,6 +551,7 @@
     {
       "name": "update_property_status",
       "operationId": "updatePropertyStatus",
+      "method": "PATCH",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
