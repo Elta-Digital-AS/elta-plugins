@@ -1,6 +1,6 @@
 {
   "name": "elta",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Use Elta tools within your personal workspace permissions and consent.",
   "author": {
     "name": "Elta Digital AS"
@@ -10,6 +10,9 @@
     "displayName": "Elta",
     "shortDescription": "Use Elta tools within your personal workspace permissions and consent.",
     "developerName": "Elta Digital AS",
+    "brandColor": "#079669",
+    "logo": "./assets/elta-logo.png",
+    "composerIcon": "./assets/elta-logo.png",
     "capabilities": [
       "Read",
       "Write"

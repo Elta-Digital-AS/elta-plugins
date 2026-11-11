@@ -1,6 +1,6 @@
 # Elta for Claude Code and Codex
 
-Version 0.3.2 is a draft candidate for the the full reviewed customer MCP catalog at `https://sta.elta.no/api/mcp`.
+Version 0.3.4 adds the Elta logo to both native packages for the full reviewed customer MCP catalog at `https://sta.elta.no/api/mcp`.
 Its requested scopes are listed in `connection.json`. The full catalog snapshot
 also describes tools from later deployments; discovery and your consent decide
 which tools are available. File delivery and write workflows require their independent consent and open gates.
@@ -50,6 +50,10 @@ Updating a package never adds scopes to an existing grant. File/write
 access requires a compatible deployment, explicit consent and open owner/environment gates.
 Revoking the connection in Elta stops future access, not copies already delivered.
 Removing a plugin and revoking its Elta connection are separate actions.
+
+Both packages include the same 512 px Elta logo. Codex uses it for the listing
+and composer. Claude declares it as the directory icon; Claude Code may still
+show a generic icon. Updating this branding does not require reconnecting OAuth.
 
 This Git marketplace is separate from approval in the OpenAI or Anthropic public
 directories. Installation validation does not prove a signed-in tool workflow.
