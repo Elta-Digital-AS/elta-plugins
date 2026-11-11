@@ -8,7 +8,7 @@
     {
       "name": "elta",
       "source": "./plugins/claude",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "description": "Use Elta tools within your personal workspace permissions and consent."
     }
   ]
