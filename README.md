@@ -2,11 +2,11 @@
 
 ## Install from the Elta marketplace
 
-The native **0.3.1 full-catalog release** is packaged under `plugins/claude`
+The native **0.3.2 candidate** is packaged under `plugins/claude`
 and `plugins/codex`, with marketplace catalogs for both clients. See
 [installation, OAuth and update commands](MARKETPLACE-INSTALL.md).
 
-This release uses native OAuth discovery and the scopes in `marketplace-release.json`. It needs no private OpenAI app mapping or publisher secret. File
+This candidate uses native OAuth discovery and the scopes in `marketplace-release.json`. It needs no private OpenAI app mapping or publisher secret. File
 delivery and writes require explicit consent and open gates; native workflow
 verification remains separate from package installation. The full
 catalog source and its unfulfilled native acceptance record below are retained.
@@ -14,6 +14,8 @@ catalog source and its unfulfilled native acceptance record below are retained.
 Maintainers reproduce the native release with
 `python3 build_marketplaces.py --output /absolute/unused/directory` and verify
 checked-in packages with `python3 build_marketplaces.py --check`.
+
+The Story 9.58 candidate adds observation photo uploads and requests fourteen scopes. Keep this PR in draft until the backend advertises every requested scope and native attachment acceptance is recorded. The released marketplace remains unchanged until this source is merged and released.
 
 ## Full-catalog package source
 

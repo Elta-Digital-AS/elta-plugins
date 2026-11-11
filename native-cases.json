@@ -120,6 +120,11 @@
       "id": "workspace-binding",
       "action": "Connect A and B separately; request a B record using A credentials.",
       "expect": "No account override/fallback or leaked foreign data; record native connection-selection limits."
+    },
+    {
+      "id": "photo-upload-and-read-back",
+      "action": "In the real named client, attach one user-supplied synthetic photo to the selected owned observation using the supported host or native byte handoff; retry the same content/key, exercise refused/expired inputs and a failed worker.",
+      "expect": "Record host/version and actual handoff. Only ready plus resourceId confirms attachment; read that photo back. No duplicate photo or command debit, no foreign/old-consent authority and no leaked source or upload URLs."
     }
   ]
 }

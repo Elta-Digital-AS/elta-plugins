@@ -26,7 +26,8 @@
     "write-gate-off",
     "write-retry-and-conflict",
     "destructive-command",
-    "workspace-binding"
+    "workspace-binding",
+    "photo-upload-and-read-back"
   ],
   "clients": [
     {
@@ -57,7 +58,8 @@
         "write-gate-off": "unverified",
         "write-retry-and-conflict": "unverified",
         "destructive-command": "unverified",
-        "workspace-binding": "unverified"
+        "workspace-binding": "unverified",
+        "photo-upload-and-read-back": "blocked"
       },
       "tools": {
         "create_property": "blocked",
@@ -113,9 +115,12 @@
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
-        "update_property_status": "blocked"
+        "update_property_status": "blocked",
+        "complete_observation_photo_upload": "blocked",
+        "get_observation_photo_upload": "blocked",
+        "start_observation_photo_upload": "blocked"
       },
-      "blocker": "Staging MCP resource metadata does not advertise these required catalog scopes: observation-photos:read, observations:write, properties:write, remediation:write. Backend/configuration acceptance is a separate operator action; no full native proof is claimed.",
+      "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
       "testedConnection": null
     },
     {
@@ -146,7 +151,8 @@
         "write-gate-off": "unverified",
         "write-retry-and-conflict": "unverified",
         "destructive-command": "unverified",
-        "workspace-binding": "unverified"
+        "workspace-binding": "unverified",
+        "photo-upload-and-read-back": "blocked"
       },
       "tools": {
         "create_property": "blocked",
@@ -202,9 +208,12 @@
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
-        "update_property_status": "blocked"
+        "update_property_status": "blocked",
+        "complete_observation_photo_upload": "blocked",
+        "get_observation_photo_upload": "blocked",
+        "start_observation_photo_upload": "blocked"
       },
-      "blocker": "Staging MCP resource metadata does not advertise these required catalog scopes: observation-photos:read, observations:write, properties:write, remediation:write. Backend/configuration acceptance is a separate operator action; no full native proof is claimed.",
+      "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
       "testedConnection": null
     },
     {
@@ -235,7 +244,8 @@
         "write-gate-off": "unverified",
         "write-retry-and-conflict": "unverified",
         "destructive-command": "unverified",
-        "workspace-binding": "unverified"
+        "workspace-binding": "unverified",
+        "photo-upload-and-read-back": "blocked"
       },
       "tools": {
         "create_property": "blocked",
@@ -291,9 +301,12 @@
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
-        "update_property_status": "blocked"
+        "update_property_status": "blocked",
+        "complete_observation_photo_upload": "blocked",
+        "get_observation_photo_upload": "blocked",
+        "start_observation_photo_upload": "blocked"
       },
-      "blocker": "Staging MCP resource metadata does not advertise these required catalog scopes: observation-photos:read, observations:write, properties:write, remediation:write. Backend/configuration acceptance is a separate operator action; no full native proof is claimed. Full-scope distribution/reconnect is blocked until the target advertises every catalog scope; unsupported scope requests fail entirely with invalid_scope, including read-only reconnects.",
+      "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
       "testedConnection": null
     }
   ],
@@ -303,5 +316,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "17ae582300ae1cb4d092cc9d4069704e4476f5fcbef567d583eb409549f05c01"
+  "catalogSha256": "71f3b24a82ce05ca2802c0dd02038df85744c8d2e44aac35fbd14fa75b235ca9"
 }
