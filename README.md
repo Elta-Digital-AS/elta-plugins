@@ -2,7 +2,7 @@
 
 ## Install from the Elta marketplace
 
-The native **0.3.2 candidate** is packaged under `plugins/claude`
+The native **0.3.3 candidate** is packaged under `plugins/claude`
 and `plugins/codex`, with marketplace catalogs for both clients. See
 [installation, OAuth and update commands](MARKETPLACE-INSTALL.md).
 
@@ -15,7 +15,7 @@ Maintainers reproduce the native release with
 `python3 build_marketplaces.py --output /absolute/unused/directory` and verify
 checked-in packages with `python3 build_marketplaces.py --check`.
 
-The Story 9.58 candidate adds observation photo uploads and requests fourteen scopes. Keep this PR in draft until the backend advertises every requested scope and native attachment acceptance is recorded. The released marketplace remains unchanged until this source is merged and released.
+The Story 9.59 candidate adds 1–20 photos per observation upload batch with the same fourteen scopes. Distribute only after the backend start tool advertises `files` and `declarations` and the bulk migration is deployed. Native multi-file workflows require their own acceptance; single-photo acceptance does not prove bulk handoff.
 
 ## Full-catalog package source
 

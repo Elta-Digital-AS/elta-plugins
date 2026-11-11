@@ -56,6 +56,6 @@ directories. Installation validation does not prove a signed-in tool workflow.
 
 [Privacy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact)
 
-## Observation-photo candidate
+## Observation-photo batches
 
-Do not distribute this fourteen-scope candidate until the backend advertises all requested scopes and the three upload tools. The currently released 0.3.1 package remains the compatible choice until rollout. Updating or refreshing a connection adds no scope: finding uploads need explicit re-consent for `observation-photos:write` and its reads. Remediation uses existing remediation authority. A native attachment workflow remains unverified until actual user-supplied synthetic bytes are attached and read back through that client. Follow the shared MCP contract for scoped PUT, completion, expiry replay and ready/resourceId confirmation.
+The 0.3.3 candidate supports 1–20 photos of the same kind on one observation, using the existing fourteen scopes. Distribute only after the live start tool advertises `files` and `declarations` and the bulk migration is deployed. Existing grants that include the appropriate photo/remediation write scope need no scope upgrade for batching. Keep 0.3.2 single-photo inputs on older backends. Match native files to issued capabilities in order; complete once and check each file's ready/resourceId or failure independently. Native multi-file handoff remains unverified until exercised with synthetic photos in that client.

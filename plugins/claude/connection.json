@@ -1,5 +1,5 @@
 {
-  "version": "0.3.2",
+  "version": "0.3.3",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
@@ -19,5 +19,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; Story 9.58 backend rollout, approved attachment origins and native acceptance required"
+  "fullCatalogAcceptance": "blocked; Story 9.59 bulk backend rollout and native multi-file acceptance required"
 }
