@@ -2,7 +2,7 @@
 
 ## Install from the Elta marketplace
 
-The native **0.3.0 full-catalog release** is packaged under `plugins/claude`
+The native **0.3.1 full-catalog release** is packaged under `plugins/claude`
 and `plugins/codex`, with marketplace catalogs for both clients. See
 [installation, OAuth and update commands](MARKETPLACE-INSTALL.md).
 
@@ -43,7 +43,7 @@ python3 build.py \
 
 The OpenAI input is an existing `asdk_app_…` registration or its `plugin_asdk_app_…` URL identifier. The package emits `plugin.json` and `.app.json`. The publisher must configure that registered app's host-side OAuth request to match every scope in `connection.json`, then verify native discovery. An app ID does not upgrade an existing two-scope connection. App-reference ZIPs are for private testing and cannot be uploaded directly to the public submission portal.
 
-OpenAI documents a direct-MCP OAuth extension, but the current generic MCP 1.0.0 schema rejects that server extension. This builder retains the validated registered-app format. Direct packaging is not claimed compatible until native evidence resolves that mismatch; marketplace submission remains separate.
+The legacy `build.py` app-reference format remains available for registered-app testing. The native `build_marketplaces.py` format uses Codex’s `.codex-plugin/plugin.json` and `.mcp.json` format with explicit `scopes` and OAuth discovery. Codex 0.167.0 rejects the documented per-server `extensions.com.openai.auth` field in the generic Agent Plugins MCP format, so that format cannot carry the scope fix for this client version. Marketplace submission remains separate.
 
 The Claude package emits `.claude-plugin/plugin.json` and `.mcp.json`, pinning the catalog scope request. Its client ID must be a public OAuth registration appropriate to the tested host callback; a hosted Claude confidential registration cannot be substituted for a Claude Code public loopback client. Secrets belong only in the host's secure connection setup when that host requires them.
 

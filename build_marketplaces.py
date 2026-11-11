@@ -45,13 +45,12 @@ def build_marketplaces(output, source=ROOT):
         'claude': {'.claude-plugin/plugin.json': json_bytes({**identity, 'mcpServers': './.mcp.json'}),
                    '.mcp.json': json_bytes({'mcpServers': {'elta': {'type': 'http', 'url': url,
                        'oauth': {'scopes': ' '.join(scopes)}}}})},
-        'codex': {'plugin.json': json_bytes({
-            '$schema': 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json', **identity,
-            'extensions': {'com.openai': {'interface': {'displayName': 'Elta',
-                'shortDescription': identity['description'], 'developerName': 'Elta Digital AS',
-                'capabilities': ['Read', 'Write'] if full else ['Read']}}}}),
-            'mcp.json': json_bytes({'$schema': 'https://agent-plugins.org/schemas/1.0.0/mcp.schema.json',
-                'mcpServers': {'elta': {'type': 'streamable-http', 'url': url}}})},
+        'codex': {'.codex-plugin/plugin.json': json_bytes({**identity,
+            'mcpServers': './.mcp.json',
+            'interface': {'displayName': 'Elta', 'shortDescription': identity['description'],
+                'developerName': 'Elta Digital AS',
+                'capabilities': ['Read', 'Write'] if full else ['Read']}}),
+            '.mcp.json': json_bytes({'mcpServers': {'elta': {'url': url, 'scopes': scopes}}})},
     }
     files = {}
     for platform, package in packages.items():

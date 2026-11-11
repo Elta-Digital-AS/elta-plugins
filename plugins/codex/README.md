@@ -1,6 +1,6 @@
 # Elta for Claude Code and Codex
 
-Version 0.3.0 packages the full reviewed customer MCP catalog for `https://sta.elta.no/api/mcp`.
+Version 0.3.1 packages the full reviewed customer MCP catalog for `https://sta.elta.no/api/mcp`.
 Its requested scopes are listed in `connection.json`. The full catalog snapshot
 also describes tools from later deployments; discovery and your consent decide
 which tools are available. File delivery and write workflows require their independent consent and open gates.
@@ -20,7 +20,9 @@ codex plugin marketplace add Elta-Digital-AS/elta-plugins --ref main
 codex plugin add elta@elta
 ```
 
-For Codex, request the full scope set when signing in (writes remain off in Elta consent until explicitly selected):
+Both packages request the reviewed scope set during OAuth sign-in. Codex declares it in the server’s `scopes` field in `.mcp.json`; the Read/Write display label grants no access. Writes remain off in Elta consent until explicitly selected.
+
+Existing read-only connections need a new consent flow to gain write scopes. For a one-time explicit reconnect in Codex:
 
 ```sh
 codex mcp login elta --scopes certificates:read,contacts:read,documents:read,inspection-tools:read,inspections:read,observation-photos:read,observations:read,observations:write,properties:read,properties:write,remediation-costs:read,remediation:write,reports:read
