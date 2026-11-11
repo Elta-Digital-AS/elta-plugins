@@ -26,12 +26,22 @@ class MarketplaceTest(unittest.TestCase):
             'url': release['resource'], 'scopes': release['scopes']})
         manifest = json.loads((output / 'plugins/codex/.codex-plugin/plugin.json').read_text())
         self.assertEqual(manifest['mcpServers'], './.mcp.json')
+        self.assertEqual(manifest['interface']['logo'], './assets/elta-logo.png')
+        self.assertEqual(manifest['interface']['composerIcon'], './assets/elta-logo.png')
+        self.assertEqual(manifest['interface']['brandColor'], '#079669')
+        claude_manifest = json.loads((output / 'plugins/claude/.claude-plugin/plugin.json').read_text())
+        self.assertEqual(claude_manifest['icon'], './assets/elta-logo.png')
         self.assertFalse((output / 'plugins/codex/.app.json').exists())
         for platform in ['claude', 'codex']:
             folder = output / 'plugins' / platform
             self.assertEqual(len(list((folder / 'skills').glob('*/SKILL.md'))), 5)
             self.assertIn('Installed profile:', (folder / 'skills/_shared/mcp-contract.md').read_text())
             self.assertEqual(json.loads((folder / 'connection.json').read_text()), release)
+            logo = (folder / 'assets/elta-logo.png').read_bytes()
+            self.assertEqual(logo, (ROOT / 'assets/elta-logo.png').read_bytes())
+            self.assertEqual(logo[:8], b'\x89PNG\r\n\x1a\n')
+            self.assertEqual(int.from_bytes(logo[16:20], 'big'), 512)
+            self.assertEqual(int.from_bytes(logo[20:24], 'big'), 512)
         self.assertEqual(json.loads((output / '.claude-plugin/marketplace.json').read_text())['plugins'][0]['source'], './plugins/claude')
         self.assertEqual(json.loads((output / '.agents/plugins/marketplace.json').read_text())['plugins'][0]['source']['path'], './plugins/codex')
 
