@@ -47,6 +47,15 @@
       "destructive": false
     },
     {
+      "name": "clear_inspection_answer",
+      "operationId": "clearInspectionAnswer",
+      "method": "DELETE",
+      "scopes": ["inspections:read", "inspections:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "complete_observation_photo_upload",
       "operationId": "completePhotoUploadBatch",
       "method": "POST",
@@ -647,6 +656,24 @@
       "write": false,
       "file": false,
       "destructive": false
+    },
+    {
+      "name": "set_inspection_answer",
+      "operationId": "setInspectionAnswer",
+      "method": "PUT",
+      "scopes": ["inspections:read", "inspections:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "set_inspection_answer_comment",
+      "operationId": "setInspectionAnswerComment",
+      "method": "PATCH",
+      "scopes": ["inspections:read", "inspections:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
     },
     {
       "name": "start_observation_photo_upload",

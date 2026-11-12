@@ -155,6 +155,11 @@
       "id": "inspection-lifecycle",
       "action": "With fresh inspections:read/write consent in an approved synthetic workspace, use current create options, create, rename, complete and remove an inspection. Test blocked and ready completion, exact/changed retries, stale versions, foreign/wrong parents, gate/permission loss and deletion with linked findings.",
       "expect": "Four tools use explicit write consent; existing grants gain no new scope. Opaque inspectorRef and a selectable checklistVersionId are required to create. Blocked completion is a normal validation_failed result with up to100issues plus issueCount/hasMore, never a completed claim or generic error. Do not invent answers. Removal retains observations/history. Native acceptance remains unverified."
+    },
+    {
+      "id": "inspection-answers",
+      "action": "Using an approved synthetic inspection and existing inspections:read/write consent, record an explicit option answer, text and option annotation, clear each and inspect the actual results. Exercise nullable values, wrong question/mode, stale and independent question versions, exact retries after later edits, write-gate closure and quotas.",
+      "expect": "Three destructive tools use existing scope/write consent with no new OAuth/file permission. Strict option/text variants and current answer-v1 bind to inspection and question; output includes inspectionVersion. Blank/null normalize canonically, linked findings survive clear, and actual lifecycle reconciliation is reported without invented answers or unsupported completion claims. Native acceptance remains unverified."
     }
   ]
 }

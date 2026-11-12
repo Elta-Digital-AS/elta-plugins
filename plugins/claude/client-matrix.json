@@ -33,7 +33,8 @@
     "placement-template-management",
     "contact-management",
     "property-role-management",
-    "inspection-lifecycle"
+    "inspection-lifecycle",
+    "inspection-answers"
   ],
   "clients": [
     {
@@ -71,10 +72,12 @@
         "placement-template-management": "unverified",
         "contact-management": "unverified",
         "property-role-management": "unverified",
-        "inspection-lifecycle": "unverified"
+        "inspection-lifecycle": "unverified",
+        "inspection-answers": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
+        "clear_inspection_answer": "unverified",
         "complete_observation_photo_upload": "blocked",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
@@ -139,6 +142,8 @@
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
         "search_observation_suggestions": "unverified",
+        "set_inspection_answer": "unverified",
+        "set_inspection_answer_comment": "unverified",
         "start_observation_photo_upload": "blocked",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -192,10 +197,12 @@
         "placement-template-management": "unverified",
         "contact-management": "unverified",
         "property-role-management": "unverified",
-        "inspection-lifecycle": "unverified"
+        "inspection-lifecycle": "unverified",
+        "inspection-answers": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
+        "clear_inspection_answer": "unverified",
         "complete_observation_photo_upload": "blocked",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
@@ -260,6 +267,8 @@
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
         "search_observation_suggestions": "unverified",
+        "set_inspection_answer": "unverified",
+        "set_inspection_answer_comment": "unverified",
         "start_observation_photo_upload": "blocked",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -313,10 +322,12 @@
         "placement-template-management": "unverified",
         "contact-management": "unverified",
         "property-role-management": "unverified",
-        "inspection-lifecycle": "unverified"
+        "inspection-lifecycle": "unverified",
+        "inspection-answers": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
+        "clear_inspection_answer": "unverified",
         "complete_observation_photo_upload": "blocked",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
@@ -381,6 +392,8 @@
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
         "search_observation_suggestions": "unverified",
+        "set_inspection_answer": "unverified",
+        "set_inspection_answer_comment": "unverified",
         "start_observation_photo_upload": "blocked",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -406,5 +419,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "fdaab6646657e69f39ccdc3772dc9a7da114af1c40d1176f411d5f4f3f27ff0d"
+  "catalogSha256": "86e25c59782cd3fb719ce74bc81e13798d387af1eeebd13142db86545edcc6d4"
 }

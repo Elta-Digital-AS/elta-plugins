@@ -87,3 +87,7 @@ Requires the matching backend with three ordinary property contact-role tools an
 ## Inspection lifecycle (0.3.10 candidate)
 
 Requires the matching 16-scope backend advertising inspections:write before distribution. Older deployments refuse the entire OAuth request. Fresh consent is required; existing grants gain no scope. Native blocked/ready completion, version/retry, removal and permission acceptance remains unverified.
+
+## Checklist answers (0.3.11 candidate)
+
+Requires the matching three-tool backend. Existing16-scope inspection-write consent applies; no new scope or file consent. Native answer-mode, version/retry, linked-finding preservation, lifecycle and quota acceptance remains unverified.

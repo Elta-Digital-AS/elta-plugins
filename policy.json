@@ -6,7 +6,7 @@
     "name": "Elta Digital AS"
   },
   "catalog": "mcp-catalog.json",
-  "catalogSha256": "fdaab6646657e69f39ccdc3772dc9a7da114af1c40d1176f411d5f4f3f27ff0d",
+  "catalogSha256": "86e25c59782cd3fb719ce74bc81e13798d387af1eeebd13142db86545edcc6d4",
   "skills": [
     "use-elta-tools",
     "find-property",

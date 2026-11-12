@@ -1,5 +1,5 @@
 {
-  "version": "0.3.10",
+  "version": "0.3.11",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
@@ -21,5 +21,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; Story9.65 matching 16-scope backend and native inspection lifecycle/blocked-completion acceptance required; earlier gates remain unverified"
+  "fullCatalogAcceptance": "blocked; Story9.66 matching answer-tool backend and native option/text/comment/clear acceptance required; prior hosted/native gates remain unverified"
 }
