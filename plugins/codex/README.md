@@ -95,3 +95,7 @@ Requires the matching three-tool backend. Existing16-scope inspection-write cons
 ## Checklist observations (0.3.12 candidate)
 
 Deploy the matching85-tool backend first. Existing16-scopes and explicit write consent apply. Native structured creation, atomic100-link result, unlink/relink retry, permission and quota acceptance remains unverified.
+
+## Remediation costs (0.3.13 candidate)
+
+Deploy the matching 86-tool/17-scope backend before distribution. Existing connections must reconnect and explicitly consent to remediation-costs:write. Native exact money, reset, stale revision, historical retry and separate authority acceptance is unverified.

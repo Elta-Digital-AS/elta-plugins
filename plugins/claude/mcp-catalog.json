@@ -15,6 +15,7 @@
     "properties:read",
     "properties:write",
     "remediation-costs:read",
+    "remediation-costs:write",
     "remediation:write",
     "reports:read"
   ],
@@ -33,6 +34,7 @@
     "properties:read": "read",
     "properties:write": "write",
     "remediation-costs:read": "read",
+    "remediation-costs:write": "write",
     "remediation:write": "write",
     "reports:read": "read"
   },
@@ -701,6 +703,20 @@
       "operationId": "setInspectionAnswerComment",
       "method": "PATCH",
       "scopes": ["inspections:read", "inspections:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "set_observation_remediation_cost",
+      "operationId": "setObservationRemediationCost",
+      "method": "PUT",
+      "scopes": [
+        "observations:read",
+        "properties:read",
+        "remediation-costs:read",
+        "remediation-costs:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true

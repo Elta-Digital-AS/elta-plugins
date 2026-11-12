@@ -165,6 +165,11 @@
       "id": "checklist-observations",
       "action": "In an approved synthetic workspace with existing property/inspection/observation read-write scopes, create a supplied checklist finding with valid structured extensionValues, link up to 100 existing observations atomically, and unlink one. Exercise a mixed invalid list, wrong question/option, stale versions, exact retries after a later web edit/relink, authority loss and quota/rollback.",
       "expect": "Three flat strict tools reuse the locked observation option and current answer-v1. Creation preserves canonical numbering/provenance/schema; link returns all 1–100 canonical outcomes and refuses the whole list on an invalid item. Unlink retains findings/annotation and never reapplies after relink. No new scope or file consent; do not invent data or claim completion. Native acceptance remains unverified."
+    },
+    {
+      "id": "remediation-cost-writes",
+      "action": "With fresh remediation-costs:write consent and required reads in an approved synthetic workspace, set every cost type, verify exact integer NOK øre/VAT rounding, reset to unpriced, retry after a later web change, use a stale cost-v1, and revoke write authority.",
+      "expect": "One flat strict tool uses the existing cost command and separate internal cost authority. Existing grants stay unchanged and require reconnect/new consent. No ordinary observation fields change. Conflicts and refusals leave rows, receipt, audit and usage intact. Native acceptance remains unverified."
     }
   ]
 }

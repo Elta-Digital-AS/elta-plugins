@@ -1,5 +1,5 @@
 {
-  "version": "0.3.12",
+  "version": "0.3.13",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
@@ -17,9 +17,10 @@
     "properties:read",
     "properties:write",
     "remediation-costs:read",
+    "remediation-costs:write",
     "remediation:write",
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; matching85-tool backend and native checklist finding creation/extensions/bulk link/unlink acceptance required; earlier hosted/native gates remain unverified"
+  "fullCatalogAcceptance": "blocked; matching 86-tool/17-scope backend, fresh cost-write consent and native cost lifecycle acceptance required; prior gates remain unverified"
 }

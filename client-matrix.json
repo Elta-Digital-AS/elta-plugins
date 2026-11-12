@@ -35,7 +35,8 @@
     "property-role-management",
     "inspection-lifecycle",
     "inspection-answers",
-    "checklist-observations"
+    "checklist-observations",
+    "remediation-cost-writes"
   ],
   "clients": [
     {
@@ -75,7 +76,8 @@
         "property-role-management": "unverified",
         "inspection-lifecycle": "unverified",
         "inspection-answers": "unverified",
-        "checklist-observations": "unverified"
+        "checklist-observations": "unverified",
+        "remediation-cost-writes": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
@@ -148,6 +150,7 @@
         "search_observation_suggestions": "unverified",
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
+        "set_observation_remediation_cost": "unverified",
         "start_observation_photo_upload": "blocked",
         "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
@@ -204,7 +207,8 @@
         "property-role-management": "unverified",
         "inspection-lifecycle": "unverified",
         "inspection-answers": "unverified",
-        "checklist-observations": "unverified"
+        "checklist-observations": "unverified",
+        "remediation-cost-writes": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
@@ -277,6 +281,7 @@
         "search_observation_suggestions": "unverified",
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
+        "set_observation_remediation_cost": "unverified",
         "start_observation_photo_upload": "blocked",
         "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
@@ -333,7 +338,8 @@
         "property-role-management": "unverified",
         "inspection-lifecycle": "unverified",
         "inspection-answers": "unverified",
-        "checklist-observations": "unverified"
+        "checklist-observations": "unverified",
+        "remediation-cost-writes": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
@@ -406,6 +412,7 @@
         "search_observation_suggestions": "unverified",
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
+        "set_observation_remediation_cost": "unverified",
         "start_observation_photo_upload": "blocked",
         "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
@@ -432,5 +439,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "61ba2e63d7f8ce0a4cbe1e355585f92954e12d4d4c06509d82a282cea7d5ba70"
+  "catalogSha256": "bfed1c66d04374fbce407b7f971efaa36ce94857307d1f9888fc165e70101217"
 }

@@ -17,6 +17,7 @@
         "properties:read",
         "properties:write",
         "remediation-costs:read",
+        "remediation-costs:write",
         "remediation:write",
         "reports:read"
       ]
