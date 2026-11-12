@@ -79,3 +79,7 @@ Requires the matching backend with five template mutation tools and current prop
 ## Contact tools (0.3.8 candidate)
 
 Requires the matching backend with all 15 catalog scopes and six contact mutation tools. Existing connections gain no contacts:write scope; reconnect with explicit contact-write consent. Native permission, full-replacement and cleanup-confirmation acceptance remains required before publication. Do not distribute this full-scope package against a deployment missing any requested scope, because OAuth rejects the entire request.
+
+## Property role tools (0.3.9 candidate)
+
+Requires the matching backend with three ordinary property contact-role tools and existing property-read/contact-read-write consent. No new scope beyond the 15-scope catalogue is introduced. Access-granting roles remain web administration. Native protected-role, set-version and acting-for-company acceptance is required before publication; earlier rollout gates remain open.

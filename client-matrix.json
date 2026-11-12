@@ -31,7 +31,8 @@
     "finding-photo-management",
     "mixed-upload-and-property-cover",
     "placement-template-management",
-    "contact-management"
+    "contact-management",
+    "property-role-management"
   ],
   "clients": [
     {
@@ -67,9 +68,11 @@
         "finding-photo-management": "unverified",
         "mixed-upload-and-property-cover": "unverified",
         "placement-template-management": "unverified",
-        "contact-management": "unverified"
+        "contact-management": "unverified",
+        "property-role-management": "unverified"
       },
       "tools": {
+        "assign_property_role": "unverified",
         "complete_observation_photo_upload": "blocked",
         "create_company": "unverified",
         "create_person": "unverified",
@@ -125,6 +128,7 @@
         "remove_property_cover": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
+        "remove_property_role": "unverified",
         "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
@@ -141,6 +145,7 @@
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
+        "update_property_role": "unverified",
         "update_property_status": "blocked"
       },
       "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
@@ -179,9 +184,11 @@
         "finding-photo-management": "unverified",
         "mixed-upload-and-property-cover": "unverified",
         "placement-template-management": "unverified",
-        "contact-management": "unverified"
+        "contact-management": "unverified",
+        "property-role-management": "unverified"
       },
       "tools": {
+        "assign_property_role": "unverified",
         "complete_observation_photo_upload": "blocked",
         "create_company": "unverified",
         "create_person": "unverified",
@@ -237,6 +244,7 @@
         "remove_property_cover": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
+        "remove_property_role": "unverified",
         "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
@@ -253,6 +261,7 @@
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
+        "update_property_role": "unverified",
         "update_property_status": "blocked"
       },
       "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
@@ -291,9 +300,11 @@
         "finding-photo-management": "unverified",
         "mixed-upload-and-property-cover": "unverified",
         "placement-template-management": "unverified",
-        "contact-management": "unverified"
+        "contact-management": "unverified",
+        "property-role-management": "unverified"
       },
       "tools": {
+        "assign_property_role": "unverified",
         "complete_observation_photo_upload": "blocked",
         "create_company": "unverified",
         "create_person": "unverified",
@@ -349,6 +360,7 @@
         "remove_property_cover": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
+        "remove_property_role": "unverified",
         "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
@@ -365,6 +377,7 @@
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
+        "update_property_role": "unverified",
         "update_property_status": "blocked"
       },
       "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
@@ -377,5 +390,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "997b90cc9a81069bda3f212fc481e7b10da6680aafd65d1a3603af3a2f141d88"
+  "catalogSha256": "07ff6ae25c587ca8f87b031a8f889da220c66f48972214054cf83c98c6fac741"
 }

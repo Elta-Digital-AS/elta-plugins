@@ -1,5 +1,5 @@
 {
-  "version": "0.3.8",
+  "version": "0.3.9",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
@@ -20,5 +20,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; Story9.63 backend contacts:write scope and six contact tools require matching deployment and native fresh-consent/full-replacement/cleanup acceptance; earlier native gaps remain unverified"
+  "fullCatalogAcceptance": "blocked; Story9.64 backend role tools and native protected-role/version/acting-for acceptance required; prior deployment and native gaps remain unverified"
 }

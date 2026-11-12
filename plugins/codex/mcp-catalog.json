@@ -36,6 +36,15 @@
   },
   "tools": [
     {
+      "name": "assign_property_role",
+      "operationId": "assignPropertyRole",
+      "method": "POST",
+      "scopes": ["contacts:read", "contacts:write", "properties:read"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
       "name": "complete_observation_photo_upload",
       "operationId": "completePhotoUploadBatch",
       "method": "POST",
@@ -553,6 +562,15 @@
       "destructive": true
     },
     {
+      "name": "remove_property_role",
+      "operationId": "removePropertyRole",
+      "method": "DELETE",
+      "scopes": ["contacts:read", "contacts:write", "properties:read"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "reorder_observation_photos",
       "operationId": "reorderObservationPhotos",
       "method": "PUT",
@@ -705,6 +723,15 @@
       "operationId": "updatePropertyPlacement",
       "method": "PATCH",
       "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_property_role",
+      "operationId": "updatePropertyRole",
+      "method": "PUT",
+      "scopes": ["contacts:read", "contacts:write", "properties:read"],
       "write": true,
       "file": false,
       "destructive": true

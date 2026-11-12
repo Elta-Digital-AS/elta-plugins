@@ -145,6 +145,11 @@
       "id": "contact-management",
       "action": "In an approved synthetic workspace, reconnect with explicit contacts:read/write consent and exercise person/company creation, full 0–100 link replacement and removal. Test read-only/old grants, protected member/self contacts, stale versions, exact retries and a property assignment requiring cleanup confirmation.",
       "expect": "All six contact tools appear under the E switch and write consent, without file consent. Existing connections do not gain contacts:write. Ask the customer before confirmPropertyActorCleanup, retain version/key identity and safe field errors; foreign/protected targets do not mutate. Full native acceptance remains unverified."
+    },
+    {
+      "id": "property-role-management",
+      "action": "In an approved synthetic workspace, read the full property role snapshot and assign, update and remove an ordinary recorded role with a linked acting-for company. Exercise set-version conflicts, exact retries, wrong-parent/foreign contacts, missing scope/live properties.write, collaborator and dynamically access-managed role refusals.",
+      "expect": "Three tools appear with properties:read and contacts:read/write plus live properties.write and existing write consent; no additional scope or file consent. Assign also requires roles-v1. Access-managed assignments never become an invitation/grant or an editable role. Native acceptance remains unverified."
     }
   ]
 }
