@@ -170,6 +170,11 @@
       "id": "remediation-cost-writes",
       "action": "With fresh remediation-costs:write consent and required reads in an approved synthetic workspace, set every cost type, verify exact integer NOK øre/VAT rounding, reset to unpriced, retry after a later web change, use a stale cost-v1, and revoke write authority.",
       "expect": "One flat strict tool uses the existing cost command and separate internal cost authority. Existing grants stay unchanged and require reconnect/new consent. No ordinary observation fields change. Conflicts and refusals leave rows, receipt, audit and usage intact. Native acceptance remains unverified."
+    },
+    {
+      "id": "property-document-writes",
+      "action": "With fresh documents:write/read consent in an approved synthetic workspace, upload bounded host PDF/DOCX/JPEG/PNG and native resumable documents up to100MiB. Exercise mixed batches, malformed bytes, authority loss, metadata rename/category, immutable extension, stale document-v1, retry after a web edit and removal quota.",
+      "expect": "Every input file has its own authorized ordered outcome. Only ready/resourceId plus document read-back confirms attachment. Host-source limit is10MiBperfile with explicit native guidance. Metadata and deletion need no file consent; content download still does. Old grants stay unchanged. Native acceptance remains unverified."
     }
   ]
 }

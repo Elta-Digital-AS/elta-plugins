@@ -99,3 +99,7 @@ Deploy the matching85-tool backend first. Existing16-scopes and explicit write c
 ## Remediation costs (0.3.13 candidate)
 
 Deploy the matching 86-tool/17-scope backend before distribution. Existing connections must reconnect and explicitly consent to remediation-costs:write. Native exact money, reset, stale revision, historical retry and separate authority acceptance is unverified.
+
+## Property documents (0.3.14 candidate)
+
+Deploy the matching88-tool/18-scope backend and migration first; reconnect with documents:read/write. Native documents support100MiB/TUS, host sources10MiBperfile. Native clients, hosted capacity, mixed-source handoff and all document lifecycle cells remain unverified.

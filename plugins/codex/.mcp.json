@@ -7,6 +7,7 @@
         "contacts:read",
         "contacts:write",
         "documents:read",
+        "documents:write",
         "inspection-tools:read",
         "inspections:read",
         "inspections:write",

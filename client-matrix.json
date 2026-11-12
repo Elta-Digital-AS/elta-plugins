@@ -36,7 +36,8 @@
     "inspection-lifecycle",
     "inspection-answers",
     "checklist-observations",
-    "remediation-cost-writes"
+    "remediation-cost-writes",
+    "property-document-writes"
   ],
   "clients": [
     {
@@ -77,12 +78,13 @@
         "inspection-lifecycle": "unverified",
         "inspection-answers": "unverified",
         "checklist-observations": "unverified",
-        "remediation-cost-writes": "unverified"
+        "remediation-cost-writes": "unverified",
+        "property-document-writes": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
         "clear_inspection_answer": "unverified",
-        "complete_observation_photo_upload": "blocked",
+        "complete_observation_photo_upload": "unverified",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
         "create_inspection_observation": "unverified",
@@ -99,7 +101,7 @@
         "get_company": "unverified",
         "get_inspection_create_options": "unverified",
         "get_observation_photo": "blocked",
-        "get_observation_photo_upload": "blocked",
+        "get_observation_photo_upload": "unverified",
         "get_observation_remediation_cost": "unverified",
         "get_person": "unverified",
         "get_placement_template": "unverified",
@@ -139,6 +141,7 @@
         "remove_person": "unverified",
         "remove_placement_template": "unverified",
         "remove_property_cover": "unverified",
+        "remove_property_document": "unverified",
         "remove_property_inspection": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
@@ -151,7 +154,7 @@
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
         "set_observation_remediation_cost": "unverified",
-        "start_observation_photo_upload": "blocked",
+        "start_observation_photo_upload": "unverified",
         "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -161,6 +164,7 @@
         "update_person": "unverified",
         "update_placement_template": "unverified",
         "update_property": "blocked",
+        "update_property_document_metadata": "unverified",
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
@@ -208,12 +212,13 @@
         "inspection-lifecycle": "unverified",
         "inspection-answers": "unverified",
         "checklist-observations": "unverified",
-        "remediation-cost-writes": "unverified"
+        "remediation-cost-writes": "unverified",
+        "property-document-writes": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
         "clear_inspection_answer": "unverified",
-        "complete_observation_photo_upload": "blocked",
+        "complete_observation_photo_upload": "unverified",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
         "create_inspection_observation": "unverified",
@@ -230,7 +235,7 @@
         "get_company": "unverified",
         "get_inspection_create_options": "unverified",
         "get_observation_photo": "blocked",
-        "get_observation_photo_upload": "blocked",
+        "get_observation_photo_upload": "unverified",
         "get_observation_remediation_cost": "unverified",
         "get_person": "unverified",
         "get_placement_template": "unverified",
@@ -270,6 +275,7 @@
         "remove_person": "unverified",
         "remove_placement_template": "unverified",
         "remove_property_cover": "unverified",
+        "remove_property_document": "unverified",
         "remove_property_inspection": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
@@ -282,7 +288,7 @@
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
         "set_observation_remediation_cost": "unverified",
-        "start_observation_photo_upload": "blocked",
+        "start_observation_photo_upload": "unverified",
         "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -292,6 +298,7 @@
         "update_person": "unverified",
         "update_placement_template": "unverified",
         "update_property": "blocked",
+        "update_property_document_metadata": "unverified",
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
@@ -339,12 +346,13 @@
         "inspection-lifecycle": "unverified",
         "inspection-answers": "unverified",
         "checklist-observations": "unverified",
-        "remediation-cost-writes": "unverified"
+        "remediation-cost-writes": "unverified",
+        "property-document-writes": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
         "clear_inspection_answer": "unverified",
-        "complete_observation_photo_upload": "blocked",
+        "complete_observation_photo_upload": "unverified",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
         "create_inspection_observation": "unverified",
@@ -361,7 +369,7 @@
         "get_company": "unverified",
         "get_inspection_create_options": "unverified",
         "get_observation_photo": "blocked",
-        "get_observation_photo_upload": "blocked",
+        "get_observation_photo_upload": "unverified",
         "get_observation_remediation_cost": "unverified",
         "get_person": "unverified",
         "get_placement_template": "unverified",
@@ -401,6 +409,7 @@
         "remove_person": "unverified",
         "remove_placement_template": "unverified",
         "remove_property_cover": "unverified",
+        "remove_property_document": "unverified",
         "remove_property_inspection": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
@@ -413,7 +422,7 @@
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
         "set_observation_remediation_cost": "unverified",
-        "start_observation_photo_upload": "blocked",
+        "start_observation_photo_upload": "unverified",
         "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -423,6 +432,7 @@
         "update_person": "unverified",
         "update_placement_template": "unverified",
         "update_property": "blocked",
+        "update_property_document_metadata": "unverified",
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
@@ -439,5 +449,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "bfed1c66d04374fbce407b7f971efaa36ce94857307d1f9888fc165e70101217"
+  "catalogSha256": "e67d53818c2fdf937c04570739815939a86403a11506690cfc0adff8aa7da41f"
 }

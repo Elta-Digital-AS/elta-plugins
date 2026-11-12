@@ -5,6 +5,7 @@
     "contacts:read",
     "contacts:write",
     "documents:read",
+    "documents:write",
     "inspection-tools:read",
     "inspections:read",
     "inspections:write",
@@ -24,6 +25,7 @@
     "contacts:read": "read",
     "contacts:write": "write",
     "documents:read": "read",
+    "documents:write": "write",
     "inspection-tools:read": "read",
     "inspections:read": "read",
     "inspections:write": "write",
@@ -63,6 +65,7 @@
       "method": "POST",
       "scopes": [],
       "scopeAlternatives": [
+        "documents:write",
         "observation-photos:write",
         "properties:write",
         "remediation:write"
@@ -227,6 +230,7 @@
       "method": "GET",
       "scopes": [],
       "scopeAlternatives": [
+        "documents:write",
         "observation-photos:write",
         "properties:write",
         "remediation:write"
@@ -605,6 +609,15 @@
       "destructive": true
     },
     {
+      "name": "remove_property_document",
+      "operationId": "removePropertyDocument",
+      "method": "DELETE",
+      "scopes": ["documents:read", "documents:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "remove_property_inspection",
       "operationId": "removePropertyInspection",
       "method": "DELETE",
@@ -727,6 +740,7 @@
       "method": "POST",
       "scopes": [],
       "scopeAlternatives": [
+        "documents:write",
         "observation-photos:write",
         "properties:write",
         "remediation:write"
@@ -822,6 +836,15 @@
       "operationId": "updateProperty",
       "method": "PATCH",
       "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_property_document_metadata",
+      "operationId": "updatePropertyDocumentMetadata",
+      "method": "PATCH",
+      "scopes": ["documents:read", "documents:write"],
       "write": true,
       "file": false,
       "destructive": true
