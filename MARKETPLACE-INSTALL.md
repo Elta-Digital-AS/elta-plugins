@@ -91,3 +91,7 @@ Requires the matching 16-scope backend advertising inspections:write before dist
 ## Checklist answers (0.3.11 candidate)
 
 Requires the matching three-tool backend. Existing16-scope inspection-write consent applies; no new scope or file consent. Native answer-mode, version/retry, linked-finding preservation, lifecycle and quota acceptance remains unverified.
+
+## Checklist observations (0.3.12 candidate)
+
+Deploy the matching85-tool backend first. Existing16-scopes and explicit write consent apply. Native structured creation, atomic100-link result, unlink/relink retry, permission and quota acceptance remains unverified.

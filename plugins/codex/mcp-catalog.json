@@ -88,6 +88,21 @@
       "destructive": false
     },
     {
+      "name": "create_inspection_observation",
+      "operationId": "createInspectionObservation",
+      "method": "POST",
+      "scopes": [
+        "inspections:read",
+        "inspections:write",
+        "observations:read",
+        "observations:write",
+        "properties:read"
+      ],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "create_person",
       "operationId": "createPerson",
       "method": "POST",
@@ -320,6 +335,21 @@
       "write": false,
       "file": true,
       "destructive": false
+    },
+    {
+      "name": "link_inspection_observations",
+      "operationId": "linkInspectionObservations",
+      "method": "POST",
+      "scopes": [
+        "inspections:read",
+        "inspections:write",
+        "observations:read",
+        "observations:write",
+        "properties:read"
+      ],
+      "write": true,
+      "file": false,
+      "destructive": true
     },
     {
       "name": "list_account_inspections",
@@ -684,6 +714,21 @@
         "observation-photos:write",
         "properties:write",
         "remediation:write"
+      ],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "unlink_inspection_observation",
+      "operationId": "unlinkInspectionObservation",
+      "method": "DELETE",
+      "scopes": [
+        "inspections:read",
+        "inspections:write",
+        "observations:read",
+        "observations:write",
+        "properties:read"
       ],
       "write": true,
       "file": false,

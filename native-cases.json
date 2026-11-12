@@ -160,6 +160,11 @@
       "id": "inspection-answers",
       "action": "Using an approved synthetic inspection and existing inspections:read/write consent, record an explicit option answer, text and option annotation, clear each and inspect the actual results. Exercise nullable values, wrong question/mode, stale and independent question versions, exact retries after later edits, write-gate closure and quotas.",
       "expect": "Three destructive tools use existing scope/write consent with no new OAuth/file permission. A flat strict input enforces exact option/text variants at runtime; current answer-v1 binds to inspection and question; output includes inspectionVersion. Blank/null normalize canonically, linked findings survive clear, and actual lifecycle reconciliation is reported without invented answers or unsupported completion claims. Native acceptance remains unverified."
+    },
+    {
+      "id": "checklist-observations",
+      "action": "In an approved synthetic workspace with existing property/inspection/observation read-write scopes, create a supplied checklist finding with valid structured extensionValues, link up to100existing observations atomically, and unlink one. Exercise a mixed invalid list, wrong question/option, stale versions, exact retries after a later web edit/relink, authority loss and quota/rollback.",
+      "expect": "Three flat strict tools reuse the locked observation option and current answer-v1. Creation preserves canonical numbering/provenance/schema; link returns all1–100canonical outcomes and refuses the whole list on an invalid item. Unlink retains findings/annotation and never reapplies after relink. No new scope or file consent; do not invent data or claim completion. Native acceptance remains unverified."
     }
   ]
 }

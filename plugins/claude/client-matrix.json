@@ -34,7 +34,8 @@
     "contact-management",
     "property-role-management",
     "inspection-lifecycle",
-    "inspection-answers"
+    "inspection-answers",
+    "checklist-observations"
   ],
   "clients": [
     {
@@ -73,7 +74,8 @@
         "contact-management": "unverified",
         "property-role-management": "unverified",
         "inspection-lifecycle": "unverified",
-        "inspection-answers": "unverified"
+        "inspection-answers": "unverified",
+        "checklist-observations": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
@@ -81,6 +83,7 @@
         "complete_observation_photo_upload": "blocked",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
+        "create_inspection_observation": "unverified",
         "create_person": "unverified",
         "create_placement_template": "unverified",
         "create_property": "blocked",
@@ -106,6 +109,7 @@
         "get_property_observation": "unverified",
         "get_property_roles": "unverified",
         "get_report_pdf_link": "unverified",
+        "link_inspection_observations": "unverified",
         "list_account_inspections": "unverified",
         "list_account_observations": "unverified",
         "list_account_reports": "unverified",
@@ -145,6 +149,7 @@
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
         "start_observation_photo_upload": "blocked",
+        "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
         "update_observation_evidence_requirement": "blocked",
@@ -198,7 +203,8 @@
         "contact-management": "unverified",
         "property-role-management": "unverified",
         "inspection-lifecycle": "unverified",
-        "inspection-answers": "unverified"
+        "inspection-answers": "unverified",
+        "checklist-observations": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
@@ -206,6 +212,7 @@
         "complete_observation_photo_upload": "blocked",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
+        "create_inspection_observation": "unverified",
         "create_person": "unverified",
         "create_placement_template": "unverified",
         "create_property": "blocked",
@@ -231,6 +238,7 @@
         "get_property_observation": "unverified",
         "get_property_roles": "unverified",
         "get_report_pdf_link": "unverified",
+        "link_inspection_observations": "unverified",
         "list_account_inspections": "unverified",
         "list_account_observations": "unverified",
         "list_account_reports": "unverified",
@@ -270,6 +278,7 @@
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
         "start_observation_photo_upload": "blocked",
+        "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
         "update_observation_evidence_requirement": "blocked",
@@ -323,7 +332,8 @@
         "contact-management": "unverified",
         "property-role-management": "unverified",
         "inspection-lifecycle": "unverified",
-        "inspection-answers": "unverified"
+        "inspection-answers": "unverified",
+        "checklist-observations": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
@@ -331,6 +341,7 @@
         "complete_observation_photo_upload": "blocked",
         "complete_property_inspection": "unverified",
         "create_company": "unverified",
+        "create_inspection_observation": "unverified",
         "create_person": "unverified",
         "create_placement_template": "unverified",
         "create_property": "blocked",
@@ -356,6 +367,7 @@
         "get_property_observation": "unverified",
         "get_property_roles": "unverified",
         "get_report_pdf_link": "unverified",
+        "link_inspection_observations": "unverified",
         "list_account_inspections": "unverified",
         "list_account_observations": "unverified",
         "list_account_reports": "unverified",
@@ -395,6 +407,7 @@
         "set_inspection_answer": "unverified",
         "set_inspection_answer_comment": "unverified",
         "start_observation_photo_upload": "blocked",
+        "unlink_inspection_observation": "unverified",
         "update_company": "unverified",
         "update_observation_completion_evidence": "blocked",
         "update_observation_evidence_requirement": "blocked",
@@ -419,5 +432,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "86e25c59782cd3fb719ce74bc81e13798d387af1eeebd13142db86545edcc6d4"
+  "catalogSha256": "61ba2e63d7f8ce0a4cbe1e355585f92954e12d4d4c06509d82a282cea7d5ba70"
 }
