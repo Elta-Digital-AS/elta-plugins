@@ -53,3 +53,5 @@ The 0.3.10 candidate requests 16 scopes including inspections:write. Deploy a ma
 Core sync candidate0.3.17 requires the matching backend for the six core collection modes. No new OAuth scopes or reconnect are required for existing read grants. Exact cursor, tombstone and workflow-limit guidance is in the shared MCP contract. Native/hosted acceptance remains unverified; remaining collection sync modes are not claimed.
 
 Remaining collection sync candidate0.3.18 completes all16REST sync modes on the matching backend. No new scopes or reconnect are required for existing metadata grants. Property-role offset and sync envelopes differ; follow the shared contract. Hosted/native continuation, tombstone and authority acceptance remains unverified.
+
+Final parity candidate0.3.19 maps95REST operations,20scopes,16sync modes and existing bulk variants. Offset-only tools retain their own full REST bounds. Required source CI reproduces both native package trees and checks the exact public mirror. Actual hosted and client acceptance remains unverified; do not distribute before matching backend and release acceptance.

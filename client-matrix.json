@@ -41,7 +41,8 @@
     "measuring-equipment-writes",
     "certificate-writes-and-scans",
     "core-incremental-sync",
-    "remaining-incremental-sync"
+    "remaining-incremental-sync",
+    "full-rest-variant-coverage"
   ],
   "clients": [
     {
@@ -87,7 +88,8 @@
         "measuring-equipment-writes": "unverified",
         "certificate-writes-and-scans": "unverified",
         "core-incremental-sync": "unverified",
-        "remaining-incremental-sync": "unverified"
+        "remaining-incremental-sync": "unverified",
+        "full-rest-variant-coverage": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
@@ -232,7 +234,8 @@
         "measuring-equipment-writes": "unverified",
         "certificate-writes-and-scans": "unverified",
         "core-incremental-sync": "unverified",
-        "remaining-incremental-sync": "unverified"
+        "remaining-incremental-sync": "unverified",
+        "full-rest-variant-coverage": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
@@ -377,7 +380,8 @@
         "measuring-equipment-writes": "unverified",
         "certificate-writes-and-scans": "unverified",
         "core-incremental-sync": "unverified",
-        "remaining-incremental-sync": "unverified"
+        "remaining-incremental-sync": "unverified",
+        "full-rest-variant-coverage": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
