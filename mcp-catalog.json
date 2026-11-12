@@ -2,6 +2,7 @@
   "schemaVersion": 2,
   "scopes": [
     "certificates:read",
+    "certificates:write",
     "contacts:read",
     "contacts:write",
     "documents:read",
@@ -23,6 +24,7 @@
   ],
   "scopeClasses": {
     "certificates:read": "read",
+    "certificates:write": "write",
     "contacts:read": "read",
     "contacts:write": "write",
     "documents:read": "read",
@@ -43,6 +45,15 @@
     "reports:read": "read"
   },
   "tools": [
+    {
+      "name": "archive_certificate",
+      "operationId": "archiveCertificate",
+      "method": "POST",
+      "scopes": ["certificates:read", "certificates:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
     {
       "name": "assign_property_role",
       "operationId": "assignPropertyRole",
@@ -67,6 +78,7 @@
       "method": "POST",
       "scopes": [],
       "scopeAlternatives": [
+        "certificates:write",
         "documents:write",
         "observation-photos:write",
         "properties:write",
@@ -241,6 +253,7 @@
       "method": "GET",
       "scopes": [],
       "scopeAlternatives": [
+        "certificates:write",
         "documents:write",
         "observation-photos:write",
         "properties:write",
@@ -571,6 +584,15 @@
       "destructive": true
     },
     {
+      "name": "remove_certificate",
+      "operationId": "removeCertificate",
+      "method": "DELETE",
+      "scopes": ["certificates:read", "certificates:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "remove_company",
       "operationId": "removeCompany",
       "method": "DELETE",
@@ -760,11 +782,21 @@
       "method": "POST",
       "scopes": [],
       "scopeAlternatives": [
+        "certificates:write",
         "documents:write",
         "observation-photos:write",
         "properties:write",
         "remediation:write"
       ],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "unarchive_certificate",
+      "operationId": "unarchiveCertificate",
+      "method": "POST",
+      "scopes": ["certificates:read", "certificates:write"],
       "write": true,
       "file": false,
       "destructive": true
@@ -780,6 +812,15 @@
         "observations:write",
         "properties:read"
       ],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_certificate",
+      "operationId": "updateCertificate",
+      "method": "PATCH",
+      "scopes": ["certificates:read", "certificates:write"],
       "write": true,
       "file": false,
       "destructive": true

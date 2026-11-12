@@ -180,6 +180,11 @@
       "id": "measuring-equipment-writes",
       "action": "With fresh inspection-tools:read/write consent in a synthetic workspace, create/edit/remove shared equipment. Preserve supplied serial/dates/manual flag, inspect duplicate-serial advice, current tool-v1 and stale/changed/exact retries, permission and owner/global closures, quota and report-reference retention.",
       "expect": "The team-shared catalog matches REST; no invented personal owner or calibration facts. Optional omitted serial/dates clear to null and manual defaults false. Duplicate serials are advisory, status is server-derived in Europe/Oslo. Soft removal consumes removal quota; support-only recovery. Existing credentials need reconnect/consent; no silent upgrade. Native acceptance remains unverified."
+    },
+    {
+      "id": "certificate-writes-and-scans",
+      "action": "Fresh certificates:read/write consent. Create an own scan via certificateCreate, explicitly select an eligible managed personId, replace using cert-v1, update metadata, archive/unarchive then archive/remove. Exercise native20MiB versus host10MiB limits, expired completion replay, all-six mixed batches with one worker failure, owner/global/scope closure and visible protected-member refusals.",
+      "expect": "Only ready/resourceId and read-back confirm a scan. One cover per certificate per batch. Metadata visibility is separate from maintenance and content download; ordinary members cannot manage another holder. Archive before removal; unarchive never restores deletion. Reports retain selected identities/snapshots. Old read grants require reconnect and explicit new consent. Every cell remains unverified until native acceptance."
     }
   ]
 }

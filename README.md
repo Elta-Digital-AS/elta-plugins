@@ -2,7 +2,7 @@
 
 ## Install from the Elta marketplace
 
-The native **0.3.15 candidate** is packaged under `plugins/claude`
+The native **0.3.16 candidate** is packaged under `plugins/claude`
 and `plugins/codex`, with marketplace catalogs for both clients. See
 [installation, OAuth and update commands](MARKETPLACE-INSTALL.md).
 

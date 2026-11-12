@@ -1,9 +1,10 @@
 {
-  "version": "0.3.15",
+  "version": "0.3.16",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
     "certificates:read",
+    "certificates:write",
     "contacts:read",
     "contacts:write",
     "documents:read",
@@ -24,5 +25,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; matching 91-tool/19-scope backend, fresh equipment-write consent and native equipment acceptance required; prior gates remain unverified"
+  "fullCatalogAcceptance": "blocked; matching95-tool/20-scope backend, fresh certificate-write consent, native20MiB and all-six mixed-source acceptance required; prior gates remain unverified"
 }

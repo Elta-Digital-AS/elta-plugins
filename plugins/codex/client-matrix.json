@@ -38,7 +38,8 @@
     "checklist-observations",
     "remediation-cost-writes",
     "property-document-writes",
-    "measuring-equipment-writes"
+    "measuring-equipment-writes",
+    "certificate-writes-and-scans"
   ],
   "clients": [
     {
@@ -81,9 +82,11 @@
         "checklist-observations": "unverified",
         "remediation-cost-writes": "unverified",
         "property-document-writes": "unverified",
-        "measuring-equipment-writes": "unverified"
+        "measuring-equipment-writes": "unverified",
+        "certificate-writes-and-scans": "unverified"
       },
       "tools": {
+        "archive_certificate": "unverified",
         "assign_property_role": "unverified",
         "clear_inspection_answer": "unverified",
         "complete_observation_photo_upload": "unverified",
@@ -139,6 +142,7 @@
         "list_property_reports": "unverified",
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
+        "remove_certificate": "unverified",
         "remove_company": "unverified",
         "remove_inspection_tool": "unverified",
         "remove_observation_photo": "unverified",
@@ -159,7 +163,9 @@
         "set_inspection_answer_comment": "unverified",
         "set_observation_remediation_cost": "unverified",
         "start_observation_photo_upload": "unverified",
+        "unarchive_certificate": "unverified",
         "unlink_inspection_observation": "unverified",
+        "update_certificate": "unverified",
         "update_company": "unverified",
         "update_inspection_tool": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -219,9 +225,11 @@
         "checklist-observations": "unverified",
         "remediation-cost-writes": "unverified",
         "property-document-writes": "unverified",
-        "measuring-equipment-writes": "unverified"
+        "measuring-equipment-writes": "unverified",
+        "certificate-writes-and-scans": "unverified"
       },
       "tools": {
+        "archive_certificate": "unverified",
         "assign_property_role": "unverified",
         "clear_inspection_answer": "unverified",
         "complete_observation_photo_upload": "unverified",
@@ -277,6 +285,7 @@
         "list_property_reports": "unverified",
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
+        "remove_certificate": "unverified",
         "remove_company": "unverified",
         "remove_inspection_tool": "unverified",
         "remove_observation_photo": "unverified",
@@ -297,7 +306,9 @@
         "set_inspection_answer_comment": "unverified",
         "set_observation_remediation_cost": "unverified",
         "start_observation_photo_upload": "unverified",
+        "unarchive_certificate": "unverified",
         "unlink_inspection_observation": "unverified",
+        "update_certificate": "unverified",
         "update_company": "unverified",
         "update_inspection_tool": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -357,9 +368,11 @@
         "checklist-observations": "unverified",
         "remediation-cost-writes": "unverified",
         "property-document-writes": "unverified",
-        "measuring-equipment-writes": "unverified"
+        "measuring-equipment-writes": "unverified",
+        "certificate-writes-and-scans": "unverified"
       },
       "tools": {
+        "archive_certificate": "unverified",
         "assign_property_role": "unverified",
         "clear_inspection_answer": "unverified",
         "complete_observation_photo_upload": "unverified",
@@ -415,6 +428,7 @@
         "list_property_reports": "unverified",
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
+        "remove_certificate": "unverified",
         "remove_company": "unverified",
         "remove_inspection_tool": "unverified",
         "remove_observation_photo": "unverified",
@@ -435,7 +449,9 @@
         "set_inspection_answer_comment": "unverified",
         "set_observation_remediation_cost": "unverified",
         "start_observation_photo_upload": "unverified",
+        "unarchive_certificate": "unverified",
         "unlink_inspection_observation": "unverified",
+        "update_certificate": "unverified",
         "update_company": "unverified",
         "update_inspection_tool": "unverified",
         "update_observation_completion_evidence": "blocked",
@@ -462,5 +478,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "65fd789e3e745aafee0255b8dbc5228ec84c268a320930df9db3a8b8e081829c"
+  "catalogSha256": "d2dd650d8e8c74f600ff878f580d2590c68aeb82ee3e43184464f119f89d8d6d"
 }

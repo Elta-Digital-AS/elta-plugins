@@ -107,3 +107,7 @@ Deploy the matching 88-tool/18-scope backend and migration first; reconnect with
 ## Measuring equipment (0.3.15 candidate)
 
 Deploy the matching 91-tool/19-scope backend and migration first. Reconnect with inspection-tools:read/write. Shared equipment metadata, duplicate-serial advice, references, quota and retries need native acceptance; all client cells remain unverified.
+
+## Certificates (0.3.16 candidate)
+
+Deploy matching95-tool/20-scope backend/migration before distribution, reconnect for certificates:read/write. Native20MiB/host10MiB limits, managed holders, lifecycle and six-kind mixed outcomes need native acceptance. Every client cell remains unverified.

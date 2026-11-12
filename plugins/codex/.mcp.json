@@ -4,6 +4,7 @@
       "url": "https://sta.elta.no/api/mcp",
       "scopes": [
         "certificates:read",
+        "certificates:write",
         "contacts:read",
         "contacts:write",
         "documents:read",
