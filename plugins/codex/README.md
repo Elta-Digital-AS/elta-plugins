@@ -110,4 +110,4 @@ Deploy the matching 91-tool/19-scope backend and migration first. Reconnect with
 
 ## Certificates (0.3.16 candidate)
 
-Deploy matching95-tool/20-scope backend/migration before distribution, reconnect for certificates:read/write. Native20MiB/host10MiB limits, managed holders, lifecycle and six-kind mixed outcomes need native acceptance. Every client cell remains unverified.
+Deploy matching 95-tool/20-scope backend/migration before distribution, reconnect for certificates:read/write. Native 20 MiB/host 10 MiB limits, managed holders, lifecycle and six-kind mixed outcomes need native acceptance. Every client cell remains unverified.

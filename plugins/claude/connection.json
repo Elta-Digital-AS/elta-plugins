@@ -25,5 +25,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; matching95-tool/20-scope backend, fresh certificate-write consent, native20MiB and all-six mixed-source acceptance required; prior gates remain unverified"
+  "fullCatalogAcceptance": "blocked; matching 95-tool/20-scope backend, fresh certificate-write consent, native20MiB and all-six mixed-source acceptance required; prior gates remain unverified"
 }

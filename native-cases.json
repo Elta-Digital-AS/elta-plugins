@@ -183,8 +183,8 @@
     },
     {
       "id": "certificate-writes-and-scans",
-      "action": "Fresh certificates:read/write consent. Create an own scan via certificateCreate, explicitly select an eligible managed personId, replace using cert-v1, update metadata, archive/unarchive then archive/remove. Exercise native20MiB versus host10MiB limits, expired completion replay, all-six mixed batches with one worker failure, owner/global/scope closure and visible protected-member refusals.",
-      "expect": "Only ready/resourceId and read-back confirm a scan. One cover per certificate per batch. Metadata visibility is separate from maintenance and content download; ordinary members cannot manage another holder. Archive before removal; unarchive never restores deletion. Reports retain selected identities/snapshots. Old read grants require reconnect and explicit new consent. Every cell remains unverified until native acceptance."
+      "action": "Fresh certificates:read/write consent. Create an own scan via certificateCreate, explicitly select an eligible managed personId, replace using cert-v1, update metadata, archive/unarchive then archive/remove. Exercise native20MiB versus host10MiB limits, expired completion replay, all-six mixed batches with one worker failure, owner/global/scope closure and visible protected-member refusals. Archive a certificate target or remove its certificate-write scope after native transfer and before completion; keep other scoped siblings usable.",
+      "expect": "Only ready/resourceId and read-back confirm a scan. One cover per certificate per batch. Metadata visibility is separate from maintenance and content download; ordinary members cannot manage another holder. Archive before removal; unarchive never restores deletion. Reports retain selected identities/snapshots. Old read grants require reconnect and explicit new consent. Every cell remains unverified until native acceptance. Completion accepts the batch with authority_lost on that item and preserves ready siblings and exact retries."
     }
   ]
 }
