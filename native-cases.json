@@ -190,6 +190,11 @@
       "id": "core-incremental-sync",
       "action": "With an approved synthetic read-only grant, page each of the six core collections from changedSince=initial, preserve nextCursor, finish at syncCheckpoint, then change/delete an owned record and synchronize. Try a foreign/filter-bound cursor, resync_required and closed write gates. Stop explicitly at the shared10pages/250rows workflow ceiling.",
       "expect": "Record actual client/version. Offset calls still work. REST100-row bounds, opaque continuation, minimal authorized tombstones and public reset errors work without file/write consent. No partial page or silent checkpoint advance. Native/hosted cells stay unverified until executed."
+    },
+    {
+      "id": "remaining-incremental-sync",
+      "action": "On an approved synthetic workspace, run all ten remaining collection sync modes with read-only/file-opt-out consent. Page contacts and a property-scoped collection, change/delete an owned record, and reject an incompatible filter or cursor. Compare the property-role complete set/version with its sync catalogue and continuation.",
+      "expect": "Record actual client/version and per-mode outcome. All16REST sync variants retain their own limits, live visibility and minimal tombstones. Role sync retains catalogue without a complete-set version; no offset pageSize is accepted. Metadata confers no file/write authority and write closure does not stop reads. Cells stay unverified until run."
     }
   ]
 }

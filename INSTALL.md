@@ -51,3 +51,5 @@ This source adds three observation-photo upload tools and the explicit finding-p
 The 0.3.10 candidate requests 16 scopes including inspections:write. Deploy a matching backend before distributing it; an older backend rejects the whole authorization with invalid_scope. Reconnect for fresh inspection-write consent; existing grants are not widened. Native inspection-lifecycle acceptance remains unverified.
 
 Core sync candidate0.3.17 requires the matching backend for the six core collection modes. No new OAuth scopes or reconnect are required for existing read grants. Exact cursor, tombstone and workflow-limit guidance is in the shared MCP contract. Native/hosted acceptance remains unverified; remaining collection sync modes are not claimed.
+
+Remaining collection sync candidate0.3.18 completes all16REST sync modes on the matching backend. No new scopes or reconnect are required for existing metadata grants. Property-role offset and sync envelopes differ; follow the shared contract. Hosted/native continuation, tombstone and authority acceptance remains unverified.

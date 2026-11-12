@@ -115,3 +115,7 @@ Deploy matching 95-tool/20-scope backend/migration before distribution, reconnec
 ## Core incremental synchronization (0.3.17 candidate)
 
 Requires the matching backend for six core collection sync modes. Existing read grants need no new scope or reconnect. Retain opaque nextCursor and original changedSince/target/includeDeleted until a final syncCheckpoint; do not silently reset progress. Follow the shared10pages/250rows workflow ceiling. Native/hosted cursor, deletion and reset acceptance remains unverified, as do earlier rollout gates.
+
+## Remaining collection synchronization (0.3.18 candidate)
+
+Requires the matching backend for all16REST collection sync modes, preserving role catalogue without an actionable sync set version. Existing read grants need no new scope or reconnect. Retain opaque nextCursor and original changedSince/target/includeDeleted until a final syncCheckpoint; do not silently reset progress. Follow the shared10pages/250rows workflow ceiling. Native/hosted cursor, deletion and reset acceptance remains unverified, as do earlier rollout gates.
