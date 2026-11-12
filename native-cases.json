@@ -159,7 +159,7 @@
     {
       "id": "inspection-answers",
       "action": "Using an approved synthetic inspection and existing inspections:read/write consent, record an explicit option answer, text and option annotation, clear each and inspect the actual results. Exercise nullable values, wrong question/mode, stale and independent question versions, exact retries after later edits, write-gate closure and quotas.",
-      "expect": "Three destructive tools use existing scope/write consent with no new OAuth/file permission. Strict option/text variants and current answer-v1 bind to inspection and question; output includes inspectionVersion. Blank/null normalize canonically, linked findings survive clear, and actual lifecycle reconciliation is reported without invented answers or unsupported completion claims. Native acceptance remains unverified."
+      "expect": "Three destructive tools use existing scope/write consent with no new OAuth/file permission. A flat strict input enforces exact option/text variants at runtime; current answer-v1 binds to inspection and question; output includes inspectionVersion. Blank/null normalize canonically, linked findings survive clear, and actual lifecycle reconciliation is reported without invented answers or unsupported completion claims. Native acceptance remains unverified."
     }
   ]
 }
