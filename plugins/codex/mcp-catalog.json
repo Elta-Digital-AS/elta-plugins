@@ -466,7 +466,7 @@
       "method": "DELETE",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
-      "file": true,
+      "file": false,
       "destructive": true
     },
     {
