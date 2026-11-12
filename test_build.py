@@ -29,6 +29,21 @@ class BuildTest(unittest.TestCase):
         shutil.copytree(ROOT, path, ignore=shutil.ignore_patterns('__pycache__', '.git', 'dist'))
         return path
 
+    def test_target_specific_uploads_require_a_nonempty_scope_alternative(self):
+        from build import load_catalog, catalog_digest
+        source=self.source()
+        catalog=json.loads((source/'mcp-catalog.json').read_text())
+        tool=next(t for t in catalog['tools'] if t['name']=='start_observation_photo_upload')
+        self.assertEqual(tool['scopes'],[])
+        self.assertIn('properties:write',tool['scopeAlternatives'])
+        policy=json.loads((source/'policy.json').read_text())
+        self.assertEqual(load_catalog(source,policy),catalog)
+        tool['scopeAlternatives']=[]
+        (source/'mcp-catalog.json').write_text(json.dumps(catalog))
+        policy['catalogSha256']=catalog_digest(catalog)
+        with self.assertRaisesRegex(ValueError,'PLUGIN_CATALOG_INVALID'):
+            load_catalog(source,policy)
+
     def test_archives_are_deterministic_and_contain_only_complete_packages(self):
         first = self.run_build('first')
         second = self.run_build('second')

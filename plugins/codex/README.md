@@ -67,3 +67,7 @@ The 0.3.3 candidate supports 1–20 photos of the same kind on one observation, 
 ## Finding photo management
 
 Version 0.3.5 requires a backend that exposes the three finding-photo management tools. It uses the existing photo read/write scopes and file/write consent; existing grants do not gain scopes through an update. Read the current observation version and choose specific photo IDs. Reorder uses the complete set of 1–100 finding IDs; null clears a caption. Removal cannot target remediation photos. Native acceptance and publication remain separate from package building.
+
+## Mixed upload and property covers (0.3.6 candidate)
+
+Deploy the matching backend and migration before distributing this package. The existing upload tool names now accept 1–50 files with per-item finding/remediation/propertyCover targets. A cover requires properties:read/write and its current prop-v1 version; remove_property_cover removes it under the same version/retry/removal rules as REST. Native sha256 is optional. Document/certificate kinds remain unavailable. Real client attachment arrays, response sizes, function duration and temporary storage capacity require acceptance before publication. This local build is not native or hosted proof.

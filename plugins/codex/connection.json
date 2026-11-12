@@ -1,5 +1,5 @@
 {
-  "version": "0.3.5",
+  "version": "0.3.6",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
@@ -19,5 +19,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; Story 9.60 backend rollout and native finding-photo management acceptance required; prior bulk native acceptance remains unverified"
+  "fullCatalogAcceptance": "blocked; Story9.61 backend/migration and real native 50-file mixed-target/cover acceptance required; prior native cases remain unverified"
 }

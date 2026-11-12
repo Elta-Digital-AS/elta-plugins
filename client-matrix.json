@@ -28,7 +28,8 @@
     "destructive-command",
     "workspace-binding",
     "photo-upload-and-read-back",
-    "finding-photo-management"
+    "finding-photo-management",
+    "mixed-upload-and-property-cover"
   ],
   "clients": [
     {
@@ -61,7 +62,8 @@
         "destructive-command": "unverified",
         "workspace-binding": "unverified",
         "photo-upload-and-read-back": "blocked",
-        "finding-photo-management": "unverified"
+        "finding-photo-management": "unverified",
+        "mixed-upload-and-property-cover": "unverified"
       },
       "tools": {
         "complete_observation_photo_upload": "blocked",
@@ -109,6 +111,7 @@
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
         "remove_observation_photo": "unverified",
+        "remove_property_cover": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
         "reorder_observation_photos": "unverified",
@@ -158,7 +161,8 @@
         "destructive-command": "unverified",
         "workspace-binding": "unverified",
         "photo-upload-and-read-back": "blocked",
-        "finding-photo-management": "unverified"
+        "finding-photo-management": "unverified",
+        "mixed-upload-and-property-cover": "unverified"
       },
       "tools": {
         "complete_observation_photo_upload": "blocked",
@@ -206,6 +210,7 @@
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
         "remove_observation_photo": "unverified",
+        "remove_property_cover": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
         "reorder_observation_photos": "unverified",
@@ -255,7 +260,8 @@
         "destructive-command": "unverified",
         "workspace-binding": "unverified",
         "photo-upload-and-read-back": "blocked",
-        "finding-photo-management": "unverified"
+        "finding-photo-management": "unverified",
+        "mixed-upload-and-property-cover": "unverified"
       },
       "tools": {
         "complete_observation_photo_upload": "blocked",
@@ -303,6 +309,7 @@
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
         "remove_observation_photo": "unverified",
+        "remove_property_cover": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
         "reorder_observation_photos": "unverified",
@@ -329,5 +336,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "88cfcca344edd39a38c66b3b7b478ae3b22bb69f413ea81cd3974f0103e48373"
+  "catalogSha256": "d255c270c30baa6b4667d7a9fc4b7aebe31a043ff544812f151338acab2ca669"
 }

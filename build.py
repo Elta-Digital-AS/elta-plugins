@@ -71,7 +71,7 @@ def load_catalog(source, policy):
                 or not isinstance(tool['name'], str) or not re.fullmatch(r'[a-z][a-z0-9_]+', tool['name']) or tool['name'] in names
                 or not isinstance(tool['operationId'], str) or not re.fullmatch(r'[a-z][A-Za-z0-9]+', tool['operationId'])
                 or any(type(tool[key]) is not bool for key in ['write', 'file', 'destructive'])
-                or not isinstance(tool['scopes'], list) or not tool['scopes'] or any(not isinstance(s, str) for s in tool['scopes'])
+                or not isinstance(tool['scopes'], list) or (not tool['scopes'] and not tool.get('scopeAlternatives')) or any(not isinstance(s, str) for s in tool['scopes'])
                 or len(tool['scopes']) != len(set(tool['scopes'])) or not set(tool['scopes']) <= set(scopes)
                 or tool.get('method') not in {'GET', 'POST', 'PATCH', 'DELETE', 'PUT'}
                 or tool['write'] != (tool['method'] != 'GET')

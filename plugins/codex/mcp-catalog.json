@@ -37,11 +37,15 @@
       "name": "complete_observation_photo_upload",
       "operationId": "completePhotoUploadBatch",
       "method": "POST",
-      "scopes": ["observations:read"],
-      "scopeAlternatives": ["observation-photos:write", "remediation:write"],
+      "scopes": [],
+      "scopeAlternatives": [
+        "observation-photos:write",
+        "properties:write",
+        "remediation:write"
+      ],
       "write": true,
       "file": false,
-      "destructive": false
+      "destructive": true
     },
     {
       "name": "create_property",
@@ -128,8 +132,12 @@
       "name": "get_observation_photo_upload",
       "operationId": "getPhotoUploadBatch",
       "method": "GET",
-      "scopes": ["observations:read"],
-      "scopeAlternatives": ["observation-photos:write", "remediation:write"],
+      "scopes": [],
+      "scopeAlternatives": [
+        "observation-photos:write",
+        "properties:write",
+        "remediation:write"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -453,6 +461,15 @@
       "destructive": true
     },
     {
+      "name": "remove_property_cover",
+      "operationId": "removePropertyCover",
+      "method": "DELETE",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": true,
+      "destructive": true
+    },
+    {
       "name": "remove_property_observation",
       "operationId": "removePropertyObservation",
       "method": "DELETE",
@@ -505,11 +522,15 @@
       "name": "start_observation_photo_upload",
       "operationId": "startPhotoUploadBatch",
       "method": "POST",
-      "scopes": ["observations:read"],
-      "scopeAlternatives": ["observation-photos:write", "remediation:write"],
+      "scopes": [],
+      "scopeAlternatives": [
+        "observation-photos:write",
+        "properties:write",
+        "remediation:write"
+      ],
       "write": true,
       "file": false,
-      "destructive": false
+      "destructive": true
     },
     {
       "name": "update_observation_completion_evidence",
