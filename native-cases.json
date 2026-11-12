@@ -163,8 +163,8 @@
     },
     {
       "id": "checklist-observations",
-      "action": "In an approved synthetic workspace with existing property/inspection/observation read-write scopes, create a supplied checklist finding with valid structured extensionValues, link up to100existing observations atomically, and unlink one. Exercise a mixed invalid list, wrong question/option, stale versions, exact retries after a later web edit/relink, authority loss and quota/rollback.",
-      "expect": "Three flat strict tools reuse the locked observation option and current answer-v1. Creation preserves canonical numbering/provenance/schema; link returns all1–100canonical outcomes and refuses the whole list on an invalid item. Unlink retains findings/annotation and never reapplies after relink. No new scope or file consent; do not invent data or claim completion. Native acceptance remains unverified."
+      "action": "In an approved synthetic workspace with existing property/inspection/observation read-write scopes, create a supplied checklist finding with valid structured extensionValues, link up to 100 existing observations atomically, and unlink one. Exercise a mixed invalid list, wrong question/option, stale versions, exact retries after a later web edit/relink, authority loss and quota/rollback.",
+      "expect": "Three flat strict tools reuse the locked observation option and current answer-v1. Creation preserves canonical numbering/provenance/schema; link returns all 1–100 canonical outcomes and refuses the whole list on an invalid item. Unlink retains findings/annotation and never reapplies after relink. No new scope or file consent; do not invent data or claim completion. Native acceptance remains unverified."
     }
   ]
 }
