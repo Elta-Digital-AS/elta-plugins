@@ -150,6 +150,11 @@
       "id": "property-role-management",
       "action": "In an approved synthetic workspace, read the full property role snapshot and assign, update and remove an ordinary recorded role with a linked acting-for company. Exercise set-version conflicts, exact retries, wrong-parent/foreign contacts, missing scope/live properties.write, collaborator and dynamically access-managed role refusals.",
       "expect": "Tool listing follows the token scopes and write-consent gate; calls additionally require live properties.write. With properties:read and contacts:read/write, three role tools can be listed without extra scope or file consent. Assign also requires roles-v1. Access-managed assignments never become an invitation/grant or an editable role. Native acceptance remains unverified."
+    },
+    {
+      "id": "inspection-lifecycle",
+      "action": "With fresh inspections:read/write consent in an approved synthetic workspace, use current create options, create, rename, complete and remove an inspection. Test blocked and ready completion, exact/changed retries, stale versions, foreign/wrong parents, gate/permission loss and deletion with linked findings.",
+      "expect": "Four tools use explicit write consent; existing grants gain no new scope. Opaque inspectorRef and a selectable checklistVersionId are required to create. Blocked completion is a normal validation_failed result with up to100issues plus issueCount/hasMore, never a completed claim or generic error. Do not invent answers. Removal retains observations/history. Native acceptance remains unverified."
     }
   ]
 }

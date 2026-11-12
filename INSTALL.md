@@ -47,3 +47,5 @@ The MIT license included with the package covers plugin materials only, not the 
 ## Photo attachment candidate (Story 9.58)
 
 This source adds three observation-photo upload tools and the explicit finding-photo write scope. Do not distribute it until the target advertises all fourteen scopes and the three tools. Reconnect with explicit photo/write consent for finding uploads; updating or refreshing the old thirteen-scope connection never adds that scope. The native matrix remains blocked until a real user-supplied file reaches a synthetic observation and is read back in each named client. Host-file mode also requires the operator to approve the actual attachment origin; local native files use only the tool-issued scoped PUT instruction. See the shared MCP contract for the exact start/complete/status sequence.
+
+The 0.3.10 candidate requests 16 scopes including inspections:write. Deploy a matching backend before distributing it; an older backend rejects the whole authorization with invalid_scope. Reconnect for fresh inspection-write consent; existing grants are not widened. Native inspection-lifecycle acceptance remains unverified.

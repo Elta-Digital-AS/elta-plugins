@@ -7,6 +7,7 @@
     "documents:read",
     "inspection-tools:read",
     "inspections:read",
+    "inspections:write",
     "observation-photos:read",
     "observation-photos:write",
     "observations:read",
@@ -24,6 +25,7 @@
     "documents:read": "read",
     "inspection-tools:read": "read",
     "inspections:read": "read",
+    "inspections:write": "write",
     "observation-photos:read": "read",
     "observation-photos:write": "write",
     "observations:read": "read",
@@ -54,6 +56,15 @@
         "properties:write",
         "remediation:write"
       ],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "complete_property_inspection",
+      "operationId": "completePropertyInspection",
+      "method": "POST",
+      "scopes": ["inspections:read", "inspections:write"],
       "write": true,
       "file": false,
       "destructive": true
@@ -90,6 +101,15 @@
       "operationId": "createProperty",
       "method": "POST",
       "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "create_property_inspection",
+      "operationId": "createPropertyInspection",
+      "method": "POST",
+      "scopes": ["inspections:read", "inspections:write"],
       "write": true,
       "file": false,
       "destructive": false
@@ -544,6 +564,15 @@
       "destructive": true
     },
     {
+      "name": "remove_property_inspection",
+      "operationId": "removePropertyInspection",
+      "method": "DELETE",
+      "scopes": ["inspections:read", "inspections:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "remove_property_observation",
       "operationId": "removePropertyObservation",
       "method": "DELETE",
@@ -566,6 +595,15 @@
       "operationId": "removePropertyRole",
       "method": "DELETE",
       "scopes": ["contacts:read", "contacts:write", "properties:read"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
+      "name": "rename_property_inspection",
+      "operationId": "renamePropertyInspection",
+      "method": "PATCH",
+      "scopes": ["inspections:read", "inspections:write"],
       "write": true,
       "file": false,
       "destructive": true

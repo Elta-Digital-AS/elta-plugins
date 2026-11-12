@@ -83,3 +83,7 @@ Requires the matching backend with all 15 catalog scopes and six contact mutatio
 ## Property role tools (0.3.9 candidate)
 
 Requires the matching backend with three ordinary property contact-role tools and existing property-read/contact-read-write consent. No new scope beyond the 15-scope catalogue is introduced. Access-granting roles remain web administration. Native protected-role, set-version and acting-for-company acceptance is required before publication; earlier rollout gates remain open.
+
+## Inspection lifecycle (0.3.10 candidate)
+
+Requires the matching 16-scope backend advertising inspections:write before distribution. Older deployments refuse the entire OAuth request. Fresh consent is required; existing grants gain no scope. Native blocked/ready completion, version/retry, removal and permission acceptance remains unverified.

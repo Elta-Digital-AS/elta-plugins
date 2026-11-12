@@ -32,7 +32,8 @@
     "mixed-upload-and-property-cover",
     "placement-template-management",
     "contact-management",
-    "property-role-management"
+    "property-role-management",
+    "inspection-lifecycle"
   ],
   "clients": [
     {
@@ -69,15 +70,18 @@
         "mixed-upload-and-property-cover": "unverified",
         "placement-template-management": "unverified",
         "contact-management": "unverified",
-        "property-role-management": "unverified"
+        "property-role-management": "unverified",
+        "inspection-lifecycle": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
         "complete_observation_photo_upload": "blocked",
+        "complete_property_inspection": "unverified",
         "create_company": "unverified",
         "create_person": "unverified",
         "create_placement_template": "unverified",
         "create_property": "blocked",
+        "create_property_inspection": "unverified",
         "create_property_observation": "blocked",
         "create_property_placement": "blocked",
         "duplicate_placement_template": "unverified",
@@ -126,9 +130,11 @@
         "remove_person": "unverified",
         "remove_placement_template": "unverified",
         "remove_property_cover": "unverified",
+        "remove_property_inspection": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
         "remove_property_role": "unverified",
+        "rename_property_inspection": "unverified",
         "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
@@ -185,15 +191,18 @@
         "mixed-upload-and-property-cover": "unverified",
         "placement-template-management": "unverified",
         "contact-management": "unverified",
-        "property-role-management": "unverified"
+        "property-role-management": "unverified",
+        "inspection-lifecycle": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
         "complete_observation_photo_upload": "blocked",
+        "complete_property_inspection": "unverified",
         "create_company": "unverified",
         "create_person": "unverified",
         "create_placement_template": "unverified",
         "create_property": "blocked",
+        "create_property_inspection": "unverified",
         "create_property_observation": "blocked",
         "create_property_placement": "blocked",
         "duplicate_placement_template": "unverified",
@@ -242,9 +251,11 @@
         "remove_person": "unverified",
         "remove_placement_template": "unverified",
         "remove_property_cover": "unverified",
+        "remove_property_inspection": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
         "remove_property_role": "unverified",
+        "rename_property_inspection": "unverified",
         "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
@@ -301,15 +312,18 @@
         "mixed-upload-and-property-cover": "unverified",
         "placement-template-management": "unverified",
         "contact-management": "unverified",
-        "property-role-management": "unverified"
+        "property-role-management": "unverified",
+        "inspection-lifecycle": "unverified"
       },
       "tools": {
         "assign_property_role": "unverified",
         "complete_observation_photo_upload": "blocked",
+        "complete_property_inspection": "unverified",
         "create_company": "unverified",
         "create_person": "unverified",
         "create_placement_template": "unverified",
         "create_property": "blocked",
+        "create_property_inspection": "unverified",
         "create_property_observation": "blocked",
         "create_property_placement": "blocked",
         "duplicate_placement_template": "unverified",
@@ -358,9 +372,11 @@
         "remove_person": "unverified",
         "remove_placement_template": "unverified",
         "remove_property_cover": "unverified",
+        "remove_property_inspection": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
         "remove_property_role": "unverified",
+        "rename_property_inspection": "unverified",
         "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "save_placement_template_from_property": "unverified",
@@ -390,5 +406,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "07ff6ae25c587ca8f87b031a8f889da220c66f48972214054cf83c98c6fac741"
+  "catalogSha256": "fdaab6646657e69f39ccdc3772dc9a7da114af1c40d1176f411d5f4f3f27ff0d"
 }
