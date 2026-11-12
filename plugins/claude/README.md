@@ -111,3 +111,7 @@ Deploy the matching 91-tool/19-scope backend and migration first. Reconnect with
 ## Certificates (0.3.16 candidate)
 
 Deploy matching 95-tool/20-scope backend/migration before distribution, reconnect for certificates:read/write. Native 20 MiB/host 10 MiB limits, managed holders, lifecycle and six-kind mixed outcomes need native acceptance. Every client cell remains unverified.
+
+## Core incremental synchronization (0.3.17 candidate)
+
+Requires the matching backend for six core collection sync modes. Existing read grants need no new scope or reconnect. Retain opaque nextCursor and original changedSince/target/includeDeleted until a final syncCheckpoint; do not silently reset progress. Follow the shared10pages/250rows workflow ceiling. Native/hosted cursor, deletion and reset acceptance remains unverified, as do earlier rollout gates.

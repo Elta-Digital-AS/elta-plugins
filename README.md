@@ -2,7 +2,7 @@
 
 ## Install from the Elta marketplace
 
-The native **0.3.16 candidate** is packaged under `plugins/claude`
+The native **0.3.17 candidate** is packaged under `plugins/claude`
 and `plugins/codex`, with marketplace catalogs for both clients. See
 [installation, OAuth and update commands](MARKETPLACE-INSTALL.md).
 
@@ -81,3 +81,5 @@ Directory submission, live registration changes, customer rollout and backend de
 - [Claude plugin structure](https://code.claude.com/docs/en/plugins-reference)
 
 [Privacy policy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact)
+
+Core sync candidate0.3.17 requires the matching backend for the six core collection modes. No new OAuth scopes or reconnect are required for existing read grants. Exact cursor, tombstone and workflow-limit guidance is in the shared MCP contract. Native/hosted acceptance remains unverified; remaining collection sync modes are not claimed.

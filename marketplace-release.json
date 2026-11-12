@@ -1,5 +1,5 @@
 {
-  "version": "0.3.16",
+  "version": "0.3.17",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
@@ -25,5 +25,5 @@
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; matching 95-tool/20-scope backend, fresh certificate-write consent, native20MiB and all-six mixed-source acceptance required; prior gates remain unverified"
+  "fullCatalogAcceptance": "blocked; six core sync modes require matching backend and native cursor/tombstone acceptance; remaining collection sync and prior hosted/native gates stay unverified"
 }

@@ -39,7 +39,8 @@
     "remediation-cost-writes",
     "property-document-writes",
     "measuring-equipment-writes",
-    "certificate-writes-and-scans"
+    "certificate-writes-and-scans",
+    "core-incremental-sync"
   ],
   "clients": [
     {
@@ -83,7 +84,8 @@
         "remediation-cost-writes": "unverified",
         "property-document-writes": "unverified",
         "measuring-equipment-writes": "unverified",
-        "certificate-writes-and-scans": "unverified"
+        "certificate-writes-and-scans": "unverified",
+        "core-incremental-sync": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
@@ -226,7 +228,8 @@
         "remediation-cost-writes": "unverified",
         "property-document-writes": "unverified",
         "measuring-equipment-writes": "unverified",
-        "certificate-writes-and-scans": "unverified"
+        "certificate-writes-and-scans": "unverified",
+        "core-incremental-sync": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
@@ -369,7 +372,8 @@
         "remediation-cost-writes": "unverified",
         "property-document-writes": "unverified",
         "measuring-equipment-writes": "unverified",
-        "certificate-writes-and-scans": "unverified"
+        "certificate-writes-and-scans": "unverified",
+        "core-incremental-sync": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
