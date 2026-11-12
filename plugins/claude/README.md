@@ -103,3 +103,7 @@ Deploy the matching 86-tool/17-scope backend before distribution. Existing conne
 ## Property documents (0.3.14 candidate)
 
 Deploy the matching 88-tool/18-scope backend and migration first; reconnect with documents:read/write. Native documents support 100 MiB/TUS, host sources 10 MiB per file. Native clients, hosted capacity, mixed-source handoff and all document lifecycle cells remain unverified.
+
+## Measuring equipment (0.3.15 candidate)
+
+Deploy the matching 91-tool/19-scope backend and migration first. Reconnect with inspection-tools:read/write. Shared equipment metadata, duplicate-serial advice, references, quota and retries need native acceptance; all client cells remain unverified.

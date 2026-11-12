@@ -9,6 +9,7 @@
         "documents:read",
         "documents:write",
         "inspection-tools:read",
+        "inspection-tools:write",
         "inspections:read",
         "inspections:write",
         "observation-photos:read",

@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://sta.elta.no/api/mcp",
       "oauth": {
-        "scopes": "certificates:read contacts:read contacts:write documents:read documents:write inspection-tools:read inspections:read inspections:write observation-photos:read observation-photos:write observations:read observations:write properties:read properties:write remediation-costs:read remediation-costs:write remediation:write reports:read"
+        "scopes": "certificates:read contacts:read contacts:write documents:read documents:write inspection-tools:read inspection-tools:write inspections:read inspections:write observation-photos:read observation-photos:write observations:read observations:write properties:read properties:write remediation-costs:read remediation-costs:write remediation:write reports:read"
       }
     }
   }
