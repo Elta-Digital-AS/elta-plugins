@@ -75,3 +75,7 @@ Deploy the matching backend and migration before distributing this package. The 
 ## Placement template tools (0.3.7 candidate)
 
 Requires the matching backend with five template mutation tools and current property read/write consent. No new OAuth scope or file consent is needed for template mutations. Native full-tree and maximum response acceptance remain required before publication.
+
+## Contact tools (0.3.8 candidate)
+
+Requires the matching backend with all 15 catalog scopes and six contact mutation tools. Existing connections gain no contacts:write scope; reconnect with explicit contact-write consent. Native permission, full-replacement and cleanup-confirmation acceptance remains required before publication. Do not distribute this full-scope package against a deployment missing any requested scope, because OAuth rejects the entire request.

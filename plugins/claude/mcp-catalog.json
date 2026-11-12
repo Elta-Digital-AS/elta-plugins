@@ -3,6 +3,7 @@
   "scopes": [
     "certificates:read",
     "contacts:read",
+    "contacts:write",
     "documents:read",
     "inspection-tools:read",
     "inspections:read",
@@ -19,6 +20,7 @@
   "scopeClasses": {
     "certificates:read": "read",
     "contacts:read": "read",
+    "contacts:write": "write",
     "documents:read": "read",
     "inspection-tools:read": "read",
     "inspections:read": "read",
@@ -46,6 +48,24 @@
       "write": true,
       "file": false,
       "destructive": true
+    },
+    {
+      "name": "create_company",
+      "operationId": "createCompany",
+      "method": "POST",
+      "scopes": ["contacts:read", "contacts:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "create_person",
+      "operationId": "createPerson",
+      "method": "POST",
+      "scopes": ["contacts:read", "contacts:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
     },
     {
       "name": "create_placement_template",
@@ -466,6 +486,15 @@
       "destructive": true
     },
     {
+      "name": "remove_company",
+      "operationId": "removeCompany",
+      "method": "DELETE",
+      "scopes": ["contacts:read", "contacts:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "remove_observation_photo",
       "operationId": "removeObservationPhoto",
       "method": "DELETE",
@@ -476,6 +505,15 @@
       ],
       "write": true,
       "file": true,
+      "destructive": true
+    },
+    {
+      "name": "remove_person",
+      "operationId": "removePerson",
+      "method": "DELETE",
+      "scopes": ["contacts:read", "contacts:write"],
+      "write": true,
+      "file": false,
       "destructive": true
     },
     {
@@ -569,6 +607,15 @@
       "destructive": true
     },
     {
+      "name": "update_company",
+      "operationId": "updateCompany",
+      "method": "PUT",
+      "scopes": ["contacts:read", "contacts:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "update_observation_completion_evidence",
       "operationId": "updateObservationCompletionEvidence",
       "method": "PATCH",
@@ -606,6 +653,15 @@
       ],
       "write": true,
       "file": true,
+      "destructive": true
+    },
+    {
+      "name": "update_person",
+      "operationId": "updatePerson",
+      "method": "PUT",
+      "scopes": ["contacts:read", "contacts:write"],
+      "write": true,
+      "file": false,
       "destructive": true
     },
     {

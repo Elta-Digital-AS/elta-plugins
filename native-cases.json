@@ -140,6 +140,11 @@
       "id": "placement-template-management",
       "action": "In an approved synthetic workspace, create/update/duplicate a template, save a property tree and remove a chosen custom template. Exercise stale versions, standard-template mutation refusal, missing permission, exact retry and the tree with 500 nodes stored-template response.",
       "expect": "Five explicit tools appear with properties read/write and write consent; file consent is unnecessary. Retain version/key identity and complete trees. Standard templates can be copied but not edited/removed. Record actual host handling of the bounded 2 MiB maximum tree response; HTTP input retains the 256 KiB JSON-RPC request bound. Native acceptance is unverified until executed."
+    },
+    {
+      "id": "contact-management",
+      "action": "In an approved synthetic workspace, reconnect with explicit contacts:read/write consent and exercise person/company creation, full 0–100 link replacement and removal. Test read-only/old grants, protected member/self contacts, stale versions, exact retries and a property assignment requiring cleanup confirmation.",
+      "expect": "All six contact tools appear under the E switch and write consent, without file consent. Existing connections do not gain contacts:write. Ask the customer before confirmPropertyActorCleanup, retain version/key identity and safe field errors; foreign/protected targets do not mutate. Full native acceptance remains unverified."
     }
   ]
 }
