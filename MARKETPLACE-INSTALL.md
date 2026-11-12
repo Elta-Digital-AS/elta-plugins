@@ -71,3 +71,7 @@ Version 0.3.5 requires a backend that exposes the three finding-photo management
 ## Mixed upload and property covers (0.3.6 candidate)
 
 Deploy the matching backend and migration before distributing this package. The existing upload tool names now accept 1–50 files with per-item finding/remediation/propertyCover targets. A cover requires properties:read/write and its current prop-v1 version; remove_property_cover removes it under the same version/retry/removal rules as REST. Native sha256 is optional. Document/certificate kinds remain unavailable. Real client attachment arrays, response sizes, function duration and temporary storage capacity require acceptance before publication. This local build is not native or hosted proof.
+
+## Placement template tools (0.3.7 candidate)
+
+Requires the matching backend with five template mutation tools and current property read/write consent. No new OAuth scope or file consent is needed for template mutations. Native full-tree and maximum response acceptance remain required before publication.

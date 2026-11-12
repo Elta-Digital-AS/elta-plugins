@@ -48,6 +48,15 @@
       "destructive": true
     },
     {
+      "name": "create_placement_template",
+      "operationId": "createPlacementTemplate",
+      "method": "POST",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
       "name": "create_property",
       "operationId": "createProperty",
       "method": "POST",
@@ -68,6 +77,15 @@
     {
       "name": "create_property_placement",
       "operationId": "createPropertyPlacement",
+      "method": "POST",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
+    },
+    {
+      "name": "duplicate_placement_template",
+      "operationId": "duplicatePlacementTemplate",
       "method": "POST",
       "scopes": ["properties:read", "properties:write"],
       "write": true,
@@ -461,6 +479,15 @@
       "destructive": true
     },
     {
+      "name": "remove_placement_template",
+      "operationId": "removePlacementTemplate",
+      "method": "DELETE",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": true
+    },
+    {
       "name": "remove_property_cover",
       "operationId": "removePropertyCover",
       "method": "DELETE",
@@ -508,6 +535,15 @@
       "write": true,
       "file": false,
       "destructive": true
+    },
+    {
+      "name": "save_placement_template_from_property",
+      "operationId": "savePlacementTemplateFromProperty",
+      "method": "POST",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
+      "destructive": false
     },
     {
       "name": "search_observation_suggestions",
@@ -570,6 +606,15 @@
       ],
       "write": true,
       "file": true,
+      "destructive": true
+    },
+    {
+      "name": "update_placement_template",
+      "operationId": "updatePlacementTemplate",
+      "method": "PATCH",
+      "scopes": ["properties:read", "properties:write"],
+      "write": true,
+      "file": false,
       "destructive": true
     },
     {

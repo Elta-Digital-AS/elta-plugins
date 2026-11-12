@@ -135,6 +135,11 @@
       "id": "mixed-upload-and-property-cover",
       "action": "Using synthetic fixtures in the chosen native client, upload mixed finding/remediation photos and a property cover to independent targets, including a 50-file batch. Test cover-only consent, stale cover version, replacement/removal/replay and a per-item refusal.",
       "expect": "Discover 61 tools when fully authorized; hand every host file reference to its corresponding target. Native declarations may omit sha256. Confirm ready/resourceId and read back each requested cover. Preserve order, per-item failures, versions and keys; record candidate/client version and transport limits. Cover removal must remain discoverable with properties read/write and write consent alone (no file consent); cover reads still require file consent. Replacement batches use ordinary per-command charges, while explicit removal uses the separate removal budget."
+    },
+    {
+      "id": "placement-template-management",
+      "action": "In an approved synthetic workspace, create/update/duplicate a template, save a property tree and remove a chosen custom template. Exercise stale versions, standard-template mutation refusal, missing permission, exact retry and the500-node stored-template response.",
+      "expect": "Five explicit tools appear with properties read/write and write consent; file consent is unnecessary. Retain version/key identity and complete trees. Standard templates can be copied but not edited/removed. Record actual host handling of the bounded2MiB maximum tree response; HTTP input retains the256KiB JSON-RPC request bound. Native acceptance is unverified until executed."
     }
   ]
 }
