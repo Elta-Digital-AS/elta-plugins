@@ -125,6 +125,11 @@
       "id": "photo-upload-and-read-back",
       "action": "In the real named client, attach one user-supplied synthetic photo to the selected owned observation using the supported host or native byte handoff; retry the same content/key, exercise refused/expired inputs and a failed worker.",
       "expect": "Record host/version and actual handoff. Only ready plus resourceId confirms attachment; read that photo back. No duplicate photo or command debit, no foreign/old-consent authority and no leaked source or upload URLs."
+    },
+    {
+      "id": "finding-photo-management",
+      "action": "In an approved synthetic workspace, caption/clear a finding photo, reorder the complete finding-photo set, remove the specifically selected photo and retry the same command. Also test stale version, denied write authority and a remediation-photo refusal.",
+      "expect": "Discover all three tools only with the required scopes/consents. Preserve the observation version and idempotency key; report only actual committed results. Do not infer last-uploaded identity from display position or filename. Record the native surface/version and exact candidate."
     }
   ]
 }

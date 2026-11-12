@@ -1,6 +1,6 @@
 # Elta for Claude Code and Codex
 
-Version 0.3.4 adds the Elta logo to both native packages for the full reviewed customer MCP catalog at `https://sta.elta.no/api/mcp`.
+Version 0.3.5 adds finding-photo caption, order and removal tools to both native packages for the full reviewed customer MCP catalog at `https://sta.elta.no/api/mcp`.
 Its requested scopes are listed in `connection.json`. The full catalog snapshot
 also describes tools from later deployments; discovery and your consent decide
 which tools are available. File delivery and write workflows require their independent consent and open gates.
@@ -63,3 +63,7 @@ directories. Installation validation does not prove a signed-in tool workflow.
 ## Observation-photo batches
 
 The 0.3.3 candidate supports 1–20 photos of the same kind on one observation, using the existing fourteen scopes. Distribute only after the live start tool advertises `files` and `declarations` and the bulk migration is deployed. Existing grants that include the appropriate photo/remediation write scope need no scope upgrade for batching. Keep 0.3.2 single-photo inputs on older backends. Match native files to issued capabilities in order; complete once and check each file's ready/resourceId or failure independently. Native multi-file handoff remains unverified until exercised with synthetic photos in that client.
+
+## Finding photo management
+
+Version 0.3.5 requires a backend that exposes the three finding-photo management tools. It uses the existing photo read/write scopes and file/write consent; existing grants do not gain scopes through an update. Read the current observation version and choose specific photo IDs. Reorder uses the complete set of 1–100 finding IDs; null clears a caption. Removal cannot target remediation photos. Native acceptance and publication remain separate from package building.

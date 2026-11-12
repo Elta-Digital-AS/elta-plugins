@@ -27,7 +27,8 @@
     "write-retry-and-conflict",
     "destructive-command",
     "workspace-binding",
-    "photo-upload-and-read-back"
+    "photo-upload-and-read-back",
+    "finding-photo-management"
   ],
   "clients": [
     {
@@ -59,9 +60,11 @@
         "write-retry-and-conflict": "unverified",
         "destructive-command": "unverified",
         "workspace-binding": "unverified",
-        "photo-upload-and-read-back": "blocked"
+        "photo-upload-and-read-back": "blocked",
+        "finding-photo-management": "unverified"
       },
       "tools": {
+        "complete_observation_photo_upload": "blocked",
         "create_property": "blocked",
         "create_property_observation": "blocked",
         "create_property_placement": "blocked",
@@ -71,6 +74,7 @@
         "get_company": "unverified",
         "get_inspection_create_options": "unverified",
         "get_observation_photo": "blocked",
+        "get_observation_photo_upload": "blocked",
         "get_observation_remediation_cost": "unverified",
         "get_person": "unverified",
         "get_placement_template": "unverified",
@@ -104,21 +108,22 @@
         "list_property_reports": "unverified",
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
+        "remove_observation_photo": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
+        "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "search_observation_suggestions": "unverified",
+        "start_observation_photo_upload": "blocked",
         "update_observation_completion_evidence": "blocked",
         "update_observation_evidence_requirement": "blocked",
         "update_observation_legacy_evidence": "blocked",
+        "update_observation_photo_caption": "unverified",
         "update_property": "blocked",
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
-        "update_property_status": "blocked",
-        "complete_observation_photo_upload": "blocked",
-        "get_observation_photo_upload": "blocked",
-        "start_observation_photo_upload": "blocked"
+        "update_property_status": "blocked"
       },
       "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
       "testedConnection": null
@@ -152,9 +157,11 @@
         "write-retry-and-conflict": "unverified",
         "destructive-command": "unverified",
         "workspace-binding": "unverified",
-        "photo-upload-and-read-back": "blocked"
+        "photo-upload-and-read-back": "blocked",
+        "finding-photo-management": "unverified"
       },
       "tools": {
+        "complete_observation_photo_upload": "blocked",
         "create_property": "blocked",
         "create_property_observation": "blocked",
         "create_property_placement": "blocked",
@@ -164,6 +171,7 @@
         "get_company": "unverified",
         "get_inspection_create_options": "unverified",
         "get_observation_photo": "blocked",
+        "get_observation_photo_upload": "blocked",
         "get_observation_remediation_cost": "unverified",
         "get_person": "unverified",
         "get_placement_template": "unverified",
@@ -197,21 +205,22 @@
         "list_property_reports": "unverified",
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
+        "remove_observation_photo": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
+        "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "search_observation_suggestions": "unverified",
+        "start_observation_photo_upload": "blocked",
         "update_observation_completion_evidence": "blocked",
         "update_observation_evidence_requirement": "blocked",
         "update_observation_legacy_evidence": "blocked",
+        "update_observation_photo_caption": "unverified",
         "update_property": "blocked",
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
-        "update_property_status": "blocked",
-        "complete_observation_photo_upload": "blocked",
-        "get_observation_photo_upload": "blocked",
-        "start_observation_photo_upload": "blocked"
+        "update_property_status": "blocked"
       },
       "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
       "testedConnection": null
@@ -245,9 +254,11 @@
         "write-retry-and-conflict": "unverified",
         "destructive-command": "unverified",
         "workspace-binding": "unverified",
-        "photo-upload-and-read-back": "blocked"
+        "photo-upload-and-read-back": "blocked",
+        "finding-photo-management": "unverified"
       },
       "tools": {
+        "complete_observation_photo_upload": "blocked",
         "create_property": "blocked",
         "create_property_observation": "blocked",
         "create_property_placement": "blocked",
@@ -257,6 +268,7 @@
         "get_company": "unverified",
         "get_inspection_create_options": "unverified",
         "get_observation_photo": "blocked",
+        "get_observation_photo_upload": "blocked",
         "get_observation_remediation_cost": "unverified",
         "get_person": "unverified",
         "get_placement_template": "unverified",
@@ -290,21 +302,22 @@
         "list_property_reports": "unverified",
         "list_report_pdf_generations": "unverified",
         "move_property_placement": "blocked",
+        "remove_observation_photo": "unverified",
         "remove_property_observation": "blocked",
         "remove_property_placement": "blocked",
+        "reorder_observation_photos": "unverified",
         "reorder_property_placements": "blocked",
         "search_observation_suggestions": "unverified",
+        "start_observation_photo_upload": "blocked",
         "update_observation_completion_evidence": "blocked",
         "update_observation_evidence_requirement": "blocked",
         "update_observation_legacy_evidence": "blocked",
+        "update_observation_photo_caption": "unverified",
         "update_property": "blocked",
         "update_property_observation": "blocked",
         "update_property_observation_status": "blocked",
         "update_property_placement": "blocked",
-        "update_property_status": "blocked",
-        "complete_observation_photo_upload": "blocked",
-        "get_observation_photo_upload": "blocked",
-        "start_observation_photo_upload": "blocked"
+        "update_property_status": "blocked"
       },
       "blocker": "Story 9.58 photo-upload scope and tools are not deployed; native attachment and processing/read-back acceptance remains unverified.",
       "testedConnection": null
@@ -316,5 +329,5 @@
     "The staging endpoint will later move to the production domain.",
     "Independent workspace connections require the corresponding Elta server update and native-client verification."
   ],
-  "catalogSha256": "71f3b24a82ce05ca2802c0dd02038df85744c8d2e44aac35fbd14fa75b235ca9"
+  "catalogSha256": "88cfcca344edd39a38c66b3b7b478ae3b22bb69f413ea81cd3974f0103e48373"
 }

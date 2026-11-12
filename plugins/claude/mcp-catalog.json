@@ -440,6 +440,19 @@
       "destructive": true
     },
     {
+      "name": "remove_observation_photo",
+      "operationId": "removeObservationPhoto",
+      "method": "DELETE",
+      "scopes": [
+        "observation-photos:read",
+        "observation-photos:write",
+        "observations:read"
+      ],
+      "write": true,
+      "file": true,
+      "destructive": true
+    },
+    {
       "name": "remove_property_observation",
       "operationId": "removePropertyObservation",
       "method": "DELETE",
@@ -455,6 +468,19 @@
       "scopes": ["properties:read", "properties:write"],
       "write": true,
       "file": false,
+      "destructive": true
+    },
+    {
+      "name": "reorder_observation_photos",
+      "operationId": "reorderObservationPhotos",
+      "method": "PUT",
+      "scopes": [
+        "observation-photos:read",
+        "observation-photos:write",
+        "observations:read"
+      ],
+      "write": true,
+      "file": true,
       "destructive": true
     },
     {
@@ -510,6 +536,19 @@
       "scopes": ["observations:read", "properties:read", "remediation:write"],
       "write": true,
       "file": false,
+      "destructive": true
+    },
+    {
+      "name": "update_observation_photo_caption",
+      "operationId": "updateObservationPhotoCaption",
+      "method": "PATCH",
+      "scopes": [
+        "observation-photos:read",
+        "observation-photos:write",
+        "observations:read"
+      ],
+      "write": true,
+      "file": true,
       "destructive": true
     },
     {
