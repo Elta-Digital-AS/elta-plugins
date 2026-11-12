@@ -149,7 +149,7 @@
     {
       "id": "property-role-management",
       "action": "In an approved synthetic workspace, read the full property role snapshot and assign, update and remove an ordinary recorded role with a linked acting-for company. Exercise set-version conflicts, exact retries, wrong-parent/foreign contacts, missing scope/live properties.write, collaborator and dynamically access-managed role refusals.",
-      "expect": "Three tools appear with properties:read and contacts:read/write plus live properties.write and existing write consent; no additional scope or file consent. Assign also requires roles-v1. Access-managed assignments never become an invitation/grant or an editable role. Native acceptance remains unverified."
+      "expect": "Tool listing follows the token scopes and write-consent gate; calls additionally require live properties.write. With properties:read and contacts:read/write, three role tools can be listed without extra scope or file consent. Assign also requires roles-v1. Access-managed assignments never become an invitation/grant or an editable role. Native acceptance remains unverified."
     }
   ]
 }
