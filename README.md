@@ -64,11 +64,43 @@ Before distribution, run [native-cases.json](native-cases.json) using approved s
 
 The application-side MCP tests compare the application mirror of this snapshot with the real released registry. Application CI separately checks out a pinned public source commit and compares all distributable files with that mirror. Publish the matching public commit before running application CI; a coordinated source change cannot pass against an older pin. The public repository needs no access to private application files.
 
-Application maintainers export the registry with `pnpm --filter @elta/customer-mcp --silent catalog:export`, copy the resulting JSON to this repository's `mcp-catalog.json`, and update the matrix alongside it. Recompute the policy's `catalogSha256` with the command below. Pin the reviewed public source commit in application CI after publishing it.
+Application maintainers use one local command from the application checkout:
 
 ```sh
-python3 -c 'import json; from build import catalog_digest; print(catalog_digest(json.load(open("mcp-catalog.json"))))'
+pnpm plugins:prepare --source /absolute/path/to/elta-plugins
+pnpm plugins:prepare --source /absolute/path/to/elta-plugins --check
 ```
+
+The command exports the live catalog and updates its digest, full-catalog scope
+request, application mirror and both checked-in native trees. It validates the
+candidate before writing. Check mode reports drift without writing either checkout;
+the required application CI runs the same check against an immutable public commit.
+No login, push, version bump, registration or publication is performed.
+
+The public checkout owns authored skills, installation text, release choices and
+acceptance records. The application mirror is derived; edit authored material here
+and prepare it again. The registered-app builder and native builder share
+`plugin_common.py`, while their manifest formats and compression settings remain
+separate. Both continue to accept only unused output directories.
+
+When catalog metadata or the target changes, preparation preserves the exact prior
+matrix and release record under `acceptance-history/`, named by their content digests. It retains the old
+catalog digest, connection, dates and evidence there, and resets current tool and
+workflow cells to `unverified`. An unchanged catalog preserves the current matrix
+verbatim. New evidence is recorded manually after real-client checks; preparation
+never generates a pass. A catalog cannot detect a server behavior or workflow-only
+change: maintainers must invalidate affected evidence explicitly in those cases.
+
+For standalone work with an already exported catalog:
+
+```sh
+python3 -B prepare.py --catalog /absolute/exported/mcp-catalog.json \
+  --mirror /absolute/app/packages/customer-plugins --check
+```
+
+Review and commit the public candidate, then pin its full commit in application CI.
+Publish that public commit before remote application CI can fetch it. Local
+preparation and local commits do not publish anything.
 
 Directory submission, live registration changes, customer rollout and backend deployment remain separate actions. Do not commit credentials, tokens, private registration records, environment files or customer evidence.
 

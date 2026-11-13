@@ -1,13 +1,12 @@
 """Build native Claude/Codex marketplaces. No network, login or publication."""
 import argparse
-import hashlib
 import json
 from pathlib import Path
 import re
 import tempfile
-import zipfile
 
-from build import ROOT, SECRET, json_bytes, load_catalog, read_source, target_url
+from plugin_common import (ROOT, SECRET, json_bytes, load_catalog, read_source,
+                           target_url, write_archive)
 
 
 def build_marketplaces(output, source=ROOT):
@@ -88,16 +87,9 @@ def build_marketplaces(output, source=ROOT):
     for platform in packages:
         archive = output / f"elta-{platform}-{release['version']}.zip"
         prefix = f'plugins/{platform}/'
-        with zipfile.ZipFile(archive, 'x', compression=zipfile.ZIP_DEFLATED) as bundle:
-            for name, data in sorted(files.items()):
-                if not name.startswith(prefix):
-                    continue
-                entry = zipfile.ZipInfo(name.removeprefix(prefix), date_time=(2000, 1, 1, 0, 0, 0))
-                entry.create_system = 3
-                entry.external_attr = 0o100644 << 16
-                entry.compress_type = zipfile.ZIP_DEFLATED
-                bundle.writestr(entry, data)
-        archives.append({'file': archive.name, 'sha256': hashlib.sha256(archive.read_bytes()).hexdigest()})
+        digest = write_archive(archive, {name.removeprefix(prefix): data
+            for name, data in files.items() if name.startswith(prefix)})
+        archives.append({'file': archive.name, 'sha256': digest})
     (output / 'artifacts.json').write_bytes(json_bytes({'version': release['version'], 'archives': archives}))
     return archives
 
