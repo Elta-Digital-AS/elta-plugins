@@ -44,6 +44,7 @@ def tree(root, name):
 def reconciled_matrix(raw, old_catalog, catalog, resource):
     matrix = json.loads(raw)
     old_digest = catalog_digest(old_catalog)
+    digest = catalog_digest(catalog)
     # Validate the complete old record before preserving or invalidating it.
     # Connections are evidence, not new registration inputs.
     if not isinstance(matrix, dict) or not isinstance(matrix.get('clients'), list):
@@ -53,9 +54,13 @@ def reconciled_matrix(raw, old_catalog, catalog, resource):
     with tempfile.TemporaryDirectory() as scratch:
         source = Path(scratch)
         (source / 'client-matrix.json').write_bytes(raw)
-        load_matrix(source, old_catalog, {'catalogSha256': old_digest}, matrix.get('target'), connections)
-    digest = catalog_digest(catalog)
-    if old_digest == digest and matrix['target'] == resource:
+        # The matrix is written before the catalog. A retry may therefore see
+        # an already-prepared matrix beside the previous catalog. Validate it
+        # against the matching candidate, not against stale metadata.
+        prepared = matrix.get('catalogSha256') == digest
+        load_matrix(source, catalog if prepared else old_catalog,
+                    {'catalogSha256': digest if prepared else old_digest}, matrix.get('target'), connections)
+    if matrix['catalogSha256'] == digest and matrix['target'] == resource:
         return raw, {}
     # A metadata change cannot prove workflow compatibility. Keep the exact old
     # bytes (including failures/blockers/evidence/connection) with their digest.
@@ -90,7 +95,9 @@ def prepare(catalog_path, mirror, source=ROOT, check=False):
                                         old_catalog, catalog, release['resource'])
     if history:
         history[f'acceptance-history/{hashlib.sha256(release_bytes).hexdigest()}.release.json'] = release_bytes
-        release['fullCatalogAcceptance'] = 'unverified; catalog or target changed; prior evidence retained in acceptance-history'
+    if history or json.loads(matrix)['acceptance'] == 'unverified':
+        # Also finish this invalidation when a prior run stopped after the matrix.
+        release['fullCatalogAcceptance'] = 'unverified; current matrix requires native acceptance'
     # Authored public files are the source of truth. Copy only the explicit
     # distributable surface, never private drafts, credentials or .git files.
     shared_names = [*MIRROR_FILES, *tree(source, 'skills')]

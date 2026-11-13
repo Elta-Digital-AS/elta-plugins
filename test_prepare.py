@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from plugin_common import ROOT, catalog_digest, json_bytes
 from prepare import MIRROR_FILES, prepare
@@ -126,6 +127,30 @@ class PrepareTest(unittest.TestCase):
             self.assertIsNone(client['testedConnection'])
         self.assertEqual(self.run_prepare(), 0)
         self.assertEqual(history[0].read_bytes(), old_bytes)
+
+    def test_interrupted_matrix_write_recovers_without_losing_history(self):
+        original_matrix = (self.source / 'client-matrix.json').read_bytes()
+        original_release = (self.source / 'marketplace-release.json').read_bytes()
+        self.change_catalog()
+        write_bytes = Path.write_bytes
+
+        def interrupt_after_matrix(path, data):
+            result = write_bytes(path, data)
+            if path == self.source / 'client-matrix.json':
+                raise OSError('simulated interrupt')
+            return result
+
+        with patch.object(Path, 'write_bytes', interrupt_after_matrix):
+            with self.assertRaisesRegex(OSError, 'simulated interrupt'):
+                self.run_prepare()
+        history = snapshot(self.source / 'acceptance-history')
+        self.assertIn(original_matrix, history.values())
+        self.assertIn(original_release, history.values())
+        self.run_prepare()
+        self.run_prepare(check=True)
+        self.assertEqual(snapshot(self.source / 'acceptance-history'), history)
+        self.assertEqual(json.loads((self.source / 'client-matrix.json').read_text())['acceptance'], 'unverified')
+        self.assertTrue(json.loads((self.source / 'marketplace-release.json').read_text())['fullCatalogAcceptance'].startswith('unverified'))
 
     def test_scope_changes_regenerate_full_profile_but_preserve_read_profile(self):
         value = json.loads(self.catalog.read_text())
