@@ -200,6 +200,11 @@
       "id": "full-rest-variant-coverage",
       "action": "Record the exact installed source/version and real host. Exercise every added tool plus representative photo/cover/document/certificate,inspection,contact/role,cost and16sync workflows with approved synthetic ordinary/read-only/restricted grants. Include50-file/native-versus-host limits,offset bounds,bulk replacement/reorder/linking,retry,stale version,denial,reconnect and workflow ceilings.",
       "expect": "Per-tool and per-client results are attributable. No SDK simulation,install success or source rebuild counts as native acceptance. Preserve partial results and minimal tombstones; scopes and source do not bypass current permissions. Unrun/blocked cells stay explicit release blockers."
+    },
+    {
+      "id": "selective-workflow-guidance",
+      "action": "In each real client, run a metadata-only property lookup, a requested mutation, a mixed document/certificate upload and a sync continuation with approved synthetic data. Record which guidance files the assistant actually loads.",
+      "expect": "Metadata work loads only the selected skill and common/read contracts. Changes require mutation and domain guides; uploads require file/upload/target guides; sync preserves the continuation rules. No history is loaded as current instructions. All consent, identity, retry, partial-result and ready/resourceId rules remain effective. Source word/link checks do not prove this native behavior."
     }
   ]
 }

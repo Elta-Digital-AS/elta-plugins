@@ -52,7 +52,8 @@ class BuildTest(unittest.TestCase):
             archive = Path(artifact['path'])
             self.assertEqual(artifact['sha256'], hashlib.sha256(archive.read_bytes()).hexdigest())
             with zipfile.ZipFile(archive) as z:
-                self.assertEqual(len(z.namelist()), 14)
+                shared_count = len(list((ROOT / 'skills/_shared').rglob('*.md')))
+                self.assertEqual(len(z.namelist()), 13 + shared_count)
                 self.assertEqual(len([p for p in z.namelist() if p.endswith('/SKILL.md')]), 5)
                 self.assertFalse(any(p.startswith('/') or '..' in Path(p).parts for p in z.namelist()))
                 self.assertIn('skills/_shared/read-contract.md', z.namelist())

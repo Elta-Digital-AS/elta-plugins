@@ -1,5 +1,5 @@
 {
-  "version": "0.3.19",
+  "version": "0.3.20",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [

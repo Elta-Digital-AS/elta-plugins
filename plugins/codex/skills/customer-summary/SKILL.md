@@ -3,7 +3,7 @@ name: customer-summary
 description: Draft a customer-friendly Norwegian summary of recorded Elta findings for a confirmed property, returned in the conversation.
 ---
 
-Read `../_shared/read-contract.md` before using any tool; follow its connection, evidence, scope and pagination rules.
+Read [the read contract](../_shared/read-contract.md) before using any tool; follow its connection, evidence, scope and pagination rules.
 
 1. Confirm one property and the requested audience. Use bounded observation reads and relevant detail calls, preserving the completed/partial scan boundary.
 2. Draft clear Norwegian Bokmål paragraphs about the recorded findings and remediation status. Explain technical terms plainly while retaining the recorded TG grade. Separate documented facts, missing evidence and questions the inspector must resolve.

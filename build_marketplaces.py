@@ -44,6 +44,7 @@ def build_marketplaces(output, source=ROOT):
                         "Use the connected server's discovered tools and your grant. File delivery and writes "
                         "still require native workflow verification; do not infer authority from installation.\n\n").encode() + shared[contract]
     shared.update({'README.md': read_source(source, 'MARKETPLACE-INSTALL.md'),
+                   'RELEASE-HISTORY.md': read_source(source, 'RELEASE-HISTORY.md'),
                    'LICENSE': read_source(source, 'LICENSE'),
                    'mcp-catalog.json': read_source(source, 'mcp-catalog.json'),
                    'connection.json': json_bytes(release),

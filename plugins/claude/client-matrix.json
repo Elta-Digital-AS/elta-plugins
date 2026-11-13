@@ -42,7 +42,8 @@
     "certificate-writes-and-scans",
     "core-incremental-sync",
     "remaining-incremental-sync",
-    "full-rest-variant-coverage"
+    "full-rest-variant-coverage",
+    "selective-workflow-guidance"
   ],
   "clients": [
     {
@@ -89,7 +90,8 @@
         "certificate-writes-and-scans": "unverified",
         "core-incremental-sync": "unverified",
         "remaining-incremental-sync": "unverified",
-        "full-rest-variant-coverage": "unverified"
+        "full-rest-variant-coverage": "unverified",
+        "selective-workflow-guidance": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
@@ -235,7 +237,8 @@
         "certificate-writes-and-scans": "unverified",
         "core-incremental-sync": "unverified",
         "remaining-incremental-sync": "unverified",
-        "full-rest-variant-coverage": "unverified"
+        "full-rest-variant-coverage": "unverified",
+        "selective-workflow-guidance": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",
@@ -381,7 +384,8 @@
         "certificate-writes-and-scans": "unverified",
         "core-incremental-sync": "unverified",
         "remaining-incremental-sync": "unverified",
-        "full-rest-variant-coverage": "unverified"
+        "full-rest-variant-coverage": "unverified",
+        "selective-workflow-guidance": "unverified"
       },
       "tools": {
         "archive_certificate": "unverified",

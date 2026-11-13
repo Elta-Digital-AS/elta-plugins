@@ -1,6 +1,6 @@
 # Elta read-summary contract
 
-Read `mcp-contract.md` for connection, evidence, paging and failure rules. These four summary workflows remain metadata-only and read-only, including when the connection also has file or write consent.
+Read [the common contract](mcp-contract.md) for connection, evidence, paging and failure rules. These four summary workflows remain metadata-only and read-only, including when the connection also has file or write consent.
 
 Use authorized Elta metadata reads relevant to the user's question, resolving the host namespace and discovered schemas. `../../mcp-catalog.json` lists the available domains and their scope requirements; live discovery and the grant decide which are usable. The property/observation workflows normally use list_properties, get_property, list_property_placements, list_property_observations and get_property_observation, and may use other relevant metadata reads without treating the original five as a package-wide allowlist.
 

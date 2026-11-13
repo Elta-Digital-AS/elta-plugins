@@ -32,6 +32,9 @@ def build(output, mcp_url, openai_app_id, claude_client_id, source=ROOT):
     shared = {}
     for relative in ['skills/_shared/read-contract.md', 'skills/_shared/mcp-contract.md']:
         shared[relative] = read_source(source, relative)
+    for file in (source / 'skills/_shared').rglob('*.md'):
+        relative = str(file.relative_to(source))
+        shared[relative] = read_source(source, relative)
     for skill in policy['skills']:
         if not isinstance(skill, str) or not re.fullmatch(r'[a-z]+(?:-[a-z]+)*', skill):
             raise ValueError('PLUGIN_SKILL_INVALID')
@@ -68,7 +71,8 @@ def build(output, mcp_url, openai_app_id, claude_client_id, source=ROOT):
     common = {**shared, 'connection.json': connection,
               'mcp-catalog.json': read_source(source, 'mcp-catalog.json'),
               'client-matrix.json': read_source(source, 'client-matrix.json'),
-              'README.md': read_source(source, 'INSTALL.md'), 'LICENSE': read_source(source, 'LICENSE')}
+              'README.md': read_source(source, 'INSTALL.md'),
+              'RELEASE-HISTORY.md': read_source(source, 'RELEASE-HISTORY.md'), 'LICENSE': read_source(source, 'LICENSE')}
     # Validate every byte before creating outputs, including data derived from policy.
     for files in [common, openai, claude]:
         if any(SECRET.search(data.decode('utf-8')) for data in files.values()):

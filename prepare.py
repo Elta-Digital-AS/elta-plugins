@@ -15,7 +15,7 @@ from build_marketplaces import build_marketplaces
 
 MIRROR_FILES = ('build.py', 'plugin_common.py', 'test_build.py', 'policy.json',
                 'package.json', 'mcp-catalog.json', 'README.md', 'INSTALL.md',
-                'client-matrix.json', 'native-cases.json', 'LICENSE')
+                'client-matrix.json', 'native-cases.json', 'LICENSE', 'RELEASE-HISTORY.md')
 NATIVE_TREES = ('plugins', '.claude-plugin', '.agents')
 
 
