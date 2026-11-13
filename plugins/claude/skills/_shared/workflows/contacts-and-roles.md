@@ -3,7 +3,7 @@
 Read [the common contract](../mcp-contract.md) before using tools.
 For changes, also read [mutation rules](mutations.md).
 
-Use create_person, update_person, remove_person, create_company, update_company and remove_company only for the requested workspace contact work. Granted contacts:write consent plus contacts:read, live contact permissions and owner/environment write gates are required. Existing grants retain their approved scopes; reconnect only if contacts:write is missing. File consent is unnecessary. 
+Use create_person, update_person, remove_person, create_company, update_company and remove_company only for the requested workspace contact work. Granted contacts:write consent plus contacts:read, live contact permissions and owner/environment write gates are required. Existing grants retain their approved scopes; reconnect only if contacts:write is missing. File consent is unnecessary.
 
 Updates replace all editable fields and the complete companyIds/personIds set (0–100). Read the contact first, preserve unrelated fields/links, and pass an empty set only when the user asked to clear all links. The person-v1/company-v1 expectedVersion must belong to the selected contact. Reuse the exact original command and key after a lost reply; on conflict reread before changing intent. No bulk contact CRUD, membership invitation, identity linking or restore tool exists.
 

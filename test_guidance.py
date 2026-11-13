@@ -115,7 +115,7 @@ class GuidanceTest(unittest.TestCase):
             'uploads.md': ['1–50 files', 'At most 20 files', 'exactly one of',
                            'adding a hash', 'still call completion', '`ready` with `resourceId`',
                            'Report every file outcome separately', 'one cover per'],
-            'photos.md': ['complete unique set of 1–100', 'Null clears a caption',
+            'photos.md': ['offered only with file consent in addition to write consent', 'complete unique set of 1–100', 'Null clears a caption',
                           'Position and filename are not upload chronology', 'Remediation photos cannot be removed'],
             'templates.md': ['500 nodes, 200 siblings and depth 4', 'Standard templates', 'independent copies'],
             'contacts-and-roles.md': ['complete companyIds/personIds set (0–100)', 'confirmPropertyActorCleanup',

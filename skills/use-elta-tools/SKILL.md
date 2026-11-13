@@ -19,6 +19,7 @@ Every change, including uploads, requires [mutation rules](../_shared/workflows/
 | Incremental sync or cursor continuation | [Sync](../_shared/workflows/sync.md) |
 | Read an existing image, document, scan or generated PDF | [File delivery](../_shared/workflows/files.md) |
 | Upload photos, property covers, documents or certificate scans, including mixed batches | [Uploads](../_shared/workflows/uploads.md), [file handling](../_shared/workflows/files.md), plus document/certificate guides for those target kinds |
+| Remove a property cover | [Cover handling and removal quota](../_shared/workflows/uploads.md) |
 | Edit finding-photo caption/order or remove a finding photo | [Finding photos](../_shared/workflows/photos.md) and [file consent](../_shared/workflows/files.md) |
 | Create/change/copy/save/remove a placement template | [Templates](../_shared/workflows/templates.md) |
 | Create/change/remove a person or company, or assign/change/remove a property contact role | [Contacts and roles](../_shared/workflows/contacts-and-roles.md) |
