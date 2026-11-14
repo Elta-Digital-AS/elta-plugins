@@ -29,6 +29,21 @@ class BuildTest(unittest.TestCase):
         shutil.copytree(ROOT, path, ignore=shutil.ignore_patterns('__pycache__', '.git', 'dist'))
         return path
 
+    def test_target_specific_uploads_require_a_nonempty_scope_alternative(self):
+        from build import load_catalog, catalog_digest
+        source=self.source()
+        catalog=json.loads((source/'mcp-catalog.json').read_text())
+        tool=next(t for t in catalog['tools'] if t['name']=='start_observation_photo_upload')
+        self.assertEqual(tool['scopes'],[])
+        self.assertIn('properties:write',tool['scopeAlternatives'])
+        policy=json.loads((source/'policy.json').read_text())
+        self.assertEqual(load_catalog(source,policy),catalog)
+        tool['scopeAlternatives']=[]
+        (source/'mcp-catalog.json').write_text(json.dumps(catalog))
+        policy['catalogSha256']=catalog_digest(catalog)
+        with self.assertRaisesRegex(ValueError,'PLUGIN_CATALOG_INVALID'):
+            load_catalog(source,policy)
+
     def test_archives_are_deterministic_and_contain_only_complete_packages(self):
         first = self.run_build('first')
         second = self.run_build('second')
@@ -37,7 +52,8 @@ class BuildTest(unittest.TestCase):
             archive = Path(artifact['path'])
             self.assertEqual(artifact['sha256'], hashlib.sha256(archive.read_bytes()).hexdigest())
             with zipfile.ZipFile(archive) as z:
-                self.assertEqual(len(z.namelist()), 14)
+                shared_count = len(list((ROOT / 'skills/_shared').rglob('*.md')))
+                self.assertEqual(len(z.namelist()), 13 + shared_count)
                 self.assertEqual(len([p for p in z.namelist() if p.endswith('/SKILL.md')]), 5)
                 self.assertFalse(any(p.startswith('/') or '..' in Path(p).parts for p in z.namelist()))
                 self.assertIn('skills/_shared/read-contract.md', z.namelist())

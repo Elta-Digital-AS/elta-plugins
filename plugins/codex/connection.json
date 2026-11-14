@@ -1,13 +1,18 @@
 {
-  "version": "0.3.4",
+  "version": "0.3.20",
   "profile": "full-catalog",
   "resource": "https://sta.elta.no/api/mcp",
   "scopes": [
     "certificates:read",
+    "certificates:write",
     "contacts:read",
+    "contacts:write",
     "documents:read",
+    "documents:write",
     "inspection-tools:read",
+    "inspection-tools:write",
     "inspections:read",
+    "inspections:write",
     "observation-photos:read",
     "observation-photos:write",
     "observations:read",
@@ -15,9 +20,10 @@
     "properties:read",
     "properties:write",
     "remediation-costs:read",
+    "remediation-costs:write",
     "remediation:write",
     "reports:read"
   ],
   "oauthRegistration": "dynamic",
-  "fullCatalogAcceptance": "blocked; Story 9.59 bulk backend rollout and native multi-file acceptance required"
+  "fullCatalogAcceptance": "blocked; all16sync modes require matching backend and native cursor/tombstone/authority acceptance; prior hosted/native gates stay unverified"
 }

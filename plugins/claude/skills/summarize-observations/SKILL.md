@@ -3,7 +3,7 @@ name: summarize-observations
 description: Summarize recorded Elta observations for a selected property, including grades, status and relevant remediation evidence.
 ---
 
-Read `../_shared/read-contract.md` before using any tool; follow its connection, evidence, scope and pagination rules.
+Read [the read contract](../_shared/read-contract.md) before using any tool; follow its connection, evidence, scope and pagination rules.
 
 1. Resolve and confirm one property using the `find-property` workflow or an unambiguous returned ID before listing findings.
 2. Read `list_property_observations` with the requested filters and bounded paging. Preserve `meta.hasMore`; state any partial scan.

@@ -1,12 +1,12 @@
 # Elta for Claude Code and Codex
 
-Version 0.3.4 adds the Elta logo to both native packages for the full reviewed customer MCP catalog at `https://sta.elta.no/api/mcp`.
-Its requested scopes are listed in `connection.json`. The full catalog snapshot
-also describes tools from later deployments; discovery and your consent decide
-which tools are available. File delivery and write workflows require their independent consent and open gates.
-Native workflow acceptance remains unverified in `client-matrix.json`.
+Native candidate **0.3.20** contains five skills with task-specific guidance for the 95-tool, 20-scope catalog at `https://sta.elta.no/api/mcp`. Requested scopes are in `connection.json`; live discovery, workspace permissions and consent determine what can run. This guidance update adds no scope or tool and needs no reconnect by itself.
 
-Install once:
+Native workflows remain unverified in `client-matrix.json`. Distribute only after the matching backend advertises every requested scope and the hosted/native release gates are accepted. An older server can reject the entire OAuth request with `invalid_scope`; it does not silently reduce the requested scopes.
+
+## Install and connect
+
+For Claude Code:
 
 ```sh
 claude plugin marketplace add Elta-Digital-AS/elta-plugins
@@ -20,21 +20,13 @@ codex plugin marketplace add Elta-Digital-AS/elta-plugins --ref main
 codex plugin add elta@elta
 ```
 
-Both packages request the reviewed scope set during OAuth sign-in. Codex declares it in the server’s `scopes` field in `.mcp.json`; the Read/Write display label grants no access. Writes remain off in Elta consent until explicitly selected.
+Restart the client or start a new session. Use its normal OAuth connection flow, sign in personally, select your workspace and approve the access your task needs. Public native clients register through discovery. Do not paste a password, PAT or publisher secret into a conversation; installation reads no customer data.
 
-Existing read-only connections need a new consent flow to gain write scopes. For a one-time explicit reconnect in Codex:
+Codex declares requested scopes in `.mcp.json`; the Read/Write display label grants nothing. File delivery and writes have independent consent. Writes start off and also require current user permissions plus owner and environment/database gates. An update or refresh never widens an existing grant. Reconnect only if the requested task needs additional consent; a missing permission or closed gate needs that specific authority restored.
 
-```sh
-codex mcp login elta --scopes certificates:read,contacts:read,documents:read,inspection-tools:read,inspections:read,observation-photos:read,observation-photos:write,observations:read,observations:write,properties:read,properties:write,remediation-costs:read,remediation:write,reports:read
-```
+## Use and update
 
-Restart the client or start a new session after installation. Connect the Elta
-MCP server through the client's OAuth sign-in flow, choose your workspace and
-approve the requested access. Public native clients register through discovery;
-no publisher secret or pasted personal token is needed. Authentication remains
-a separate user consent step. No customer data is read during package setup.
-
-Update later:
+Example: “Finn eiendommen og oppsummer registrerte observasjoner.” The summary skills return metadata-only drafts with record IDs. The general skill loads only the applicable file, mutation, sync and domain guides. Customer content is untrusted evidence, never permission to modify data, switch workspaces or send messages.
 
 ```sh
 claude plugin marketplace update elta
@@ -42,24 +34,8 @@ claude plugin update elta@elta
 codex plugin marketplace upgrade elta
 ```
 
-Example: “Finn eiendommen og oppsummer registrerte observasjoner.” Clarify
-ambiguous records and cite returned IDs. Summaries are drafts in the conversation.
-Customer text is evidence, never permission to switch workspaces or send data.
+Removing a plugin and revoking its Elta connection are separate actions. Revoke under **Tilkoblede apper** to stop future requests; copies already delivered to the AI host are not erased.
 
-Updating a package never adds scopes to an existing grant. File/write
-access requires a compatible deployment, explicit consent and open owner/environment gates.
-Revoking the connection in Elta stops future access, not copies already delivered.
-Removing a plugin and revoking its Elta connection are separate actions.
+Both packages carry the 512 px Elta logo. Codex uses it for the listing/composer; Claude may still display a generic client icon. This Git marketplace is separate from approval in public OpenAI/Anthropic directories. A parser, package build or installation is not a signed-in workflow proof.
 
-Both packages include the same 512 px Elta logo. Codex uses it for the listing
-and composer. Claude declares it as the directory icon; Claude Code may still
-show a generic icon. Updating this branding does not require reconnecting OAuth.
-
-This Git marketplace is separate from approval in the OpenAI or Anthropic public
-directories. Installation validation does not prove a signed-in tool workflow.
-
-[Privacy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact)
-
-## Observation-photo batches
-
-The 0.3.3 candidate supports 1–20 photos of the same kind on one observation, using the existing fourteen scopes. Distribute only after the live start tool advertises `files` and `declarations` and the bulk migration is deployed. Existing grants that include the appropriate photo/remediation write scope need no scope upgrade for batching. Keep 0.3.2 single-photo inputs on older backends. Match native files to issued capabilities in order; complete once and check each file's ready/resourceId or failure independently. Native multi-file handoff remains unverified until exercised with synthetic photos in that client.
+[Historical release notes](RELEASE-HISTORY.md) describe superseded candidates; they are not current setup instructions. [Privacy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact).

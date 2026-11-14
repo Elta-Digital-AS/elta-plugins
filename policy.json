@@ -1,12 +1,12 @@
 {
   "name": "elta",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Use authorized Elta MCP tools to read records, view files and make approved changes.",
   "author": {
     "name": "Elta Digital AS"
   },
   "catalog": "mcp-catalog.json",
-  "catalogSha256": "71f3b24a82ce05ca2802c0dd02038df85744c8d2e44aac35fbd14fa75b235ca9",
+  "catalogSha256": "d2dd650d8e8c74f600ff878f580d2590c68aeb82ee3e43184464f119f89d8d6d",
   "skills": [
     "use-elta-tools",
     "find-property",

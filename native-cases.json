@@ -125,6 +125,86 @@
       "id": "photo-upload-and-read-back",
       "action": "In the real named client, attach one user-supplied synthetic photo to the selected owned observation using the supported host or native byte handoff; retry the same content/key, exercise refused/expired inputs and a failed worker.",
       "expect": "Record host/version and actual handoff. Only ready plus resourceId confirms attachment; read that photo back. No duplicate photo or command debit, no foreign/old-consent authority and no leaked source or upload URLs."
+    },
+    {
+      "id": "finding-photo-management",
+      "action": "In an approved synthetic workspace, caption/clear a finding photo, reorder the complete finding-photo set, remove the specifically selected photo and retry the same command. Also test stale version, denied write authority and a remediation-photo refusal.",
+      "expect": "Discover all three tools only with the required scopes/consents. Preserve the observation version and idempotency key; report only actual committed results. Do not infer last-uploaded identity from display position or filename. Record the native surface/version and exact candidate."
+    },
+    {
+      "id": "mixed-upload-and-property-cover",
+      "action": "Using synthetic fixtures in the chosen native client, upload mixed finding/remediation photos and a property cover to independent targets, including a 50-file batch. Test cover-only consent, stale cover version, replacement/removal/replay and a per-item refusal.",
+      "expect": "Discover 61 tools when fully authorized; hand every host file reference to its corresponding target. Native declarations may omit sha256. Confirm ready/resourceId and read back each requested cover. Preserve order, per-item failures, versions and keys; record candidate/client version and transport limits. Cover removal must remain discoverable with properties read/write and write consent alone (no file consent); cover reads still require file consent. Replacement batches use ordinary per-command charges, while explicit removal uses the separate removal budget."
+    },
+    {
+      "id": "placement-template-management",
+      "action": "In an approved synthetic workspace, create/update/duplicate a template, save a property tree and remove a chosen custom template. Exercise stale versions, standard-template mutation refusal, missing permission, exact retry and the tree with 500 nodes stored-template response.",
+      "expect": "Five explicit tools appear with properties read/write and write consent; file consent is unnecessary. Retain version/key identity and complete trees. Standard templates can be copied but not edited/removed. Record actual host handling of the bounded 2 MiB maximum tree response; HTTP input retains the 256 KiB JSON-RPC request bound. Native acceptance is unverified until executed."
+    },
+    {
+      "id": "contact-management",
+      "action": "In an approved synthetic workspace, reconnect with explicit contacts:read/write consent and exercise person/company creation, full 0–100 link replacement and removal. Test read-only/old grants, protected member/self contacts, stale versions, exact retries and a property assignment requiring cleanup confirmation.",
+      "expect": "All six contact tools appear under the E switch and write consent, without file consent. Existing connections do not gain contacts:write. Ask the customer before confirmPropertyActorCleanup, retain version/key identity and safe field errors; foreign/protected targets do not mutate. Full native acceptance remains unverified."
+    },
+    {
+      "id": "property-role-management",
+      "action": "In an approved synthetic workspace, read the full property role snapshot and assign, update and remove an ordinary recorded role with a linked acting-for company. Exercise set-version conflicts, exact retries, wrong-parent/foreign contacts, missing scope/live properties.write, collaborator and dynamically access-managed role refusals.",
+      "expect": "Tool listing follows the token scopes and write-consent gate; calls additionally require live properties.write. With properties:read and contacts:read/write, three role tools can be listed without extra scope or file consent. Assign also requires roles-v1. Access-managed assignments never become an invitation/grant or an editable role. Native acceptance remains unverified."
+    },
+    {
+      "id": "inspection-lifecycle",
+      "action": "With fresh inspections:read/write consent in an approved synthetic workspace, use current create options, create, rename, complete and remove an inspection. Test blocked and ready completion, exact/changed retries, stale versions, foreign/wrong parents, gate/permission loss and deletion with linked findings.",
+      "expect": "Four tools use explicit write consent; existing grants gain no new scope. Opaque inspectorRef and a selectable checklistVersionId are required to create. Blocked completion is a normal validation_failed result with up to100issues plus issueCount/hasMore, never a completed claim or generic error. Do not invent answers. Removal retains observations/history. Native acceptance remains unverified."
+    },
+    {
+      "id": "inspection-answers",
+      "action": "Using an approved synthetic inspection and existing inspections:read/write consent, record an explicit option answer, text and option annotation, clear each and inspect the actual results. Exercise nullable values, wrong question/mode, stale and independent question versions, exact retries after later edits, write-gate closure and quotas.",
+      "expect": "Three destructive tools use existing scope/write consent with no new OAuth/file permission. A flat strict input enforces exact option/text variants at runtime; current answer-v1 binds to inspection and question; output includes inspectionVersion. Blank/null normalize canonically, linked findings survive clear, and actual lifecycle reconciliation is reported without invented answers or unsupported completion claims. Native acceptance remains unverified."
+    },
+    {
+      "id": "checklist-observations",
+      "action": "In an approved synthetic workspace with existing property/inspection/observation read-write scopes, create a supplied checklist finding with valid structured extensionValues, link up to 100 existing observations atomically, and unlink one. Exercise a mixed invalid list, wrong question/option, stale versions, exact retries after a later web edit/relink, authority loss and quota/rollback.",
+      "expect": "Three flat strict tools reuse the locked observation option and current answer-v1. Creation preserves canonical numbering/provenance/schema; link returns all 1–100 canonical outcomes and refuses the whole list on an invalid item. Unlink retains findings/annotation and never reapplies after relink. No new scope or file consent; do not invent data or claim completion. Native acceptance remains unverified."
+    },
+    {
+      "id": "remediation-cost-writes",
+      "action": "With fresh remediation-costs:write consent and required reads in an approved synthetic workspace, set every cost type, verify exact integer NOK øre/VAT rounding, reset to unpriced, retry after a later web change, use a stale cost-v1, and revoke write authority.",
+      "expect": "One flat strict tool uses the existing cost command and separate internal cost authority. Existing grants stay unchanged and require reconnect/new consent. No ordinary observation fields change. Conflicts and refusals leave rows, receipt, audit and usage intact. Native acceptance remains unverified."
+    },
+    {
+      "id": "property-document-writes",
+      "action": "With fresh documents:write/read consent in an approved synthetic workspace, upload bounded host PDF/DOCX/JPEG/PNG and native resumable documents up to100MiB. Exercise mixed batches, malformed bytes, authority loss, metadata rename/category, immutable extension, stale document-v1, retry after a web edit and removal quota.",
+      "expect": "Every input file has its own authorized ordered outcome. Only ready/resourceId plus document read-back confirms attachment. Host-source limit is10MiBperfile with explicit native guidance. Metadata and deletion need no file consent; content download still does. Old grants stay unchanged. Native acceptance remains unverified."
+    },
+    {
+      "id": "measuring-equipment-writes",
+      "action": "With fresh inspection-tools:read/write consent in a synthetic workspace, create/edit/remove shared equipment. Preserve supplied serial/dates/manual flag, inspect duplicate-serial advice, current tool-v1 and stale/changed/exact retries, permission and owner/global closures, quota and report-reference retention.",
+      "expect": "The team-shared catalog matches REST; no invented personal owner or calibration facts. Optional omitted serial/dates clear to null and manual defaults false. Duplicate serials are advisory, status is server-derived in Europe/Oslo. Soft removal consumes removal quota; support-only recovery. Existing credentials need reconnect/consent; no silent upgrade. Native acceptance remains unverified."
+    },
+    {
+      "id": "certificate-writes-and-scans",
+      "action": "Fresh certificates:read/write consent. Create an own scan via certificateCreate, explicitly select an eligible managed personId, replace using cert-v1, update metadata, archive/unarchive then archive/remove. Exercise native20MiB versus host10MiB limits, expired completion replay, all-six mixed batches with one worker failure, owner/global/scope closure and visible protected-member refusals. Archive a certificate target or remove its certificate-write scope after native transfer and before completion; keep other scoped siblings usable.",
+      "expect": "Only ready/resourceId and read-back confirm a scan. One cover per certificate per batch. Metadata visibility is separate from maintenance and content download; ordinary members cannot manage another holder. Archive before removal; unarchive never restores deletion. Reports retain selected identities/snapshots. Old read grants require reconnect and explicit new consent. Every cell remains unverified until native acceptance. Completion accepts the batch with authority_lost on that item and preserves ready siblings and exact retries."
+    },
+    {
+      "id": "core-incremental-sync",
+      "action": "With an approved synthetic read-only grant, page each of the six core collections from changedSince=initial, preserve nextCursor, finish at syncCheckpoint, then change/delete an owned record and synchronize. Try a foreign/filter-bound cursor, resync_required and closed write gates. Stop explicitly at the shared10pages/250rows workflow ceiling.",
+      "expect": "Record actual client/version. Offset calls still work. REST100-row bounds, opaque continuation, minimal authorized tombstones and public reset errors work without file/write consent. No partial page or silent checkpoint advance. Native/hosted cells stay unverified until executed."
+    },
+    {
+      "id": "remaining-incremental-sync",
+      "action": "On an approved synthetic workspace, run all ten remaining collection sync modes with read-only/file-opt-out consent. Page contacts and a property-scoped collection, change/delete an owned record, and reject an incompatible filter or cursor. Compare the property-role complete set/version with its sync catalogue and continuation.",
+      "expect": "Record actual client/version and per-mode outcome. All16REST sync variants retain their own limits, live visibility and minimal tombstones. Role sync retains catalogue without a complete-set version; no offset pageSize is accepted. Metadata confers no file/write authority and write closure does not stop reads. Cells stay unverified until run."
+    },
+    {
+      "id": "full-rest-variant-coverage",
+      "action": "Record the exact installed source/version and real host. Exercise every added tool plus representative photo/cover/document/certificate,inspection,contact/role,cost and16sync workflows with approved synthetic ordinary/read-only/restricted grants. Include50-file/native-versus-host limits,offset bounds,bulk replacement/reorder/linking,retry,stale version,denial,reconnect and workflow ceilings.",
+      "expect": "Per-tool and per-client results are attributable. No SDK simulation,install success or source rebuild counts as native acceptance. Preserve partial results and minimal tombstones; scopes and source do not bypass current permissions. Unrun/blocked cells stay explicit release blockers."
+    },
+    {
+      "id": "selective-workflow-guidance",
+      "action": "In each real client, run a metadata-only property lookup, a requested mutation, a mixed document/certificate upload and a sync continuation with approved synthetic data. Record which guidance files the assistant actually loads.",
+      "expect": "Metadata work loads only the selected skill and common/read contracts. Changes require mutation and domain guides; uploads require file/upload/target guides; sync preserves the continuation rules. No history is loaded as current instructions. All consent, identity, retry, partial-result and ready/resourceId rules remain effective. Source word/link checks do not prove this native behavior."
     }
   ]
 }

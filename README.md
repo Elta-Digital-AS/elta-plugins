@@ -1,83 +1,58 @@
 # Elta plugins
 
-## Install from the Elta marketplace
+Five workflows for Claude, ChatGPT and Codex, using Elta's authenticated MCP connection. Four skills provide metadata-only property/observation summaries; `use-elta-tools` covers other requested work and loads only relevant file, mutation, sync and domain guidance. Customer content remains untrusted evidence.
 
-The native **0.3.3 candidate** is packaged under `plugins/claude`
-and `plugins/codex`, with marketplace catalogs for both clients. See
-[installation, OAuth and update commands](MARKETPLACE-INSTALL.md).
+## Current package formats
 
-This candidate uses native OAuth discovery and the scopes in `marketplace-release.json`. It needs no private OpenAI app mapping or publisher secret. File
-delivery and writes require explicit consent and open gates; native workflow
-verification remains separate from package installation. The full
-catalog source and its unfulfilled native acceptance record below are retained.
+| Format | Candidate | Setup |
+| --- | --- | --- |
+| Native Claude Code / Codex | 0.3.20 | [Marketplace installation](MARKETPLACE-INSTALL.md); OAuth discovery and explicit scopes |
+| Registered-app OpenAI / Claude | 0.2.1 | [Private package installation](INSTALL.md); publisher-managed public registration inputs |
 
-Maintainers reproduce the native release with
-`python3 build_marketplaces.py --output /absolute/unused/directory` and verify
-checked-in packages with `python3 build_marketplaces.py --check`.
+The catalog maps **95 operations, 20 scopes and 16 sync modes**. The target is `https://sta.elta.no/api/mcp`; a later domain move remains separate. This guidance update changes no tools, scopes or grants. Neither candidate establishes native-client, hosted or directory acceptance: [client-matrix.json](client-matrix.json) remains unverified/blocked. Historical releases are recorded separately in [RELEASE-HISTORY.md](RELEASE-HISTORY.md), not mixed into current setup.
 
-The Story 9.59 candidate adds 1–20 photos per observation upload batch with the same fourteen scopes. Distribute only after the backend start tool advertises `files` and `declarations` and the bulk migration is deployed. Native multi-file workflows require their own acceptance; single-photo acceptance does not prove bulk handoff.
+Customers connect, sign in personally, choose a workspace and approve scopes. They do not create publisher registrations or supply shared secrets. Every token is bound to one workspace and the user's live authority. Writes start off and need explicit consent plus owner/environment gates; files have independent consent. Updating a plugin or refreshing a token never upgrades a grant.
 
-## Full-catalog package source
+Do not distribute a full-scope package until the target advertises every catalog scope: an unsupported request fails with `invalid_scope`, including a read-only user's reconnect. An existing narrow token may continue its authorized summary work. Installation, source tests and SDK mocks do not prove client workflows or enable customer traffic.
 
-Elta workflows for Claude, ChatGPT and Codex. The packages support the released customer MCP catalog: authorized metadata reads, image/file tools and the existing property/placement/observation write tools. The public [MIT license](LICENSE) covers these plugin materials, not the separate Elta application or server implementation.
+## Prepare and check locally
 
-## Status and access
-
-Version 0.2.0 is pre-release source. Native acceptance remains **blocked by deployment prerequisites** in [client-matrix.json](client-matrix.json); no marketplace approval or hosted deployment is claimed. The current test endpoint is `https://sta.elta.no/api/mcp`; a later production-domain move is planned.
-
-[mcp-catalog.json](mcp-catalog.json) is an exported snapshot of Elta's released tool names, scopes and read/file/write flags. The policy pins its canonical SHA-256 digest. A snapshot documents support; it grants no authority. Live tool discovery, the user's selected workspace, role, consent and backend gates determine what can run. New backend tools need a reviewed catalog update and the same acceptance checks, not an unrestricted wildcard.
-
-Customers choose Connect, sign in personally, choose their workspace and review Elta consent. They never supply the publisher's client secret. Writes are off by default and need explicit consent, owner approval and environment gates. Files have independent consent. Existing narrow grants remain narrow after an update or refresh; a broader task may require an explicit reconnect. No shared workspace credential is bundled.
-
-Do not distribute or reconnect this full-scope Claude package until the target protected-resource metadata advertises every scope in `mcp-catalog.json`. Elta rejects unsupported requested scopes with `invalid_scope`; it does not silently downgrade the request. On a lagging deployment, even a read-only reconnect can fail. Existing narrow tokens can continue their permitted summary workflows until revoked or expired; keep the previous compatible package until deployment and native acceptance are complete.
-
-## Build
-
-Python 3.11+ is sufficient. Publisher-managed public client IDs are maintainer inputs, not customer credentials. Register each platform's exact callback and verify the public-client flow before using real identifiers.
+The public checkout owns authored guidance, release choices and acceptance records. The application mirror and native trees are derived. From the application checkout:
 
 ```sh
-python3 build.py \
-  --output /absolute/unused/output-directory \
+pnpm plugins:prepare --source /absolute/path/to/elta-plugins
+pnpm plugins:prepare --source /absolute/path/to/elta-plugins --check
+```
+
+This exports the live registry and synchronizes catalog, digest, full-catalog scopes, mirror and native packages. Check mode changes neither checkout. The required application CI runs that same check against an immutable public commit, then runs both builders' tests. The separate MCP unit test compares the live registry with the app mirror.
+
+With an existing exported catalog, standalone preparation is also available:
+
+```sh
+python3 -B prepare.py --catalog /absolute/exported/mcp-catalog.json \
+  --mirror /absolute/app/packages/customer-plugins --check
+```
+
+Catalog/target changes archive exact previous matrix/release records under content-addressed `acceptance-history/` and set current tool/workflow cells to `unverified`. Existing evidence keeps its provenance; the command never creates a pass. Unchanged matrices are retained verbatim. Server/workflow-only changes are not detectable from catalog metadata: maintainers must invalidate their evidence explicitly. An interrupted file update can be resumed by rerunning preparation and inspecting the diff.
+
+Review and commit the public candidate locally, then pin its full SHA in application CI. An authorized public push must happen before remote application CI can fetch it. Preparation does not push, bump versions, register apps, authenticate, deploy or publish.
+
+## Reproduce either format
+
+Python 3.11+ is sufficient for standalone builds. Both builders use neutral `plugin_common.py` guards, sorted entries, fixed ZIP timestamps/modes and SHA-256 receipts. They refuse existing output directories and scan distributable text for secrets.
+
+```sh
+python3 build_marketplaces.py --output /absolute/unused/native-output
+python3 build_marketplaces.py --check
+python3 build.py --output /absolute/unused/registered-output \
   --mcp-url https://sta.elta.no/api/mcp \
   --openai-app-id YOUR_REGISTERED_OPENAI_MCP_APP_ID \
   --claude-client-id YOUR_REGISTERED_CLAUDE_PUBLIC_OAUTH_CLIENT_ID
+python3 -B -m unittest discover -s . -p 'test_*.py'
 ```
 
-The OpenAI input is an existing `asdk_app_…` registration or its `plugin_asdk_app_…` URL identifier. The package emits `plugin.json` and `.app.json`. The publisher must configure that registered app's host-side OAuth request to match every scope in `connection.json`, then verify native discovery. An app ID does not upgrade an existing two-scope connection. App-reference ZIPs are for private testing and cannot be uploaded directly to the public submission portal.
+Registered-app builds use an existing `asdk_app_…` or `plugin_asdk_app_…` reference. The publisher must configure its requested scopes to match `connection.json`; an app ID adds no authority. A Claude Code public loopback registration and a hosted Claude confidential registration are different surfaces; use the actual tested callback. No secret belongs in package files. App-reference ZIPs are for private testing, not direct public-directory submission. Native packages use discovery with `.codex-plugin/plugin.json` or `.claude-plugin/plugin.json` plus `.mcp.json`.
 
-The legacy `build.py` app-reference format remains available for registered-app testing. The native `build_marketplaces.py` format uses Codex’s `.codex-plugin/plugin.json` and `.mcp.json` format with explicit `scopes` and OAuth discovery. Codex 0.167.0 rejects the documented per-server `extensions.com.openai.auth` field in the generic Agent Plugins MCP format, so that format cannot carry the scope fix for this client version. Marketplace submission remains separate.
+Before distribution, run [native-cases.json](native-cases.json) against approved synthetic fixtures in each named client and record actual versions/dates/evidence. The new selective-guide load path also requires native acceptance; source link tests measure structure and word/byte counts only, not model adherence or latency. Keep credentials, private registration drafts, environment files and customer evidence out of git.
 
-The Claude package emits `.claude-plugin/plugin.json` and `.mcp.json`, pinning the catalog scope request. Its client ID must be a public OAuth registration appropriate to the tested host callback; a hosted Claude confidential registration cannot be substituted for a Claude Code public loopback client. Secrets belong only in the host's secure connection setup when that host requires them.
-
-Both folders/ZIPs include the same five skills, shared contracts, catalog, connection record, compatibility matrix and MIT license. Builds have sorted entries, fixed ZIP timestamps/modes and SHA-256 receipts, and refuse existing output paths. The four property/observation summary skills stay read-only; `use-elta-tools` handles other domains, files and requested mutations within granted authority. See [INSTALL.md](INSTALL.md).
-
-## Validation
-
-```sh
-python3 -m unittest discover -s . -p 'test_*.py'
-claude plugin validate /absolute/output/claude
-```
-
-The tests use deliberately non-working identifiers and exercise manifest/connection separation, full catalog scope coverage, deterministic ZIPs, source/path/secret guards, license inclusion and truthful native-evidence metadata. They do not log in, run customer tools or prove native host behavior. A parser or schema result is structural evidence only.
-
-Before distribution, run [native-cases.json](native-cases.json) using approved synthetic fixtures in each named surface. Record the version/date and evidence plus the full authorized tool matrix. Missing hosted tools, closed write gates and unsupported previews are explicit blockers. Never describe a mocked SDK test as native ChatGPT/Claude acceptance.
-
-The application-side MCP tests compare the application mirror of this snapshot with the real released registry. Application CI separately checks out a pinned public source commit and compares all distributable files with that mirror. Publish the matching public commit before running application CI; a coordinated source change cannot pass against an older pin. The public repository needs no access to private application files.
-
-Application maintainers export the registry with `pnpm --filter @elta/customer-mcp --silent catalog:export`, copy the resulting JSON to this repository's `mcp-catalog.json`, and update the matrix alongside it. Recompute the policy's `catalogSha256` with the command below. Pin the reviewed public source commit in application CI after publishing it.
-
-```sh
-python3 -c 'import json; from build import catalog_digest; print(catalog_digest(json.load(open("mcp-catalog.json"))))'
-```
-
-Directory submission, live registration changes, customer rollout and backend deployment remain separate actions. Do not commit credentials, tokens, private registration records, environment files or customer evidence.
-
-## Platform references
-
-- [OpenAI packaging and provided OAuth clients](https://developers.openai.com/plugins/build/plugins)
-- [OpenAI authentication](https://developers.openai.com/plugins/build/auth)
-- [OpenAI public submission](https://developers.openai.com/plugins/deploy/submission)
-- [Claude MCP OAuth and scope pinning](https://code.claude.com/docs/en/mcp)
-- [Claude plugin structure](https://code.claude.com/docs/en/plugins-reference)
-
-[Privacy policy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact)
+The public [MIT license](LICENSE) covers these plugin materials, not Elta's application/server. [Privacy](https://sta.elta.no/privacy-policy) · [Terms](https://sta.elta.no/terms-of-service) · [Support](https://sta.elta.no/contact).
