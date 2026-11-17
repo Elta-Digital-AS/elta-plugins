@@ -1,6 +1,6 @@
 # Elta for Claude Code and Codex
 
-Native candidate **0.3.20** contains five skills with task-specific guidance for the 95-tool, 20-scope catalog at `https://sta.elta.no/api/mcp`. Requested scopes are in `connection.json`; live discovery, workspace permissions and consent determine what can run. This guidance update adds no scope or tool and needs no reconnect by itself.
+Native candidate **0.4.0** contains five skills with task-specific guidance for the 94-tool, 20-scope catalog at `https://sta.elta.no/api/mcp`. Requested scopes are in `connection.json`; live discovery, workspace permissions and consent determine what can run. This breaking candidate removes inspection rename and replaces inspection `name` with immutable `controlNumber`; see [release notes](RELEASE-HISTORY.md). Scopes and grants are unchanged.
 
 Native workflows remain unverified in `client-matrix.json`. Distribute only after the matching backend advertises every requested scope and the hosted/native release gates are accepted. An older server can reject the entire OAuth request with `invalid_scope`; it does not silently reduce the requested scopes.
 

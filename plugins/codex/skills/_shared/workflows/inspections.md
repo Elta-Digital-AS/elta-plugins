@@ -3,9 +3,11 @@
 Read [the common contract](../mcp-contract.md) before using tools.
 For changes, also read [mutation rules](mutations.md).
 
-Use create_property_inspection, rename_property_inspection, complete_property_inspection and remove_property_inspection with inspections:read and inspections:write plus explicit write consent. File consent is not required. Existing grants gain no scope; reconnect and approve inspection writes only if inspections:write is missing.
+Use create_property_inspection, complete_property_inspection and remove_property_inspection with inspections:read and inspections:write plus explicit write consent. File consent is not required. Existing grants gain no scope; reconnect and approve inspection writes only if inspections:write is missing.
 
-Read get_inspection_create_options for the selected property immediately before creation. Use its opaque inspectorRef and a selectable checklistVersionId; never invent a raw inspector user ID, choose another user or rebind the checklist. Read the inspection for its current inspection-v1 version before rename, complete or remove. This differs from prop-v1, roles-v1 and answer-v1. Keep the exact command and idempotency key for a lost reply; changed retries conflict. A retained reply describes the original command; read the current inspection again after subsequent edits.
+Identify inspections by their immutable `controlNumber` (for example `INSP-26.001`); creation accepts no `name`, and inspection renaming is unavailable.
+
+Read get_inspection_create_options for the selected property immediately before creation. Use its opaque inspectorRef and a selectable checklistVersionId; never invent a raw inspector user ID, choose another user or rebind the checklist. Read the inspection for its current inspection-v1 version before complete or remove. This differs from prop-v1, roles-v1 and answer-v1. Keep the exact command and idempotency key for a lost reply; changed retries conflict. A retained reply describes the original command; read the current inspection again after subsequent edits.
 
 Complete only when the user explicitly asks. A normal response can have completion.outcome=validation_failed; report the supplied question issues, issueCount and hasMore, and the actual resulting inspection status/version. At most 100 issues are returned without truncating individual issues. Do not say it completed, invent answers or silently fix blockers. A completed outcome confirms completion. Removing an inspection leaves linked observations and checklist history intact; recovery requires support. Only the explicit removal consumes the removal quota; retries are not charged again.
 

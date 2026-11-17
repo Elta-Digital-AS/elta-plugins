@@ -1,6 +1,6 @@
 # Registered-app packages: connect Elta and use its tools
 
-Candidate **0.2.1**. Native Claude Code/Codex uses the separate marketplace format; this guide covers publisher-managed registered-app packages. The catalog has 95 tools and 20 scopes; this guidance update changes neither scopes nor grants.
+Candidate **0.3.0**. Native Claude Code/Codex uses the separate marketplace format; this guide covers publisher-managed registered-app packages. The catalog has 94 tools and 20 scopes; this guidance update changes neither scopes nor grants.
 
 These packages add a general Elta workflow and four read-only property/observation summaries. They support the released tools listed in `mcp-catalog.json`, including other domain reads, authorized image/file results and the existing write operations. They do not grant access themselves or create another authorization layer. Native-client acceptance is recorded in `client-matrix.json`; unverified rows are not supported-client claims.
 

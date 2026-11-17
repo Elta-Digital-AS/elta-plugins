@@ -6,10 +6,10 @@ Five workflows for Claude, ChatGPT and Codex, using Elta's authenticated MCP con
 
 | Format | Candidate | Setup |
 | --- | --- | --- |
-| Native Claude Code / Codex | 0.3.20 | [Marketplace installation](MARKETPLACE-INSTALL.md); OAuth discovery and explicit scopes |
-| Registered-app OpenAI / Claude | 0.2.1 | [Private package installation](INSTALL.md); publisher-managed public registration inputs |
+| Native Claude Code / Codex | 0.4.0 | [Marketplace installation](MARKETPLACE-INSTALL.md); OAuth discovery and explicit scopes |
+| Registered-app OpenAI / Claude | 0.3.0 | [Private package installation](INSTALL.md); publisher-managed public registration inputs |
 
-The catalog maps **95 operations, 20 scopes and 16 sync modes**. The target is `https://sta.elta.no/api/mcp`; a later domain move remains separate. This guidance update changes no tools, scopes or grants. Neither candidate establishes native-client, hosted or directory acceptance: [client-matrix.json](client-matrix.json) remains unverified/blocked. Historical releases are recorded separately in [RELEASE-HISTORY.md](RELEASE-HISTORY.md), not mixed into current setup.
+The catalog maps **94 operations, 20 scopes and 16 sync modes**. The target is `https://sta.elta.no/api/mcp`; a later domain move remains separate. This breaking candidate removes inspection rename and replaces inspection `name` with immutable `controlNumber`; see [release notes](RELEASE-HISTORY.md). Scopes and grants are unchanged. Neither candidate establishes native-client, hosted or directory acceptance: [client-matrix.json](client-matrix.json) remains unverified/blocked. Historical releases are recorded separately in [RELEASE-HISTORY.md](RELEASE-HISTORY.md), not mixed into current setup.
 
 Customers connect, sign in personally, choose a workspace and approve scopes. They do not create publisher registrations or supply shared secrets. Every token is bound to one workspace and the user's live authority. Writes start off and need explicit consent plus owner/environment gates; files have independent consent. Updating a plugin or refreshing a token never upgrades a grant.
 

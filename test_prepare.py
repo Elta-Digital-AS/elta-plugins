@@ -25,6 +25,7 @@ class PrepareTest(unittest.TestCase):
         self.source = self.root / 'source'
         shutil.copytree(ROOT, self.source, ignore=shutil.ignore_patterns('.git', '__pycache__', 'dist'))
         self.mirror = self.root / 'mirror'
+        self.initial_history = snapshot(self.source / 'acceptance-history')
         self.catalog = self.root / 'catalog.json'
         shutil.copy2(self.source / 'mcp-catalog.json', self.catalog)
 
@@ -45,7 +46,7 @@ class PrepareTest(unittest.TestCase):
         self.assertEqual(self.run_prepare(), 0)
         self.assertEqual(self.run_prepare(check=True), 0)
         self.assertEqual(snapshot(self.root), before)
-        self.assertFalse((self.source / 'acceptance-history').exists())
+        self.assertEqual(snapshot(self.source / 'acceptance-history'), self.initial_history)
 
     def test_standalone_check_changes_neither_files_nor_mtimes(self):
         self.run_prepare()
@@ -105,16 +106,19 @@ class PrepareTest(unittest.TestCase):
         matrix_path.write_bytes(old_bytes)
         self.run_prepare()
         self.assertEqual(matrix_path.read_bytes(), old_bytes)
-        self.assertFalse((self.source / 'acceptance-history').exists())
+        self.assertEqual(snapshot(self.source / 'acceptance-history'), self.initial_history)
         catalog = self.change_catalog()
         before = snapshot(self.root)
         with self.assertRaisesRegex(ValueError, 'PLUGIN_PREPARE_DRIFT'):
             self.run_prepare(check=True)
         self.assertEqual(snapshot(self.root), before)
         self.run_prepare()
-        history = [p for p in (self.source / 'acceptance-history').glob('*.json') if not p.name.endswith('.release.json')]
+        archived = snapshot(self.source / 'acceptance-history')
+        self.assertEqual({name: archived[name] for name in self.initial_history}, self.initial_history)
+        added = set(archived) - set(self.initial_history)
+        history = [self.source / 'acceptance-history' / name for name in added if not name.endswith('.release.json')]
         self.assertEqual(len(history), 1)
-        self.assertEqual(len(list((self.source / 'acceptance-history').glob('*.release.json'))), 1)
+        self.assertEqual(len([name for name in added if name.endswith('.release.json')]), 1)
         self.assertTrue(json.loads((self.source / 'marketplace-release.json').read_text())['fullCatalogAcceptance'].startswith('unverified'))
         self.assertEqual(history[0].read_bytes(), old_bytes)
         current = json.loads(matrix_path.read_text())

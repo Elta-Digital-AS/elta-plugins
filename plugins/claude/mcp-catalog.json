@@ -49,7 +49,10 @@
       "name": "archive_certificate",
       "operationId": "archiveCertificate",
       "method": "POST",
-      "scopes": ["certificates:read", "certificates:write"],
+      "scopes": [
+        "certificates:read",
+        "certificates:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -58,7 +61,11 @@
       "name": "assign_property_role",
       "operationId": "assignPropertyRole",
       "method": "POST",
-      "scopes": ["contacts:read", "contacts:write", "properties:read"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write",
+        "properties:read"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -67,7 +74,10 @@
       "name": "clear_inspection_answer",
       "operationId": "clearInspectionAnswer",
       "method": "DELETE",
-      "scopes": ["inspections:read", "inspections:write"],
+      "scopes": [
+        "inspections:read",
+        "inspections:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -92,7 +102,10 @@
       "name": "complete_property_inspection",
       "operationId": "completePropertyInspection",
       "method": "POST",
-      "scopes": ["inspections:read", "inspections:write"],
+      "scopes": [
+        "inspections:read",
+        "inspections:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -101,7 +114,10 @@
       "name": "create_company",
       "operationId": "createCompany",
       "method": "POST",
-      "scopes": ["contacts:read", "contacts:write"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -125,7 +141,10 @@
       "name": "create_inspection_tool",
       "operationId": "createInspectionTool",
       "method": "POST",
-      "scopes": ["inspection-tools:read", "inspection-tools:write"],
+      "scopes": [
+        "inspection-tools:read",
+        "inspection-tools:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -134,7 +153,10 @@
       "name": "create_person",
       "operationId": "createPerson",
       "method": "POST",
-      "scopes": ["contacts:read", "contacts:write"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -143,7 +165,10 @@
       "name": "create_placement_template",
       "operationId": "createPlacementTemplate",
       "method": "POST",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -152,7 +177,10 @@
       "name": "create_property",
       "operationId": "createProperty",
       "method": "POST",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -161,7 +189,10 @@
       "name": "create_property_inspection",
       "operationId": "createPropertyInspection",
       "method": "POST",
-      "scopes": ["inspections:read", "inspections:write"],
+      "scopes": [
+        "inspections:read",
+        "inspections:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -170,7 +201,11 @@
       "name": "create_property_observation",
       "operationId": "createPropertyObservation",
       "method": "POST",
-      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "scopes": [
+        "observations:read",
+        "observations:write",
+        "properties:read"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -179,7 +214,10 @@
       "name": "create_property_placement",
       "operationId": "createPropertyPlacement",
       "method": "POST",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -188,7 +226,10 @@
       "name": "duplicate_placement_template",
       "operationId": "duplicatePlacementTemplate",
       "method": "POST",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -197,7 +238,9 @@
       "name": "get_assigned_property",
       "operationId": "getAssignedProperty",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -206,7 +249,9 @@
       "name": "get_certificate",
       "operationId": "getCertificate",
       "method": "GET",
-      "scopes": ["certificates:read"],
+      "scopes": [
+        "certificates:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -215,7 +260,9 @@
       "name": "get_certificate_cover_link",
       "operationId": "getCertificateCoverContent",
       "method": "GET",
-      "scopes": ["certificates:read"],
+      "scopes": [
+        "certificates:read"
+      ],
       "write": false,
       "file": true,
       "destructive": false
@@ -224,7 +271,9 @@
       "name": "get_company",
       "operationId": "getCompany",
       "method": "GET",
-      "scopes": ["contacts:read"],
+      "scopes": [
+        "contacts:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -233,7 +282,9 @@
       "name": "get_inspection_create_options",
       "operationId": "getInspectionCreateOptions",
       "method": "GET",
-      "scopes": ["inspections:read"],
+      "scopes": [
+        "inspections:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -242,7 +293,10 @@
       "name": "get_observation_photo",
       "operationId": "getObservationPhotoContent",
       "method": "GET",
-      "scopes": ["observation-photos:read", "observations:read"],
+      "scopes": [
+        "observation-photos:read",
+        "observations:read"
+      ],
       "write": false,
       "file": true,
       "destructive": false
@@ -280,7 +334,9 @@
       "name": "get_person",
       "operationId": "getPerson",
       "method": "GET",
-      "scopes": ["contacts:read"],
+      "scopes": [
+        "contacts:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -289,7 +345,9 @@
       "name": "get_placement_template",
       "operationId": "getPlacementTemplate",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -298,7 +356,9 @@
       "name": "get_property",
       "operationId": "getProperty",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -307,7 +367,9 @@
       "name": "get_property_cover",
       "operationId": "getPropertyCover",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": true,
       "destructive": false
@@ -316,7 +378,9 @@
       "name": "get_property_cover_image",
       "operationId": "getPropertyCoverContent",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": true,
       "destructive": false
@@ -325,7 +389,9 @@
       "name": "get_property_document_link",
       "operationId": "getPropertyDocumentContent",
       "method": "GET",
-      "scopes": ["documents:read"],
+      "scopes": [
+        "documents:read"
+      ],
       "write": false,
       "file": true,
       "destructive": false
@@ -334,7 +400,9 @@
       "name": "get_property_inspection",
       "operationId": "getPropertyInspection",
       "method": "GET",
-      "scopes": ["inspections:read"],
+      "scopes": [
+        "inspections:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -343,7 +411,9 @@
       "name": "get_property_observation",
       "operationId": "getPropertyObservation",
       "method": "GET",
-      "scopes": ["observations:read"],
+      "scopes": [
+        "observations:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -352,7 +422,10 @@
       "name": "get_property_roles",
       "operationId": "getPropertyRoles",
       "method": "GET",
-      "scopes": ["contacts:read", "properties:read"],
+      "scopes": [
+        "contacts:read",
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -361,7 +434,9 @@
       "name": "get_report_pdf_link",
       "operationId": "getReportPdfContent",
       "method": "GET",
-      "scopes": ["reports:read"],
+      "scopes": [
+        "reports:read"
+      ],
       "write": false,
       "file": true,
       "destructive": false
@@ -385,7 +460,9 @@
       "name": "list_account_inspections",
       "operationId": "listAccountInspections",
       "method": "GET",
-      "scopes": ["inspections:read"],
+      "scopes": [
+        "inspections:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -394,7 +471,9 @@
       "name": "list_account_observations",
       "operationId": "listAccountObservations",
       "method": "GET",
-      "scopes": ["observations:read"],
+      "scopes": [
+        "observations:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -403,7 +482,9 @@
       "name": "list_account_reports",
       "operationId": "listAccountReports",
       "method": "GET",
-      "scopes": ["reports:read"],
+      "scopes": [
+        "reports:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -412,7 +493,9 @@
       "name": "list_assigned_properties",
       "operationId": "listAssignedProperties",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -421,7 +504,9 @@
       "name": "list_certificates",
       "operationId": "listCertificates",
       "method": "GET",
-      "scopes": ["certificates:read"],
+      "scopes": [
+        "certificates:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -430,7 +515,9 @@
       "name": "list_companies",
       "operationId": "listCompanies",
       "method": "GET",
-      "scopes": ["contacts:read"],
+      "scopes": [
+        "contacts:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -439,7 +526,9 @@
       "name": "list_inspection_checklist",
       "operationId": "listInspectionChecklist",
       "method": "GET",
-      "scopes": ["inspections:read"],
+      "scopes": [
+        "inspections:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -448,7 +537,9 @@
       "name": "list_inspection_tools",
       "operationId": "listInspectionTools",
       "method": "GET",
-      "scopes": ["inspection-tools:read"],
+      "scopes": [
+        "inspection-tools:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -457,7 +548,9 @@
       "name": "list_observation_completions",
       "operationId": "listObservationCompletions",
       "method": "GET",
-      "scopes": ["observations:read"],
+      "scopes": [
+        "observations:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -466,7 +559,10 @@
       "name": "list_observation_photos",
       "operationId": "listObservationPhotos",
       "method": "GET",
-      "scopes": ["observation-photos:read", "observations:read"],
+      "scopes": [
+        "observation-photos:read",
+        "observations:read"
+      ],
       "write": false,
       "file": true,
       "destructive": false
@@ -475,7 +571,9 @@
       "name": "list_observation_status_history",
       "operationId": "listObservationStatusHistory",
       "method": "GET",
-      "scopes": ["observations:read"],
+      "scopes": [
+        "observations:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -484,7 +582,9 @@
       "name": "list_persons",
       "operationId": "listPersons",
       "method": "GET",
-      "scopes": ["contacts:read"],
+      "scopes": [
+        "contacts:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -493,7 +593,9 @@
       "name": "list_placement_templates",
       "operationId": "listPlacementTemplates",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -502,7 +604,9 @@
       "name": "list_properties",
       "operationId": "listProperties",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -511,7 +615,9 @@
       "name": "list_property_documents",
       "operationId": "listPropertyDocuments",
       "method": "GET",
-      "scopes": ["documents:read"],
+      "scopes": [
+        "documents:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -520,7 +626,9 @@
       "name": "list_property_inspections",
       "operationId": "listPropertyInspections",
       "method": "GET",
-      "scopes": ["inspections:read"],
+      "scopes": [
+        "inspections:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -529,7 +637,9 @@
       "name": "list_property_observations",
       "operationId": "listPropertyObservations",
       "method": "GET",
-      "scopes": ["observations:read"],
+      "scopes": [
+        "observations:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -538,7 +648,9 @@
       "name": "list_property_placements",
       "operationId": "listPropertyPlacements",
       "method": "GET",
-      "scopes": ["properties:read"],
+      "scopes": [
+        "properties:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -560,7 +672,9 @@
       "name": "list_property_reports",
       "operationId": "listPropertyReports",
       "method": "GET",
-      "scopes": ["reports:read"],
+      "scopes": [
+        "reports:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -569,7 +683,9 @@
       "name": "list_report_pdf_generations",
       "operationId": "listReportPdfGenerations",
       "method": "GET",
-      "scopes": ["reports:read"],
+      "scopes": [
+        "reports:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -578,7 +694,10 @@
       "name": "move_property_placement",
       "operationId": "movePropertyPlacement",
       "method": "PATCH",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -587,7 +706,10 @@
       "name": "remove_certificate",
       "operationId": "removeCertificate",
       "method": "DELETE",
-      "scopes": ["certificates:read", "certificates:write"],
+      "scopes": [
+        "certificates:read",
+        "certificates:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -596,7 +718,10 @@
       "name": "remove_company",
       "operationId": "removeCompany",
       "method": "DELETE",
-      "scopes": ["contacts:read", "contacts:write"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -605,7 +730,10 @@
       "name": "remove_inspection_tool",
       "operationId": "removeInspectionTool",
       "method": "DELETE",
-      "scopes": ["inspection-tools:read", "inspection-tools:write"],
+      "scopes": [
+        "inspection-tools:read",
+        "inspection-tools:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -627,7 +755,10 @@
       "name": "remove_person",
       "operationId": "removePerson",
       "method": "DELETE",
-      "scopes": ["contacts:read", "contacts:write"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -636,7 +767,10 @@
       "name": "remove_placement_template",
       "operationId": "removePlacementTemplate",
       "method": "DELETE",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -645,7 +779,10 @@
       "name": "remove_property_cover",
       "operationId": "removePropertyCover",
       "method": "DELETE",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -654,7 +791,10 @@
       "name": "remove_property_document",
       "operationId": "removePropertyDocument",
       "method": "DELETE",
-      "scopes": ["documents:read", "documents:write"],
+      "scopes": [
+        "documents:read",
+        "documents:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -663,7 +803,10 @@
       "name": "remove_property_inspection",
       "operationId": "removePropertyInspection",
       "method": "DELETE",
-      "scopes": ["inspections:read", "inspections:write"],
+      "scopes": [
+        "inspections:read",
+        "inspections:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -672,7 +815,11 @@
       "name": "remove_property_observation",
       "operationId": "removePropertyObservation",
       "method": "DELETE",
-      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "scopes": [
+        "observations:read",
+        "observations:write",
+        "properties:read"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -681,7 +828,10 @@
       "name": "remove_property_placement",
       "operationId": "removePropertyPlacement",
       "method": "DELETE",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -690,16 +840,11 @@
       "name": "remove_property_role",
       "operationId": "removePropertyRole",
       "method": "DELETE",
-      "scopes": ["contacts:read", "contacts:write", "properties:read"],
-      "write": true,
-      "file": false,
-      "destructive": true
-    },
-    {
-      "name": "rename_property_inspection",
-      "operationId": "renamePropertyInspection",
-      "method": "PATCH",
-      "scopes": ["inspections:read", "inspections:write"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write",
+        "properties:read"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -721,7 +866,10 @@
       "name": "reorder_property_placements",
       "operationId": "reorderPropertyPlacements",
       "method": "PUT",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -730,7 +878,10 @@
       "name": "save_placement_template_from_property",
       "operationId": "savePlacementTemplateFromProperty",
       "method": "POST",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": false
@@ -739,7 +890,9 @@
       "name": "search_observation_suggestions",
       "operationId": "searchObservationSuggestions",
       "method": "GET",
-      "scopes": ["observations:read"],
+      "scopes": [
+        "observations:read"
+      ],
       "write": false,
       "file": false,
       "destructive": false
@@ -748,7 +901,10 @@
       "name": "set_inspection_answer",
       "operationId": "setInspectionAnswer",
       "method": "PUT",
-      "scopes": ["inspections:read", "inspections:write"],
+      "scopes": [
+        "inspections:read",
+        "inspections:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -757,7 +913,10 @@
       "name": "set_inspection_answer_comment",
       "operationId": "setInspectionAnswerComment",
       "method": "PATCH",
-      "scopes": ["inspections:read", "inspections:write"],
+      "scopes": [
+        "inspections:read",
+        "inspections:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -796,7 +955,10 @@
       "name": "unarchive_certificate",
       "operationId": "unarchiveCertificate",
       "method": "POST",
-      "scopes": ["certificates:read", "certificates:write"],
+      "scopes": [
+        "certificates:read",
+        "certificates:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -820,7 +982,10 @@
       "name": "update_certificate",
       "operationId": "updateCertificate",
       "method": "PATCH",
-      "scopes": ["certificates:read", "certificates:write"],
+      "scopes": [
+        "certificates:read",
+        "certificates:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -829,7 +994,10 @@
       "name": "update_company",
       "operationId": "updateCompany",
       "method": "PUT",
-      "scopes": ["contacts:read", "contacts:write"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -838,7 +1006,10 @@
       "name": "update_inspection_tool",
       "operationId": "updateInspectionTool",
       "method": "PATCH",
-      "scopes": ["inspection-tools:read", "inspection-tools:write"],
+      "scopes": [
+        "inspection-tools:read",
+        "inspection-tools:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -847,7 +1018,11 @@
       "name": "update_observation_completion_evidence",
       "operationId": "updateObservationCompletionEvidence",
       "method": "PATCH",
-      "scopes": ["observations:read", "properties:read", "remediation:write"],
+      "scopes": [
+        "observations:read",
+        "properties:read",
+        "remediation:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -856,7 +1031,11 @@
       "name": "update_observation_evidence_requirement",
       "operationId": "updateObservationEvidenceRequirement",
       "method": "PATCH",
-      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "scopes": [
+        "observations:read",
+        "observations:write",
+        "properties:read"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -865,7 +1044,11 @@
       "name": "update_observation_legacy_evidence",
       "operationId": "updateObservationLegacyEvidence",
       "method": "PATCH",
-      "scopes": ["observations:read", "properties:read", "remediation:write"],
+      "scopes": [
+        "observations:read",
+        "properties:read",
+        "remediation:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -887,7 +1070,10 @@
       "name": "update_person",
       "operationId": "updatePerson",
       "method": "PUT",
-      "scopes": ["contacts:read", "contacts:write"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -896,7 +1082,10 @@
       "name": "update_placement_template",
       "operationId": "updatePlacementTemplate",
       "method": "PATCH",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -905,7 +1094,10 @@
       "name": "update_property",
       "operationId": "updateProperty",
       "method": "PATCH",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -914,7 +1106,10 @@
       "name": "update_property_document_metadata",
       "operationId": "updatePropertyDocumentMetadata",
       "method": "PATCH",
-      "scopes": ["documents:read", "documents:write"],
+      "scopes": [
+        "documents:read",
+        "documents:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -923,7 +1118,11 @@
       "name": "update_property_observation",
       "operationId": "updatePropertyObservation",
       "method": "PATCH",
-      "scopes": ["observations:read", "observations:write", "properties:read"],
+      "scopes": [
+        "observations:read",
+        "observations:write",
+        "properties:read"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -932,7 +1131,11 @@
       "name": "update_property_observation_status",
       "operationId": "updatePropertyObservationStatus",
       "method": "PATCH",
-      "scopes": ["observations:read", "properties:read", "remediation:write"],
+      "scopes": [
+        "observations:read",
+        "properties:read",
+        "remediation:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -941,7 +1144,10 @@
       "name": "update_property_placement",
       "operationId": "updatePropertyPlacement",
       "method": "PATCH",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -950,7 +1156,11 @@
       "name": "update_property_role",
       "operationId": "updatePropertyRole",
       "method": "PUT",
-      "scopes": ["contacts:read", "contacts:write", "properties:read"],
+      "scopes": [
+        "contacts:read",
+        "contacts:write",
+        "properties:read"
+      ],
       "write": true,
       "file": false,
       "destructive": true
@@ -959,7 +1169,10 @@
       "name": "update_property_status",
       "operationId": "updatePropertyStatus",
       "method": "PATCH",
-      "scopes": ["properties:read", "properties:write"],
+      "scopes": [
+        "properties:read",
+        "properties:write"
+      ],
       "write": true,
       "file": false,
       "destructive": true

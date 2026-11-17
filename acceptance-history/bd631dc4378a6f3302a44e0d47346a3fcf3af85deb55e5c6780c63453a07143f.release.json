@@ -1,0 +1,29 @@
+{
+  "version": "0.4.0",
+  "profile": "full-catalog",
+  "resource": "https://sta.elta.no/api/mcp",
+  "scopes": [
+    "certificates:read",
+    "certificates:write",
+    "contacts:read",
+    "contacts:write",
+    "documents:read",
+    "documents:write",
+    "inspection-tools:read",
+    "inspection-tools:write",
+    "inspections:read",
+    "inspections:write",
+    "observation-photos:read",
+    "observation-photos:write",
+    "observations:read",
+    "observations:write",
+    "properties:read",
+    "properties:write",
+    "remediation-costs:read",
+    "remediation-costs:write",
+    "remediation:write",
+    "reports:read"
+  ],
+  "oauthRegistration": "dynamic",
+  "fullCatalogAcceptance": "blocked; all16sync modes require matching backend and native cursor/tombstone/authority acceptance; prior hosted/native gates stay unverified"
+}

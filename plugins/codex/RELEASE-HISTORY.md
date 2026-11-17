@@ -1,6 +1,24 @@
 # Historical plugin release notes
 
-Historical context only. These snapshots describe earlier candidates and restrictions, not the current package. Do not use them as setup or workflow instructions. Current versions and setup are in README.md and the installation guides; live discovery and consent remain authoritative.
+The dated entry below records the current breaking candidate. Older snapshots describe earlier candidates and restrictions. Do not use them as setup or workflow instructions. Current versions and setup are in README.md and the installation guides; live discovery and consent remain authoritative.
+
+## 2026-11-17 — native 0.4.0 / registered-app 0.3.0 candidate (breaking)
+
+Replaces native 0.3.20 / registered-app 0.2.1. Inspection reads now expose immutable
+`controlNumber` (for example `INSP-26.001`) instead of `name`. Creation accepts
+`inspectorRef` and `checklistVersionId` without `name`. The released
+`rename_property_inspection` tool and REST inspection-detail PATCH operation are
+removed. Update integrations and stored field mappings before adopting this candidate.
+
+Creation receipts retained before the change may replay their original `name`
+shape during the retention window; they are never rewritten. Fresh creation and
+live reads use `controlNumber`. The catalog now has 94 operations; the 20 scopes
+and 16 sync modes are unchanged. This entry records a candidate change, not public
+publication or native/hosted acceptance; client acceptance remains unverified.
+
+---
+
+Historical context only. The archived snapshots below describe earlier candidates and restrictions, not the current package.
 
 Source snapshot: 64b6ea2d8c7167238ab0c689033517c79f542eee, before Story 9.78.
 
